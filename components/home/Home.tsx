@@ -37,7 +37,7 @@ export default function Home() {
         <div className="text-center">
           <h1 className="text-2xl font-bold">Tech Stack</h1>
           <p className="opacity-70 text-center">
-            Some of the technologies I've worked with
+            Some of the technologies I&apos;ve worked with
           </p>
         </div>
         <div className="flex justify-center w-full">

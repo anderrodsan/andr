@@ -7,7 +7,10 @@ export default function BentoGrid() {
   return (
     <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 w-full">
       {frameworks.map((framework, index) => (
-        <div className="group relative flex flex-col gap-5 items-center justify-center p-7 hover:scale-125 bg-secondary/50 dark:bg-slate-800 hover:bg-secondary rounded-lg col-span-1 cursor-pointer transition duration-300">
+        <div
+          key={index}
+          className="group relative flex flex-col gap-5 items-center justify-center p-7 hover:scale-125 bg-secondary/50 dark:bg-slate-800 hover:bg-secondary rounded-lg col-span-1 cursor-pointer transition duration-300"
+        >
           <Image
             alt="Logo"
             src={"/svg/" + framework.logo.dark}

@@ -31,7 +31,7 @@ export default function Home() {
         <section className="flex flex-col items-center md:items-start py-10">
           <h1 className="text-2xl md:text-3xl font-semibold">Blog</h1>
           <p className="opacity-70  text-sm pt-1">
-            A list of articles I've written
+            A list of articles I&apos;ve written
           </p>
           <p className="opacity-90 pt-5">Comming Soon!</p>
         </section>

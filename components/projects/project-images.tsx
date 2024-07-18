@@ -15,6 +15,7 @@ export default function ProjectImages({ project }: any) {
         {Array.from({ length: project?.images?.count }, (_, index) => {
           return (
             <Image
+              key={index}
               alt="Logo"
               src={`${project?.images?.path}${index + 1}.png`}
               width={100}
