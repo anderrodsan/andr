@@ -1,5 +1,6 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import Animated from "../framer-motion/animated";
 
 export default function Testimonials() {
   const testimonials = [
@@ -21,16 +22,16 @@ export default function Testimonials() {
     },
   ];
   return (
-    <section className="flex flex-col items-center md:items-start py-10 border-b w-full">
+    <Animated className="flex flex-col items-center md:items-start py-10 border-b w-full">
       <h1 className="text-2xl md:text-3xl font-semibold">Testimonials</h1>
       <p className="opacity-70 text-sm pt-1 pb-5">
         This is what people are saying about me
       </p>
-      <div className="flex space-x-5 overflow-x-auto">
+      <div className="flex gap-5 justify-center md:justify-start flex-wrap">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="space-y-2 min-w-[300px] max-w-[310px] p-5 rounded-lg border"
+            className="space-y-2 min-w-[300px] max-w-[310px] p-5 rounded-lg hover:scale-105 border hover:bg-secondary/50 dark:hover:bg-slate-800 transition duration-300"
           >
             <div className="flex flex-wrap w-full space-x-2">
               <Avatar>
@@ -46,6 +47,6 @@ export default function Testimonials() {
           </div>
         ))}
       </div>
-    </section>
+    </Animated>
   );
 }

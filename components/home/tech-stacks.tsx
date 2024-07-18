@@ -2,10 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { frameworks } from "@/data/frameworks";
 import { Framework } from "@/lib/types/types";
+import AnimatedFirst from "../framer-motion/animated-first";
 
 export default function TechStack() {
   return (
-    <section className="flex flex-col items-center md:items-start pb-10 border-b">
+    <AnimatedFirst className="flex flex-col items-center md:items-start pb-10 border-b">
       <h1 className="text-2xl md:text-3xl font-semibold">Tech Stack</h1>
       <p className="opacity-70 text-sm pt-1 pb-5">
         Some of the technologies I&apos;ve worked with
@@ -37,6 +38,6 @@ export default function TechStack() {
           </div>
         ))}
       </div>
-    </section>
+    </AnimatedFirst>
   );
 }

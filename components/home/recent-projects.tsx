@@ -4,10 +4,11 @@ import Image from "next/image";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/lib/types/types";
+import Animated from "../framer-motion/animated";
 
 export default function RecentProjects() {
   return (
-    <section className="flex flex-col items-center md:items-start space-y-5 py-10 border-b w-full">
+    <Animated className="flex flex-col items-center md:items-start space-y-5 py-10 border-b w-full">
       {/** Header */}
       <div className="flex justify-between items-center w-full">
         <div className="flex-1 flex flex-col items-center md:items-start">
@@ -24,14 +25,14 @@ export default function RecentProjects() {
       </div>
 
       {/** Project Cards */}
-      <div className="flex flex-wrap -mx-2">
+      <div className="flex flex-wrap gap-5">
         {projects.map((project: Project, index: number) => (
           <Link
             key={index}
-            className="group cursor-pointer w-1/2 md:w-40 lg:w-60 px-2"
+            className="group cursor-pointer w-full px-5 md:px-0 md:w-40 lg:w-60"
             href={`/projects/${project.id}`}
           >
-            <div className="relative overflow-hidden bg-secondary w-full aspect-square rounded-lg">
+            <div className="relative overflow-hidden bg-secondary w-full h-32 md:h-auto md:aspect-square rounded-lg">
               <Image
                 src={`/projects/${project.id}/cover.png`}
                 alt="Image"
@@ -64,6 +65,6 @@ export default function RecentProjects() {
       <Link href={"/projects"} className="md:hidden">
         <Button variant="secondary">View All</Button>
       </Link>
-    </section>
+    </Animated>
   );
 }

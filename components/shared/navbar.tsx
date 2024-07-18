@@ -6,9 +6,12 @@ import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import { ModeToggle } from "../ui/mode-toggle";
 import BookMeeting from "./book-meeting";
+import SideBar from "./side-bar";
+import { Hamburger } from "./hamburger";
 
 export default function NavBar() {
   const path = usePathname();
+  const [open, setOpen] = React.useState(false);
 
   return (
     <div className="sticky top-0 z-20 w-full py-3 grid grid-cols-2 md:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/40 backdrop-blur-md px-5 md:px-10 lg:px-32 shadow-sm">
@@ -33,12 +36,15 @@ export default function NavBar() {
           Blog
         </Link>
       </ul>
-      <div className="flex justify-end gap-5 items-center">
+      <div className="hidden md:flex justify-end gap-5 items-center">
         <ModeToggle />
         <BookMeeting
           title="Hire Me"
           className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100"
         />
+      </div>
+      <div className="flex md:hidden justify-end items-center gap-2">
+        <Hamburger open={open} setOpen={setOpen} />
       </div>
     </div>
   );

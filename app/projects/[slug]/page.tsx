@@ -13,6 +13,7 @@ import { users } from "@/data/users";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { formatDate } from "@/lib/format-date";
+import AnimatedFirst from "@/components/framer-motion/animated-first";
 
 export async function generateMetadata({
   params,
@@ -91,7 +92,7 @@ export default function Blog({ params }) {
       <aside className="relative w-60 border-r pr-5 pt-2">
         <ProjectSideInfo project={project} post={post} author={author} />
       </aside>
-      <main className="flex-1">
+      <AnimatedFirst className="flex-1">
         <div className="flex flex-col md:flex-row justify-between gap-3 py-2 border-b pb-5 max-w-[650px]">
           <div className="space-y-2">
             <h1 className="font-semibold text-3xl tracking-tighter max-w-[650px] whitespace-nowrap">
@@ -136,7 +137,7 @@ export default function Blog({ params }) {
         <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3">
           <CustomMDX source={post.content} />
         </article>
-      </main>
+      </AnimatedFirst>
     </section>
   );
 }

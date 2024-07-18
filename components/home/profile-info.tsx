@@ -11,7 +11,7 @@ import { MapTooltip } from "./map-tooltip";
 
 export default function ProfileInfo({ user }: User | any) {
   return (
-    <div className="h-full w-full flex flex-col items-center md:items-start pt-20 md:pt-0 pr-5">
+    <div className="h-full w-full flex flex-col items-center md:items-start pt-20 md:pt-0 md:pr-5">
       {/** Profile Image and Name */}
       <Avatar className="h-28 w-28">
         <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
@@ -42,7 +42,7 @@ export default function ProfileInfo({ user }: User | any) {
 
       {/** Socials */}
       <div className="pb-5 w-full flex flex-col items-center md:items-start">
-        <h1 className="font-semibold text-sm border-b pb-2">Social</h1>
+        <h1 className="font-semibold text-sm border-b pb-2 mb-1">Social</h1>
 
         <Link target="_blank" href={user?.github ?? ""}>
           <div className="group flex items-center gap-2 py-2 opacity-80 hover:opacity-100 hover:underline">

@@ -84,12 +84,14 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
   return (
     <ScrollArea className="h-full pr-5 w-60">
       <p className={`text-lg font-bold`}>Filters</p>
-      <div className="w-full pt-2">
+      <div className="w-full hidden md:block pt-2">
         <ProjectSearch projects={projects} />
       </div>
 
       {/** Devices */}
-      <p className="font-semibold pb-2 whitespace-nowrap">Platform</p>
+      <p className="font-semibold pt-5 md:pt-0 pb-2 whitespace-nowrap">
+        Platform
+      </p>
       <div className="flex flex-col gap-2 pb-3 border-b">
         {devices.map((device, index) => (
           <div

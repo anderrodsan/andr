@@ -6,6 +6,7 @@ import { useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/lib/format-date";
 import { Project } from "@/lib/types/types";
+import Animated from "../framer-motion/animated";
 
 export default function ProjectDetails({ project }: { project: Project }) {
   const targetRef = React.useRef<HTMLDivElement>(null);
@@ -23,7 +24,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col rounded-xl w-full " ref={targetRef}>
+    <Animated className="flex flex-col rounded-xl w-full " ref={targetRef}>
       {/** Project title, description and logo */}
       <div
         className="flex justify-between gap-3 items-start pr-5 lg:pr-28 group cursor-pointer"
@@ -86,6 +87,6 @@ export default function ProjectDetails({ project }: { project: Project }) {
         })}
         <div className="pr-3" />
       </div>
-    </div>
+    </Animated>
   );
 }

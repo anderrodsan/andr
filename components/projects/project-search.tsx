@@ -7,6 +7,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
 import { Projects } from "@/lib/types/types";
+import { FilterSide } from "./filters-side";
 
 export default function ProjectSearch({ projects }: { projects: Projects }) {
   //function to set searchparams when the input text changes path/search=text
@@ -49,9 +50,7 @@ export default function ProjectSearch({ projects }: { projects: Projects }) {
             size={20}
           />
         </div>
-        <Button variant={"secondary"} size={"icon"} className="md:hidden">
-          <SlidersHorizontal className="opacity-60" size={18} />
-        </Button>
+        <FilterSide projects={projects} />
       </div>
       <div className="flex items-center gap-2 text-sm">
         {(searchParams.get("search") || searchParams.get("filter")) && (
