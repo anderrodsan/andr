@@ -7,6 +7,7 @@ import { User } from "@/lib/types/types";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
 import BookMeeting from "../shared/book-meeting";
+import { MapTooltip } from "./map-tooltip";
 
 export default function ProfileInfo({ user }: User | any) {
   return (
@@ -20,13 +21,12 @@ export default function ProfileInfo({ user }: User | any) {
       <div className="flex flex-col items-center md:items-start">
         <h2 className="text-lg font-medium">Software Engineer</h2>
         <p className="opacity-70 max-w-[60ch] text-sm py-2 text-center md:text-start">
-          MSc in IT, Innovation & Business | Electronics Engineer | AI , Machine
-          Learning & Data | Web & Software Development | Sustainability
+          I&apos;m a full stack developer and UI/UX designer with experience on
+          mobile and web development in Nextjs / Expo. I can turn any idea into
+          a functioning product just in a few weeks. Ready to launch your
+          startup?
         </p>
-        <div className="flex items-center space-x-2 py-2">
-          <MapPin size={20} />
-          <h1 className="font-semibold text-sm">Copenhagen, Denmark</h1>
-        </div>
+        <MapTooltip />
         <div className="flex items-center gap-2 mt-3 pb-5">
           <Link href={"/projects"}>
             <Button variant="secondary" size="sm">

@@ -30,9 +30,6 @@ export async function generateMetadata({
     summary: description,
     image,
   } = post.metadata;
-  const ogImage = image
-    ? `https://leerob.io${image}`
-    : `https://leerob.io/og?title=${title}`;
 
   return {
     title,
@@ -42,20 +39,20 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://leerob.io/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
     },
   };
+}
+
+//static params
+export async function generateStaticParams() {
+  return getBlogPosts("project").map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export default function Blog({ params }) {
@@ -83,13 +80,10 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `https://leerob.io${post.metadata.image}`
-              : `https://leerob.io/og?title=${post.metadata.title}`,
-            url: `https://leerob.io/blog/${post.slug}`,
+            url: ``,
             author: {
               "@type": "Person",
-              name: "Lee Robinson",
+              name: "Ander Rodriguez",
             },
           }),
         }}

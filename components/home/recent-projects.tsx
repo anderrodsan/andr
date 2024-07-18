@@ -48,7 +48,7 @@ export default function RecentProjects() {
                 src={project?.logo}
                 width={100}
                 height={100}
-                className="bg-white h-12 w-12 rounded-xl mt-1 group-hover:scale-110 transition ease-in-out duration-300"
+                className="bg-white h-12 w-12 rounded-xl mt-1"
               />
               <div className="pt-1">
                 <h2 className="font-semibold line-clamp-1">{project.title}</h2>

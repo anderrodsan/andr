@@ -30,7 +30,7 @@ export default function Testimonials() {
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="space-y-2 min-w-[300px] p-5 rounded-lg border"
+            className="space-y-2 min-w-[300px] max-w-[310px] p-5 rounded-lg border"
           >
             <div className="flex flex-wrap w-full space-x-2">
               <Avatar>

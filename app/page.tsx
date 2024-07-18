@@ -1,3 +1,4 @@
+import Experience from "@/components/home/experience";
 import ProfileInfo from "@/components/home/profile-info";
 import RecentProjects from "@/components/home/recent-projects";
 import TechStack from "@/components/home/tech-stacks";
@@ -20,6 +21,7 @@ export default function Home() {
       <div className="flex-1 flex flex-col pt-6 min-h-[100dvh]">
         {/** Tech Stack */}
         <TechStack />
+        <Experience />
 
         {/** Testimonials */}
         <Testimonials />
