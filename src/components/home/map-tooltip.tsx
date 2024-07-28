@@ -37,7 +37,7 @@ export function MapTooltip() {
             href="https://www.google.com/maps/place/Copenhaguen,+Dinamarca/@55.6712398,12.5114238,12z/data=!3m1!4b1!4m6!3m5!1s0x4652533c5c803d23:0x4dd7edde69467b8!8m2!3d55.6760968!4d12.5683372!16zL20vMDFsZnk?entry=ttu"
           >
             {" "}
-            <div className="relative group w-full h-28 bg-secondary rounded-lg overflow-hidden cursor-pointer">
+            <div className="relative group w-full h-28 bg-secondary rounded-lg overflow-hidden cursor-pointer z-40">
               <Image
                 src={"/images/map-cph.png"}
                 alt="Map"

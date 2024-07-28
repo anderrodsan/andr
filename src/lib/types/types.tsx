@@ -39,3 +39,18 @@ export type Framework = {
 };
 
 export type Frameworks = Framework[];
+
+export type Experience = {
+  type: boolean;
+  title: string;
+  text: string;
+  company: string;
+  city: string;
+  location: number[];
+  link: string;
+  clink: string;
+  logo: string;
+  date: string;
+};
+
+export type Experiences = Experience[];

@@ -1,11 +1,12 @@
 import React from "react";
 import Animated from "../framer-motion/animated";
+import { projects } from "@/db/projects";
 
 export default function Experience() {
   const experience = [
     {
       name: "Projects",
-      value: 5,
+      value: projects.length,
       plus: false,
     },
     {
@@ -22,7 +23,7 @@ export default function Experience() {
         {experience.map((exp: any, index: number) => (
           <div
             key={index}
-            className="relative w-32 px-3 py-3 space-y-1 rounded-lg border"
+            className="relative w-32 px-3 py-3 space-y-1 rounded-lg"
           >
             <p className="text-sm opacity-70">{exp.name}</p>
             <p className="text-3xl font-medium opacity-80">

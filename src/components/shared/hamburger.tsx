@@ -51,10 +51,21 @@ export function Hamburger({
             <Button
               variant={"ghost"}
               onClick={() => {
+                setOpen(false);
                 router.push("/");
               }}
             >
               <p>Home</p>
+            </Button>
+
+            <Button
+              variant={"ghost"}
+              onClick={() => {
+                setOpen(false);
+                router.push("/about");
+              }}
+            >
+              <p>About me</p>
             </Button>
             <Button
               variant={"ghost"}

@@ -49,7 +49,7 @@ export default function RecentProjects() {
                 src={project?.logo}
                 width={100}
                 height={100}
-                className="bg-white h-12 w-12 rounded-xl mt-1"
+                className="bg-white h-8 w-8 rounded-lg mt-1"
               />
               <div className="pt-1">
                 <h2 className="font-semibold line-clamp-1">{project.title}</h2>

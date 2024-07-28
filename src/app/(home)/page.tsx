@@ -13,7 +13,7 @@ export default function Home() {
 
   return (
     <div className="relative w-full flex flex-col md:flex-row items-center md:items-start justify-start  gap-5 px-5 md:px-10 lg:px-32 pb-10">
-      <aside className="md:sticky md:top-20 rounded-lg pt-2 md:h-[85dvh] md:w-64 md:border-r">
+      <aside className="md:sticky md:top-28 rounded-lg pt-2 md:h-[85dvh] md:w-64 md:border-r">
         <ScrollArea className="h-full">
           <ProfileInfo user={user} />
         </ScrollArea>

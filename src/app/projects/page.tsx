@@ -6,6 +6,7 @@ import { projects } from "@/db/projects";
 import { Separator } from "@/components/ui/separator";
 import ProjectFilters from "@/components/projects/project-filters";
 import { Project } from "@/lib/types/types";
+import AnimatedFirst from "@/components/framer-motion/animated-first";
 
 export default function ProjectList({
   searchParams,
@@ -22,12 +23,14 @@ export default function ProjectList({
 
   return (
     <div className="relative w-full flex items-start justify-start gap-5 pl-5 md:pl-10 lg:pl-32">
-      <div className="sticky top-20 hidden md:block rounded-lg pt-2 h-[80dvh] w-60 border-r">
+      <div className="sticky top-28 hidden md:block rounded-lg h-[80dvh] w-64 border-r">
         <ProjectFilters projects={filteredProjects} />
       </div>
 
       <div className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh]">
-        <p className="text-3xl font-semibold pb-3">Projects</p>
+        <AnimatedFirst className="text-3xl font-semibold pb-3">
+          Projects
+        </AnimatedFirst>
 
         <div className="pr-5 w-full block md:hidden">
           <ProjectSearch projects={filteredProjects} />

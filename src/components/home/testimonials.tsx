@@ -21,17 +21,21 @@ export default function Testimonials() {
       text: "Ander is an exceptionally creative and professional designer and developer.",
     },
   ];
+
+  if (testimonials.length === 0) {
+    return null;
+  }
   return (
     <Animated className="flex flex-col items-center md:items-start py-10 border-b w-full">
       <h1 className="text-2xl md:text-3xl font-semibold">Testimonials</h1>
       <p className="opacity-70 text-sm pt-1 pb-5">
-        This is what people are saying about me
+        This is what people are saying about me.
       </p>
       <div className="flex gap-5 justify-center md:justify-start flex-wrap">
         {testimonials.map((testimonial, index) => (
           <div
             key={index}
-            className="space-y-2 min-w-[300px] max-w-[310px] p-5 rounded-lg border"
+            className="space-y-2 min-w-[300px] max-w-[310px] p-5 rounded-lg border bg-secondary/50 dark:bg-slate-800"
           >
             <div className="flex flex-wrap w-full space-x-2">
               <Avatar>
@@ -40,10 +44,10 @@ export default function Testimonials() {
               </Avatar>
               <div className="">
                 <p className="font-medium">{testimonial.name}</p>
-                <p className="opacity-70 text-sm">{testimonial.title}</p>
+                <p className="opacity-80 text-sm">{testimonial.title}</p>
               </div>
             </div>
-            <p className="opacity-90 text-sm">{testimonial.text}</p>
+            <p className="opacity-70 text-sm">{testimonial.text}</p>
           </div>
         ))}
       </div>

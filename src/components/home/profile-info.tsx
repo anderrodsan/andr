@@ -11,7 +11,7 @@ import { MapTooltip } from "./map-tooltip";
 
 export default function ProfileInfo({ user }: User | any) {
   return (
-    <div className="h-full w-full flex flex-col items-center md:items-start pt-20 md:pt-0 md:pr-5">
+    <div className="h-full w-full flex flex-col items-center md:items-start pt-16 md:pt-0 md:pr-5">
       {/** Profile Image and Name */}
       <Avatar className="h-28 w-28">
         <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
@@ -19,7 +19,7 @@ export default function ProfileInfo({ user }: User | any) {
       </Avatar>
       <h1 className="text-2xl font-bold pt-3">Ander Rodriguez</h1>
       <div className="flex flex-col items-center md:items-start">
-        <h2 className="text-lg font-medium">Full-Stack Developer</h2>
+        <h2 className="text-lg font-medium opacity-90">Full-Stack Developer</h2>
         <p className="opacity-70 max-w-[60ch] text-sm py-2 text-center md:text-start">
           I&apos;m a full stack developer and UI/UX designer with experience on
           mobile and web development in Nextjs / Expo. I can turn any idea into

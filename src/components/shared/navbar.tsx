@@ -13,6 +13,25 @@ export default function NavBar() {
   const path = usePathname();
   const [open, setOpen] = React.useState(false);
 
+  const links = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "About me",
+      path: "/about",
+    },
+    {
+      name: "Projects",
+      path: "/projects",
+    },
+    {
+      name: "Blog",
+      path: "/blog",
+    },
+  ];
+
   return (
     <div className="sticky top-0 z-20 w-full py-3 grid grid-cols-2 md:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 md:px-10 lg:px-32 shadow-sm">
       <Link href={"/"} className="flex-1 flex group text-2xl font-bold w-full">
@@ -21,20 +40,17 @@ export default function NavBar() {
         </p>
       </Link>
       <ul className="flex-1 space-x-5 hidden md:flex justify-center items-center text-sm">
-        <Link
-          href="/projects"
-          className={`px-3 py-2 rounded-lg hover:bg-secondary/50 font-semibold ${
-            path === "/projects" && "bg-secondary "
-          }`}
-        >
-          Projects
-        </Link>
-        <Link
-          href="/blog"
-          className="px-3 py-2 rounded-lg hover:bg-secondary/50 font-semibold"
-        >
-          Blog
-        </Link>
+        {links.map((link, index) => (
+          <Link
+            key={index}
+            href={link.path}
+            className={`px-3 py-2 rounded-lg hover:bg-secondary/50 font-semibold whitespace-nowrap ${
+              path === link.path && "bg-secondary "
+            }`}
+          >
+            {link.name}
+          </Link>
+        ))}
       </ul>
       <div className="hidden md:flex justify-end gap-5 items-center">
         <ModeToggle />

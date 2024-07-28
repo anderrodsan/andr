@@ -10,7 +10,7 @@ export default function TechStack() {
     <AnimatedFirst className="flex flex-col items-center md:items-start pb-10 border-b">
       <h1 className="text-2xl md:text-3xl font-semibold">Tech Stack</h1>
       <p className="opacity-70 text-sm pt-1 pb-5">
-        Some of the technologies I&apos;ve worked with
+        Some of the technologies I&apos;ve worked with.
       </p>
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 w-full">
         {/** Tech Stack Icons */}
