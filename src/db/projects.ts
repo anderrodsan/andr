@@ -65,4 +65,29 @@ export const projects: Project[] = [
       href: "https://dash.dormhive.com/dashboard",
     },
   },
+  {
+    id: "youmap",
+    title: "YouMap",
+    author: "anderrodsan",
+    date: "2022-11-01",
+    description: "An interactive map to explore ypur favorite youtuber videos!",
+    logo: "/logos/youmap.png",
+    images: {
+      count: 3,
+      path: "/projects/youmap/screen",
+      type: "landscape",
+    },
+    tags: [
+      "Website",
+      "NextJS",
+      "TypeScript",
+      "Shadcn UI",
+      "TailwindCSS",
+      "Leaflet",
+    ],
+    link: {
+      text: "Open Website",
+      href: "https://youmap.vercel.app",
+    },
+  },
 ];

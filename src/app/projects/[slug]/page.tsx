@@ -90,7 +90,7 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <aside className="relative w-60 border-r pr-5 pt-2">
+      <aside className="relative w-64 border-r pr-5 pt-2">
         <ProjectSideInfo project={project} post={post} author={author} />
       </aside>
       <AnimatedFirst className="flex-1">
