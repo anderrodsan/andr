@@ -5,7 +5,6 @@ import NavBar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import Head from "next/head";
-import image from "./opengraph-image.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: image.src,
+        url: "https://anders.vercel.app/opengraph-image.png",
         width: 1200,
         height: 627,
       },
@@ -50,7 +49,10 @@ export default function RootLayout({
           property="og:description"
           content="Web portfolio with Next.js and Tailwind CSS"
         />
-        <meta property="og:image" content={image.src} />
+        <meta
+          property="og:image"
+          content={"https://anders.vercel.app/opengraph-image.png"}
+        />
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -61,7 +63,10 @@ export default function RootLayout({
           name="twitter:description"
           content="Web portfolio with Next.js and Tailwind CSS"
         />
-        <meta name="twitter:image" content={image.src} />
+        <meta
+          name="twitter:image"
+          content={"https://anders.vercel.app/opengraph-image.png"}
+        />
       </Head>
       <html lang="en">
         <body className={inter.className}>
