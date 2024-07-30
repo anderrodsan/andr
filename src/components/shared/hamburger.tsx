@@ -30,7 +30,6 @@ export function Hamburger({
 
   useEffect(() => {
     setOpen(false);
-    console.log(path);
   }, [path]);
 
   return (
@@ -39,14 +38,11 @@ export function Hamburger({
         <MenuIcon onClick={() => setOpen(!open)} className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent>
-        <div className="flex-justify-between relative pl-3 pr-14 w-full">
+        <div className="flex flex-col justify-between relative pl-3 pr-14 w-full h-full">
           <div className="flex justify-between items-center pb-5">
             <h1 className="flex-1 text-2xl font-bold">&R</h1>
           </div>
-          <BookMeeting
-            title="Hire Me"
-            className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100"
-          />
+
           <div className="flex-1 flex flex-col items-start py-5 -mx-3 space-y-5">
             <Button
               variant={"ghost"}
@@ -86,7 +82,13 @@ export function Hamburger({
               <p>Blog</p>
             </Button>
           </div>
-          <ModeToggle />
+          <div className="space-y-5 flex flex-col w-full">
+            <ModeToggle />
+            <BookMeeting
+              title="Hire Me"
+              className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100 w-full"
+            />
+          </div>
         </div>
       </SheetContent>
     </Sheet>

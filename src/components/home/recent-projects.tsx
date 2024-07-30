@@ -25,14 +25,14 @@ export default function RecentProjects() {
       </div>
 
       {/** Project Cards */}
-      <div className="flex flex-wrap gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {projects.map((project: Project, index: number) => (
           <Link
             key={index}
-            className="group cursor-pointer w-full px-5 md:px-0 md:w-40 lg:w-60"
+            className="group cursor-pointer w-full max-w-60"
             href={`/projects/${project.id}`}
           >
-            <div className="relative overflow-hidden bg-secondary w-full h-32 md:h-auto md:aspect-square rounded-lg">
+            <div className="relative overflow-hidden bg-secondary w-full aspect-square rounded-lg">
               <Image
                 src={`/projects/${project.id}/cover.png`}
                 alt="Image"

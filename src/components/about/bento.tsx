@@ -4,12 +4,13 @@ import { projects } from "@/db/projects";
 import { Cake, LanguagesIcon, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { MotionDiv } from "../framer-motion/motion-div";
 
 export default function Bento() {
   const attributes = [
     {
       title: "Age",
-      value: "25 Years",
+      value: getAge("1999-06-20") + " Years",
       icon: Cake,
     },
     {
@@ -18,6 +19,16 @@ export default function Bento() {
       icon: MapPin,
     },
   ];
+
+  //say how old I am by the birth date: "20-06-1999" -> 25 Years
+  function getAge(date: string) {
+    const birthDate = new Date(date);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+
+    return age;
+  }
 
   return (
     <Animated className="flex flex-col items-center md:items-start pb-10 border-b">
@@ -79,23 +90,27 @@ const Languages = () => {
     {
       name: "Spanish",
       level: "Native",
+      text: "Hola!",
     },
     {
       name: "Basque",
       level: "Native",
+      text: "Kaixo!",
     },
     {
       name: "English",
       level: "Fluent",
+      text: "Hey!",
     },
-
     {
       name: "Danish",
       level: "Intermediate",
+      text: "Hej!",
     },
     {
       name: "French",
       level: "Advanced",
+      text: "Salut!",
     },
   ];
   return (
@@ -112,7 +127,7 @@ const Languages = () => {
         {languages.map((item: any, index: number) => (
           <div
             key={index}
-            className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800"
+            className="p-3 rounded-lg bg-slate-100 dark:bg-slate-800 group"
           >
             <p className="font-medium opacity-80">{item.name}</p>
             <p className="text-sm opacity-70">{item.level}</p>

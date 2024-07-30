@@ -29,8 +29,8 @@ export async function generateMetadata({
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
   } = post.metadata;
+  const ogImage = `https://andrs.vercel.app/projects/${post.slug}/cover.png`;
 
   return {
     title,
@@ -40,12 +40,18 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://andrs.vercel.app/project/${post.slug}`,
+      url: `https://andrs.vercel.app/projects/${post.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
+      images: [ogImage],
     },
   };
 }
@@ -57,7 +63,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function Blog({ params }) {
+export default function Blog({ params }: { params: { slug: string } }) {
   let post = getBlogPosts("project").find((post) => post.slug === params.slug);
 
   //find the project with the same title as the prop
@@ -70,7 +76,7 @@ export default function Blog({ params }) {
   }
 
   return (
-    <section className="relative w-full flex flex-col md:flex-row gap-5 pt-5 px-5 md:px-10 lg:px-32">
+    <section className="relative w-full flex flex-col justify-start md:flex-row gap-5 pt-5 px-5 md:px-10 lg:px-32">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -82,7 +88,8 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            url: `https://andrs.vercel.app/project/${post.slug}`,
+            image: post.metadata.image,
+            url: `https://andrs.vercel.app/projects/${post.slug}`,
             author: {
               "@type": "Person",
               name: "Ander Rodriguez",
@@ -90,7 +97,7 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <aside className="relative w-64 border-r pr-5 pt-2">
+      <aside className="md:sticky md:top-28 pt-2 h-full w-64 border-r pr-5">
         <ProjectSideInfo project={project} post={post} author={author} />
       </aside>
       <AnimatedFirst className="flex-1">
@@ -105,7 +112,7 @@ export default function Blog({ params }) {
             <div className="flex items-center gap-2">
               <Avatar className="h-6 w-6">
                 <AvatarImage src={author?.avatar} />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>AN</AvatarFallback>
               </Avatar>
               <p className="text-sm opacity-80">{author?.name}</p>
               <div className="flex items-center space-x-2">

@@ -36,7 +36,7 @@ export default function ProjectList({
           <ProjectSearch projects={filteredProjects} />
         </div>
         <Separator className="mb-3" />
-        <div className="space-y-5">
+        <div className="space-y-5 w-full">
           {filteredProjects?.length === 0 && (
             <div className="flex flex-col items-start justify-center w-full gap-1">
               <p className="text-sm opacity-90">No projects found</p>
@@ -44,7 +44,7 @@ export default function ProjectList({
             </div>
           )}
           {filteredProjects?.map((project: Project, index: number) => (
-            <div key={index} className="pb-5">
+            <div key={index} className="pb-5 w-full">
               <ProjectDetails project={project} />
             </div>
           ))}

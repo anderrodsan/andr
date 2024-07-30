@@ -5,7 +5,7 @@ export const projects: Project[] = [
     id: "wordwise",
     title: "WordWise",
     author: "anderrodsan",
-    date: "2022-11-01",
+    date: "2024-07-05",
     description:
       "An app to translate words and keep track of the new vobaculary, with an integrated flashcards functionality for an efficient practice.",
     logo: "/logos/wordwise.png",
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     id: "dormhive-app",
     title: "DormHive App",
     author: "anderrodsan",
-    date: "2022-11-01",
+    date: "2024-06-15",
     description:
       "An alternative solution to facebook tailored to tenants living in dormitories",
     logo: "/logos/dormhive.png",
@@ -43,7 +43,7 @@ export const projects: Project[] = [
     id: "dormhive-dash",
     title: "DormHive Dash",
     author: "anderrodsan",
-    date: "2022-11-01",
+    date: "2023-11-19",
     description:
       "An alternative solution to facebook tailored to tenants living in dormitories",
     logo: "/logos/dormhive.png",
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     id: "youmap",
     title: "YouMap",
     author: "anderrodsan",
-    date: "2022-11-01",
+    date: "2024-04-28",
     description: "An interactive map to explore ypur favorite youtuber videos!",
     logo: "/logos/youmap.png",
     images: {

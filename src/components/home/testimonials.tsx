@@ -4,6 +4,7 @@ import Animated from "../framer-motion/animated";
 
 export default function Testimonials() {
   const testimonials = [
+    /*
     {
       name: "Bob Dylan",
       title: "Software Engineer",
@@ -20,6 +21,7 @@ export default function Testimonials() {
       link: "https://github.com/leerob",
       text: "Ander is an exceptionally creative and professional designer and developer.",
     },
+    */
   ];
 
   if (testimonials.length === 0) {

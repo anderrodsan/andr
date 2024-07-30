@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { formatDate } from "@/lib/format-date";
 import { Project } from "@/lib/types/types";
 import Animated from "../framer-motion/animated";
-import OpenImage from "../shared/open-image";
 
 export default function ProjectDetails({ project }: { project: Project }) {
   const targetRef = React.useRef<HTMLDivElement>(null);
@@ -24,10 +23,8 @@ export default function ProjectDetails({ project }: { project: Project }) {
 
   const router = useRouter();
 
-  const [zoomedImage, setZoomedImage] = React.useState<any>(null);
-
   return (
-    <Animated className="flex flex-col rounded-xl w-full ">
+    <Animated className="flex flex-col rounded-xl w-full" ref={targetRef}>
       {/** Project title, description and logo */}
       <div
         className="flex justify-between gap-3 items-start pr-5 lg:pr-28 group cursor-pointer"
@@ -43,7 +40,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
           src={project?.logo}
           width={100}
           height={100}
-          className="bg-white h-12 w-12 rounded-lg mt-1 group-hover:scale-110 transition ease-in-out duration-300"
+          className="bg-white h-10 w-10 rounded-lg mt-1 group-hover:scale-110 transition ease-in-out duration-300"
         />
         <div className="flex-1 flex flex-col pr-5">
           <h1 className="text-xl font-semibold group-hover:opacity-80 group-hover:underline transition ease-in-out duration-300 ">
@@ -53,9 +50,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             {project?.description}
           </p>
           <div className="flex items-center gap-1 opacity-70 py-1">
-            <p className="text-xs flex-1">
-              Last update: {formatDate(project?.date)}
-            </p>
+            <p className="text-xs flex-1">{formatDate(project?.date)}</p>
           </div>
         </div>
       </div>
@@ -72,7 +67,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
         ))}
       </div>
       {/** App Store images */}
-      <div className="flex gap-2 pr-5 pt-4 -ml-5 md:ml-0 sm:mr-5 md:mr-10 lg:mr-28 overflow-x-auto">
+      <div className="relative flex gap-2 pr-5 pt-4 -ml-5 md:ml-0 sm:mr-5 md:mr-10 lg:mr-28 overflow-x-auto">
         <div className="ml-3 md:-ml-2" />
         {Array.from({ length: project?.images?.count }, (_, index) => {
           return (
@@ -88,16 +83,12 @@ export default function ProjectDetails({ project }: { project: Project }) {
                 width: "auto",
                 height: landscape ? "250px" : "300px",
               }}
-              className={`snap-start rounded-xl cursor-pointer hover:opacity-95 transition-all`}
-              onClick={() =>
-                setZoomedImage(`${project?.images?.path}${index + 1}.png`)
-              }
+              className={`snap-start rounded-xl transition-all`}
             />
           );
         })}
         <div className="pr-3" />
       </div>
-      <OpenImage zoomedImage={zoomedImage} setZoomedImage={setZoomedImage} />
     </Animated>
   );
 }

@@ -19,10 +19,10 @@ export function filterProducts({
       )
     : data;
 
-  console.log("a", searchParams.filter);
+  //console.log("a", searchParams.filter);
   //split the filters and put them in an array (might include multiple with %2C)
   const filters = searchParams.filter ? searchParams.filter?.split(",") : null;
-  console.log("filters", filters);
+  //console.log("filters", filters);
   //filter if the project.tags include the selected filters
 
   const filteredProjects = filters

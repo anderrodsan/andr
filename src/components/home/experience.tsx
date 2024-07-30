@@ -23,7 +23,7 @@ export default function Experience() {
         {experience.map((exp: any, index: number) => (
           <div
             key={index}
-            className="relative w-32 px-3 py-3 space-y-1 rounded-lg"
+            className="relative w-32 px-3 py-3 space-y-1 rounded-lg border"
           >
             <p className="text-sm opacity-70">{exp.name}</p>
             <p className="text-3xl font-medium opacity-80">
