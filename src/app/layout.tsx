@@ -9,13 +9,13 @@ import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://anders.vercel.app/"),
+  metadataBase: new URL("https://andrs.vercel.app/"),
   title: "&R Portfolio",
   description: "Web portfolio with Next.js and Tailwind CSS",
   openGraph: {
     images: [
       {
-        url: "https://anders.vercel.app/opengraph-image.png",
+        url: "https://andrs.vercel.app/opengraph-image.png",
         width: 1200,
         height: 627,
       },
@@ -51,7 +51,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content={"https://anders.vercel.app/opengraph-image.png"}
+          content={"https://andrs.vercel.app/opengraph-image.png"}
         />
 
         {/* Twitter Meta Tags */}
@@ -65,7 +65,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content={"https://anders.vercel.app/opengraph-image.png"}
+          content={"https://andrs.vercel.app/opengraph-image.png"}
         />
       </Head>
       <html lang="en">
