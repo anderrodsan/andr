@@ -11,9 +11,9 @@ export default function ScreenShots({ id }: any) {
 
   const project = projects?.find((project) => project.id === id);
 
-  if (!project) return null;
-
   const [zoomedImage, setZoomedImage] = React.useState<any>(null);
+
+  if (!project) return null;
 
   return (
     <div className="-mt-7 -mx-5 md:-mx-0 overflow-x-auto">
