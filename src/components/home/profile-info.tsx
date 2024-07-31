@@ -8,6 +8,7 @@ import Image from "next/image";
 import { MapPin } from "lucide-react";
 import BookMeeting from "../shared/book-meeting";
 import { MapTooltip } from "./map-tooltip";
+import ShareCard from "../shared/share-card";
 
 export default function ProfileInfo({ user }: User | any) {
   return (
@@ -26,12 +27,20 @@ export default function ProfileInfo({ user }: User | any) {
           a functioning product just in a few weeks. Ready to launch your
           startup?
         </p>
-        <MapTooltip />
+        <Link
+          target="_blank"
+          href="https://www.google.com/maps/place/Copenhaguen,+Dinamarca/@55.6712398,12.5114238,12z/data=!3m1!4b1!4m6!3m5!1s0x4652533c5c803d23:0x4dd7edde69467b8!8m2!3d55.6760968!4d12.5683372!16zL20vMDFsZnk?entry=ttu"
+          className="flex items-center space-x-2 py-2 cursor-pointer hover:underline opacity-80 hover:opacity-100"
+        >
+          <MapPin size={20} />
+          <h1 className="font-semibold text-sm">Copenhagen, Denmark</h1>
+        </Link>
         <div className="flex items-center gap-2 mt-3 pb-5">
           <BookMeeting
             title="Hire Me"
             className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100"
           />
+          <ShareCard user={user} />
         </div>
       </div>
 
