@@ -8,8 +8,10 @@ import { formatDate } from "@/lib/format-date";
 import { Project } from "@/lib/types/types";
 import Animated from "../framer-motion/animated";
 import OpenImage from "../shared/open-image";
+import ImageDialog from "../shared/image-dialog";
 
 export default function ProjectDetails({ project }: { project: Project }) {
+  /*
   const targetRef = React.useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -18,13 +20,20 @@ export default function ProjectDetails({ project }: { project: Project }) {
   });
 
   const x = useTransform(scrollYProgress, [0.8, 1], ["0%", "-20%"]);
+  */
 
   const landscape = project?.images?.type === "landscape" ? true : false;
   //console.log(landscape);
 
   const router = useRouter();
 
-  const [zoomedImage, setZoomedImage] = React.useState<any>(null);
+  const [open, setOpen] = React.useState<any>(null);
+  const [idx, setIdx] = React.useState<number | null>(null);
+
+  //generate images array with the count like Array.from({ length: project?.images?.count }, (_, index) => {
+  const images = Array.from({ length: project?.images?.count }, (_, index) => {
+    return `${project?.images?.path}${index + 1}.png`;
+  });
 
   return (
     <Animated className="flex flex-col rounded-xl w-full ">
@@ -72,14 +81,14 @@ export default function ProjectDetails({ project }: { project: Project }) {
         ))}
       </div>
       {/** App Store images */}
-      <div className="flex gap-2 pr-5 pt-4 -ml-5 md:ml-0 sm:mr-5 md:mr-10 lg:mr-28 overflow-x-auto">
+      <div className="flex gap-2 pr-5 pt-4 -ml-5 md:ml-0 sm:mr-5 md:mr-10 lg:mr-28 overflow-x-auto scrollbar-hide md:scrollbar-show">
         <div className="ml-3 md:-ml-2" />
-        {Array.from({ length: project?.images?.count }, (_, index) => {
+        {images.map((image: any, index: number) => {
           return (
             <Image
               key={index}
               alt="Logo"
-              src={`${project?.images?.path}${index + 1}.png`}
+              src={image}
               width={100}
               height={100}
               sizes="100vw"
@@ -89,15 +98,22 @@ export default function ProjectDetails({ project }: { project: Project }) {
                 height: landscape ? "250px" : "300px",
               }}
               className={`snap-start rounded-xl cursor-pointer hover:opacity-95 transition-all`}
-              onClick={() =>
-                setZoomedImage(`${project?.images?.path}${index + 1}.png`)
-              }
+              onClick={() => {
+                setIdx(index);
+                setOpen(true);
+              }}
             />
           );
         })}
-        <div className="pr-3" />
       </div>
-      <OpenImage zoomedImage={zoomedImage} setZoomedImage={setZoomedImage} />
+      <ImageDialog
+        idx={idx}
+        setIdx={setIdx}
+        open={open}
+        setOpen={setOpen}
+        images={images}
+        title={project?.title}
+      />
     </Animated>
   );
 }

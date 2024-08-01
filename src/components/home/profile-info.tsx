@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { User } from "@/lib/types/types";
 import Image from "next/image";
-import { MapPin } from "lucide-react";
+import { MapPin, QrCode } from "lucide-react";
 import BookMeeting from "../shared/book-meeting";
 import { MapTooltip } from "./map-tooltip";
 import ShareCard from "../shared/share-card";
@@ -35,12 +35,17 @@ export default function ProfileInfo({ user }: User | any) {
           <MapPin size={20} />
           <h1 className="font-semibold text-sm">Copenhagen, Denmark</h1>
         </Link>
-        <div className="flex items-center gap-2 mt-3 pb-5">
+        <div className="grid grid-cols-2 items-center gap-2 mt-3 pb-5">
           <BookMeeting
             title="Hire Me"
-            className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100"
+            className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100 h-10"
           />
-          <ShareCard user={user} />
+          <ShareCard>
+            <Button variant={"secondary"}>
+              <QrCode size={20} className="mr-2" />
+              Share
+            </Button>
+          </ShareCard>
         </div>
       </div>
 

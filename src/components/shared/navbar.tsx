@@ -8,6 +8,9 @@ import { ModeToggle } from "../ui/mode-toggle";
 import BookMeeting from "./book-meeting";
 import SideBar from "./side-bar";
 import { Hamburger } from "./hamburger";
+import ShareCard from "./share-card";
+import { QrCode, Share2 } from "lucide-react";
+import { IoLogoGithub } from "react-icons/io5";
 
 export default function NavBar() {
   const path = usePathname();
@@ -53,13 +56,34 @@ export default function NavBar() {
         ))}
       </ul>
       <div className="hidden md:flex justify-end gap-5 items-center">
-        <ModeToggle />
+        <div className="flex gap-2">
+          <ShareCard>
+            <Button variant={"outline"} size={"icon"} className="rounded-lg">
+              <QrCode size={20} />
+            </Button>
+          </ShareCard>
+          <Link href={"https://github.com/anderrodsan/andr"} target="_blank">
+            <Button variant={"outline"} size={"icon"} className="rounded-lg">
+              <IoLogoGithub
+                size={20}
+                className="group-hover:scale-110 transition duration-300"
+              />
+            </Button>
+          </Link>
+          <ModeToggle />
+        </div>
+
         <BookMeeting
           title="Hire Me"
           className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100"
         />
       </div>
       <div className="flex md:hidden justify-end items-center gap-2">
+        <ShareCard>
+          <Button variant={"outline"} size={"icon"} className="rounded-lg">
+            <QrCode size={20} />
+          </Button>
+        </ShareCard>
         <Hamburger open={open} setOpen={setOpen} />
       </div>
     </div>

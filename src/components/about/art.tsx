@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import Animated from "../framer-motion/animated";
-import { X } from "lucide-react";
+import ImageDialog from "../shared/image-dialog";
 
 const Paintings: React.FC = () => {
   const paintings = [
@@ -26,16 +26,8 @@ const Paintings: React.FC = () => {
     "/paintings/tentacle.png",
   ];
 
-  // State variable for managing zoomed image
-  const [zoomedImage, setZoomedImage] = React.useState<string | null>(null);
-  // Function to open zoomed image
-  const openZoomedImage = (imageUrl: string) => {
-    setZoomedImage(imageUrl);
-  };
-  // Function to close zoomed image
-  const closeZoomedImage = () => {
-    setZoomedImage(null);
-  };
+  const [open, setOpen] = React.useState<any>(null);
+  const [idx, setIdx] = React.useState<number | null>(null);
 
   return (
     <Animated className="flex flex-col items-center md:items-start py-10 border-b">
@@ -60,7 +52,10 @@ const Paintings: React.FC = () => {
                 transition={{ delay: 0.02 * index }}
                 className="h-[350px] sm:h-[300px] overflow-hidden rounded-md"
                 viewport={{ once: true }}
-                onClick={() => openZoomedImage(image)}
+                onClick={() => {
+                  setIdx(index);
+                  setOpen(true);
+                }}
               >
                 <Image
                   alt="Video Image"
@@ -84,28 +79,14 @@ const Paintings: React.FC = () => {
         <CarouselNext className="" />
       </Carousel>
       {/* Render the zoomed image */}
-      {zoomedImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed top-0 left-0 w-full h-full p-5 z-50 bg-white/50 dark:bg-black/50 backdrop-blur-sm flex justify-center items-center cursor-pointer"
-          onClick={closeZoomedImage}
-        >
-          <div className="relative inset-0 w-full h-full">
-            <div className="absolute top-3 right-3">
-              <X size={20} />
-            </div>
-            <Image
-              src={zoomedImage}
-              alt="zoomed-image"
-              layout="fill"
-              objectFit="contain"
-              className="w-full h-full rounded-xl"
-            />
-          </div>
-        </motion.div>
-      )}
+      <ImageDialog
+        idx={idx}
+        setIdx={setIdx}
+        open={open}
+        setOpen={setOpen}
+        images={paintings}
+        title={"Paintings"}
+      />
     </Animated>
   );
 };

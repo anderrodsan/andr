@@ -17,6 +17,7 @@ import BookMeeting from "./book-meeting";
 import { usePathname, useRouter } from "next/navigation";
 import { ModeToggle } from "../ui/mode-toggle";
 import { useEffect } from "react";
+import { IoLogoGithub } from "react-icons/io5";
 
 export function Hamburger({
   open,
@@ -84,6 +85,18 @@ export function Hamburger({
           </div>
           <div className="space-y-5 flex flex-col w-full">
             <ModeToggle />
+            <Link href={"https://github.com/anderrodsan/andr"} target="_blank">
+              <Button variant={"outline"} className="rounded-lg">
+                <div className="flex gap-2 items-center opacity-80">
+                  <IoLogoGithub
+                    size={20}
+                    className="group-hover:scale-110 transition duration-300"
+                  />
+                  <p>Source Code</p>
+                </div>
+              </Button>
+            </Link>
+
             <BookMeeting
               title="Hire Me"
               className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100 w-full"

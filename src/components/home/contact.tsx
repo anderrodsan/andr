@@ -18,7 +18,7 @@ export default function Contact() {
           </h2>
           <BookMeeting
             title="Hire Me"
-            className="bg-white text-black hover:bg-stone-100 hover:scale-110 transition duration-300 z-20"
+            className="bg-white text-black hover:bg-stone-100 h-10 w-32 hover:scale-110 transition duration-300 z-20"
           />
         </div>
 

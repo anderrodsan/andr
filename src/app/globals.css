@@ -108,3 +108,10 @@
 .card-gradient {
   @apply bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-800 dark:to-blue-900 border;
 }
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+@media screen and (max-width: 768px) {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}

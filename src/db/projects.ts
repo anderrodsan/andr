@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "An alternative solution to facebook tailored to tenants living in dormitories",
     logo: "/logos/dormhive.png",
     images: {
-      count: 3,
+      count: 4,
       path: "/projects/dormhive-dash/screen",
       type: "landscape",
     },

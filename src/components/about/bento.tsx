@@ -66,6 +66,8 @@ const Map = () => {
           alt="Map"
           fill
           sizes="100vh"
+          quality={75}
+          priority={false}
           //cover and place image in center
           style={{ objectFit: "cover", objectPosition: "center" }}
           className="group-hover:scale-110 transition duration-300"

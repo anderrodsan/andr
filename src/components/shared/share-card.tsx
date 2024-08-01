@@ -12,8 +12,9 @@ import { User } from "@/lib/types/types";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Noise from "./noise";
+import { AnyCnameRecord } from "dns";
 
-export default function ShareCard({ user }: User | any) {
+export default function ShareCard({ children }: { children: React.ReactNode }) {
   const frameworks = [
     {
       name: "NextJS",
@@ -69,9 +70,7 @@ export default function ShareCard({ user }: User | any) {
 
   return (
     <Dialog>
-      <DialogTrigger asChild>
-        <Button variant={"secondary"}>Share</Button>
-      </DialogTrigger>
+      <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="w-[90%] sm:w-auto px-10 py-10 bg-gradient-to-br from-slate-700 to-green-800 rounded-xl overflow-hidden">
         <div className="z-0 absolute inset-0 h-[100%] w-[100%] bg-gradient-to-br from-slate-50 to-slate-300 dark:from-slate-700 dark:to-slate-950 animate-gradient" />
         <Noise className="scale-[2] opacity-10" />
