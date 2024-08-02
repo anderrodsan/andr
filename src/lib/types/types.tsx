@@ -54,3 +54,11 @@ export type Experience = {
 };
 
 export type Experiences = Experience[];
+
+export type Bookmark = {
+  title: string;
+  url: string;
+  tags: string[];
+};
+
+export type Bookmarks = Bookmark[];

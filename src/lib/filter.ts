@@ -1,4 +1,4 @@
-export function filterProducts({
+export function filterBySearchParams({
   searchParams,
   data,
 }: {
@@ -14,8 +14,9 @@ export function filterProducts({
   const filteredSearch = search
     ? data.filter(
         (item: any) =>
-          (item.title && item.title.toLowerCase().includes(search)) ||
-          (item.description && item.description.toLowerCase().includes(search))
+          (item?.title && item?.title.toLowerCase().includes(search)) ||
+          (item?.description &&
+            item?.description.toLowerCase().includes(search))
       )
     : data;
 
@@ -25,11 +26,11 @@ export function filterProducts({
   //console.log("filters", filters);
   //filter if the project.tags include the selected filters
 
-  const filteredProjects = filters
-    ? filteredSearch.filter((project: any) => {
-        return filters.every((filter: any) => project.tags.includes(filter));
+  const filteredData = filters
+    ? filteredSearch.filter((item: any) => {
+        return filters.every((filter: any) => item.tags.includes(filter));
       })
     : filteredSearch;
 
-  return filteredProjects;
+  return filteredData;
 }

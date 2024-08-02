@@ -82,6 +82,15 @@ export function Hamburger({
             >
               <p>Blog</p>
             </Button>
+            <Button
+              variant={"ghost"}
+              onClick={() => {
+                setOpen(false);
+                router.push("/bookmarks");
+              }}
+            >
+              <p>Bookmarks</p>
+            </Button>
           </div>
           <div className="space-y-5 flex flex-col w-full">
             <ModeToggle />

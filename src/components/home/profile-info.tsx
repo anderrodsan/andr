@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { User } from "@/lib/types/types";
 import Image from "next/image";
-import { MapPin, QrCode } from "lucide-react";
+import { Bookmark, MapPin, QrCode } from "lucide-react";
 import BookMeeting from "../shared/book-meeting";
 import { MapTooltip } from "./map-tooltip";
 import ShareCard from "../shared/share-card";
@@ -75,29 +75,6 @@ export default function ProfileInfo({ user }: User | any) {
             </p>
           </div>
         </Link>
-      </div>
-
-      {/** Map */}
-      <div className="hidden relative group w-full h-32 bg-secondary rounded-xl overflow-hidden cursor-pointer">
-        <Image
-          src={"/images/map-cph.png"}
-          alt="Map"
-          fill
-          sizes="100vh"
-          //cover and place image in center
-          style={{ objectFit: "cover", objectPosition: "center" }}
-          className="group-hover:scale-110 transition duration-300"
-        />
-        {/** Dot on the map */}
-        <div className="group-hover:-translate-y-2 transition duration-300">
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 rounded-full border border-blue-500 shadow-lg shadow-blue-800 group-hover:scale-[2.2] transition duration-700 opacity-50" />
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full bg-white shadow-md shadow-blue-500" />
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-blue-500" />
-        </div>
-
-        <p className="absolute bottom-3 left-3 p-2 rounded-lg bg-white dark:bg-black text-sm font-medium shadow shadow-slate-300">
-          Copenhagen, Denmark
-        </p>
       </div>
     </div>
   );

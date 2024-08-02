@@ -22,6 +22,8 @@ export default function ScreenShots({ id }: any) {
     return `${project?.images?.path}${index + 1}.png`;
   });
 
+  const landscape = project?.images?.type === "landscape" ? true : false;
+
   return (
     <div className="-mt-7 -mx-5 md:-mx-0 overflow-x-auto scrollbar-hide">
       <div className="flex gap-2">
@@ -30,14 +32,17 @@ export default function ScreenShots({ id }: any) {
           return (
             <Image
               key={index}
-              alt="Logo"
+              alt="Screen"
               src={`${project?.images?.path}${index + 1}.png`}
-              width={50}
-              height={50}
+              width={100}
+              height={100}
               sizes="100vw"
-              style={{ objectFit: "contain", width: "auto", height: "350px" }}
-              className={`rounded-xl h-[350px] cursor-pointer transition-all hover:scale-110"
-            `}
+              style={{
+                objectFit: "contain",
+                width: "auto",
+                height: landscape ? "250px" : "300px",
+              }}
+              className={`snap-start rounded-xl cursor-pointer hover:opacity-95 transition-all`}
               onClick={() => {
                 setIdx(index);
                 setOpen(true);

@@ -1,7 +1,7 @@
 import React from "react";
 import ProjectDetails from "@/components/projects/project-details";
 import ProjectSearch from "@/components/projects/project-search";
-import { filterProducts } from "@/lib/filter";
+import { filterBySearchParams } from "@/lib/filter";
 import { projects } from "@/db/projects";
 import { Separator } from "@/components/ui/separator";
 import ProjectFilters from "@/components/projects/project-filters";
@@ -16,7 +16,7 @@ export default function ProjectList({
     filter: string | undefined;
   };
 }) {
-  const filteredProjects = filterProducts({
+  const filteredProjects = filterBySearchParams({
     searchParams,
     data: projects,
   });

@@ -87,7 +87,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
           return (
             <Image
               key={index}
-              alt="Logo"
+              alt="Screen"
               src={image}
               width={100}
               height={100}

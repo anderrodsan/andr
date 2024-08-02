@@ -67,6 +67,7 @@ const ImageDialog: React.FC = ({
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTitle className="hidden"></DialogTitle>
       <DialogContent className="flex flex-col items-center w-[90%] md:w-[70%] lg:w-[60%] h-[95%] rounded-xl py-5 px-5">
         <p className="font-bold text-xl w-full text-center">{title}</p>
         <motion.div
@@ -81,7 +82,7 @@ const ImageDialog: React.FC = ({
             onClick={() => setZoom(!zoom)}
             className="z-20 absolute top-3 right-0 h-10 w-10 rounded-full border bg-white/50 dark:bg-black/50 flex items-center justify-center"
           >
-            {zoom ? <ZoomOut size={16} /> : <ZoomIn size={20} />}
+            {zoom ? <ZoomOut size={2} /> : <ZoomIn size={20} />}
           </button>
 
           <Image
