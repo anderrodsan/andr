@@ -1,11 +1,11 @@
 import React from "react";
-import AnimatedFirst from "../framer-motion/animated-first";
+import Animated from "../framer-motion/animated";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Separator } from "../ui/separator";
 
 export default function Intro() {
   return (
-    <AnimatedFirst className="rounded-xl">
+    <Animated className="rounded-xl">
       <div className="py-3 flex flex-col md:flex-row gap-3 md:gap-5 items-center">
         {/** Profile Image and Name */}
         <Avatar className="h-32 w-32">
@@ -52,6 +52,6 @@ export default function Intro() {
           soon.
         </p>
       </div>
-    </AnimatedFirst>
+    </Animated>
   );
 }

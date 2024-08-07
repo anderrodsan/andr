@@ -12,12 +12,40 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import { Info, MenuIcon, X } from "lucide-react";
 import BookMeeting from "./book-meeting";
 import { usePathname, useRouter } from "next/navigation";
 import { ModeToggle } from "../ui/mode-toggle";
 import { useEffect } from "react";
 import { IoLogoGithub } from "react-icons/io5";
+import { Bookmark, BookText, Code, Home, Info, MenuIcon } from "lucide-react";
+
+const paths = [
+  {
+    name: "Home",
+    path: "/",
+    icon: Home,
+  },
+  {
+    name: "About me",
+    path: "/about",
+    icon: Info,
+  },
+  {
+    name: "Projects",
+    path: "/projects",
+    icon: Code,
+  },
+  {
+    name: "Blog",
+    path: "/blog",
+    icon: BookText,
+  },
+  {
+    name: "Bookmarks",
+    path: "/bookmarks",
+    icon: Bookmark,
+  },
+];
 
 export function Hamburger({
   open,
@@ -45,52 +73,23 @@ export function Hamburger({
           </div>
 
           <div className="flex-1 flex flex-col items-start py-5 -mx-3 space-y-5">
-            <Button
-              variant={"ghost"}
-              onClick={() => {
-                setOpen(false);
-                router.push("/");
-              }}
-            >
-              <p>Home</p>
-            </Button>
-
-            <Button
-              variant={"ghost"}
-              onClick={() => {
-                setOpen(false);
-                router.push("/about");
-              }}
-            >
-              <p>About me</p>
-            </Button>
-            <Button
-              variant={"ghost"}
-              onClick={() => {
-                setOpen(false);
-                router.push("/projects");
-              }}
-            >
-              <p>Projects</p>
-            </Button>
-            <Button
-              variant={"ghost"}
-              onClick={() => {
-                setOpen(false);
-                router.push("/blog");
-              }}
-            >
-              <p>Blog</p>
-            </Button>
-            <Button
-              variant={"ghost"}
-              onClick={() => {
-                setOpen(false);
-                router.push("/bookmarks");
-              }}
-            >
-              <p>Bookmarks</p>
-            </Button>
+            {paths.map((link, index) => (
+              <Link
+                key={index}
+                href={link.path}
+                className={`px-3 py-2 rounded-lg hover:bg-muted whitespace-nowrap ${
+                  path === link.path && "bg-muted "
+                }`}
+              >
+                <div className="flex gap-3 items-center">
+                  <link.icon
+                    size={18}
+                    className="group-hover:scale-110 transition duration-300"
+                  />
+                  <p>{link.name}</p>
+                </div>
+              </Link>
+            ))}
           </div>
           <div className="space-y-5 flex flex-col w-full">
             <ModeToggle />
@@ -108,7 +107,7 @@ export function Hamburger({
 
             <BookMeeting
               title="Hire Me"
-              className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100 w-full"
+              className="bg-black dark:bg-white hover:bg-muted-foreground w-full"
             />
           </div>
         </div>

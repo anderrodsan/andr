@@ -1,13 +1,18 @@
 import React from "react";
-import { filterBySearchParams } from "@/lib/filter";
+import { filterBySearchParams } from "@/lib/utils";
 import { bookmarks } from "@/db/bookmarks";
 import { Separator } from "@/components/ui/separator";
-import { Bookmark, Project } from "@/lib/types/types";
+import { Bookmark, Project } from "@/lib/types";
 import AnimatedFirst from "@/components/framer-motion/animated-first";
 import BookmarkCard from "@/components/bookmarks/bookmark-card";
 import BookmarkFilters from "@/components/bookmarks/bookmark-filters";
 import BookmarkSearch from "@/components/bookmarks/bookmark-search";
 import Animated from "@/components/framer-motion/animated";
+import {
+  MainContent,
+  Section,
+  SideContent,
+} from "@/components/shared/side-layout";
 
 export default function ProjectList({
   searchParams,
@@ -23,12 +28,12 @@ export default function ProjectList({
   });
 
   return (
-    <div className="relative w-full flex items-start justify-start gap-5 px-5 md:px-10 lg:px-32">
-      <div className="sticky top-28 hidden md:block rounded-lg h-[80dvh] w-64 border-r">
+    <Section>
+      <SideContent>
         <BookmarkFilters bookmarks={bookmarks} />
-      </div>
+      </SideContent>
 
-      <div className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh]">
+      <MainContent>
         <AnimatedFirst className="text-3xl font-semibold pb-3">
           Bookmarks
         </AnimatedFirst>
@@ -55,7 +60,7 @@ export default function ProjectList({
             );
           })}
         </Animated>
-      </div>
-    </div>
+      </MainContent>
+    </Section>
   );
 }

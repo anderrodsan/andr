@@ -4,6 +4,12 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getBlogPosts } from "@/db/blog";
 import { CustomMDX } from "@/components/mdx/mdx";
+import BlogSideInfo from "@/components/blog/blog-info";
+import { users } from "@/db/users";
+import AnimatedFirst from "@/components/framer-motion/animated-first";
+import PostHeader from "@/components/shared/post-header";
+import { Section, SideContent } from "@/components/shared/side-layout";
+import SlugBreadcrumb from "@/components/shared/breadcrumb";
 
 export async function generateMetadata({
   params,
@@ -48,44 +54,18 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(date: string) {
-  const currentDate = new Date();
-  const targetDate = new Date(date);
-
-  const yearsAgo = currentDate.getFullYear() - targetDate.getFullYear();
-  const monthsAgo = currentDate.getMonth() - targetDate.getMonth();
-  const daysAgo = currentDate.getDate() - targetDate.getDate();
-
-  let formattedDate = "";
-
-  if (yearsAgo > 0) {
-    formattedDate = `${yearsAgo}y ago`;
-  } else if (monthsAgo > 0) {
-    formattedDate = `${monthsAgo}mo ago`;
-  } else if (daysAgo > 0) {
-    formattedDate = `${daysAgo}d ago`;
-  } else {
-    formattedDate = "Today";
-  }
-
-  const fullDate = targetDate.toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  return `${fullDate} (${formattedDate})`;
-}
-
 export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let post = getBlogPosts("blog").find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
   }
 
+  //find the project authors in users.ts
+  const author = users[0];
+
   return (
-    <section className="relative flex gap-5 pt-5 px-5 md:px-10 lg:px-32">
+    <Section>
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -108,20 +88,24 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <aside className="sticky top-0 w-32 h-100 bg-white">Hola</aside>
-      <main className="">
-        <h1 className="title font-medium text-3xl tracking-tighter max-w-[650px]">
-          {post.metadata.title}
-        </h1>
-        <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px] border-b pb-5">
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {formatDate(post.metadata.publishedAt)}
-          </p>
-        </div>
-        <article className="prose prose-quoteless prose-neutral dark:prose-invert">
+      <SideContent className="pt-2 pr-5">
+        <BlogSideInfo post={post} author={author} />
+      </SideContent>
+      <AnimatedFirst className="flex-1 max-w-[650px] pt-5">
+        <SlugBreadcrumb
+          title={"blog"}
+          slug={post.slug}
+          className="pb-5 md:hidden"
+        />
+        <PostHeader
+          post={post}
+          author={author}
+          className="py-2 pb-5 border-b"
+        />
+        <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3 max-w-[650px]">
           <CustomMDX source={post.content} />
         </article>
-      </main>
-    </section>
+      </AnimatedFirst>
+    </Section>
   );
 }

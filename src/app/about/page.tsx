@@ -8,7 +8,7 @@ import Contact from "@/components/home/contact";
 import Experience from "@/components/home/experience";
 import ProfileInfo from "@/components/home/profile-info";
 import RecentProjects from "@/components/home/recent-projects";
-import TechStack from "@/components/home/tech-stacks";
+import TechStack from "@/components/about/tech-stacks";
 import Testimonials from "@/components/home/testimonials";
 import BookMeeting from "@/components/shared/book-meeting";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -23,6 +23,7 @@ export default function About() {
         </AnimatedFirst>
         <Intro />
         <Bento />
+        <TechStack />
         <Background />
         <Paintings />
 

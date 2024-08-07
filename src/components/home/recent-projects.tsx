@@ -3,29 +3,21 @@ import React from "react";
 import Image from "next/image";
 import { projects } from "@/db/projects";
 import { Button } from "@/components/ui/button";
-import { Project } from "@/lib/types/types";
+import { Project } from "@/lib/types";
 import Animated from "../framer-motion/animated";
+import SectionHeader from "./section-header";
 
 export default function RecentProjects() {
   return (
     <Animated className="flex flex-col items-center md:items-start space-y-5 py-10 border-b w-full">
-      {/** Header */}
-      <div className="flex justify-between items-center w-full">
-        <div className="flex-1 flex flex-col items-center md:items-start">
-          <h1 className="text-2xl md:text-3xl font-semibold">
-            Recent Projects
-          </h1>
-          <p className="opacity-70 text-sm pt-1">
-            Check out some of my projects
-          </p>
-        </div>
-        <Link href={"/projects"} className="hidden md:block">
-          <Button variant="secondary">View All</Button>
-        </Link>
-      </div>
+      <SectionHeader
+        title={"Recent Projects"}
+        text={"Check out some of my projects"}
+        path="projects"
+      />
 
       {/** Project Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-5">
         {projects.map((project: Project, index: number) => (
           <Link
             key={index}
@@ -42,7 +34,7 @@ export default function RecentProjects() {
                 className="group-hover:scale-110 group-hover:-translate-y-2 group-hover:-rotate-2 transition duration-300"
               />
             </div>
-            <div className="py-2 flex items-start gap-2">
+            <div className="py-2 flex items-center gap-2">
               {/** Logo */}
               <Image
                 alt="Logo"

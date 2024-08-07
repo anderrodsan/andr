@@ -18,7 +18,7 @@ import ProjectSearch from "./project-search";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTheme } from "next-themes";
 import { frameworks } from "@/db/frameworks";
-import { Projects } from "@/lib/types/types";
+import { Projects } from "@/lib/types";
 
 export default function ProjectFilters({ projects }: { projects: Projects }) {
   const devices = [
@@ -85,7 +85,7 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
     <ScrollArea className="h-full pr-5 w-full">
       <p className={`text-lg font-bold`}>Filters</p>
       <div className="w-full hidden md:block pt-2">
-        <ProjectSearch projects={projects} />
+        <ProjectSearch projects={projects} setFilters={setFilters} />
       </div>
 
       {/** Devices */}

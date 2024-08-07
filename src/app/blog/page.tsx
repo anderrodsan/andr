@@ -1,12 +1,32 @@
+import BlogList from "@/components/blog/blog-list";
+import Animated from "@/components/framer-motion/animated";
+import AnimatedFirst from "@/components/framer-motion/animated-first";
+import {
+  MainContent,
+  Section,
+  SideContent,
+} from "@/components/shared/side-layout";
+import { Separator } from "@/components/ui/separator";
+import { getBlogPosts } from "@/db/blog";
+import { formatDate } from "@/lib/utils";
+import Link from "next/link";
 import React from "react";
 
 export default function page() {
+  let posts = getBlogPosts("blog");
+
   return (
-    <section className="relative w-full flex-col items-start justify-start gap-5 px-5 md:px-10 lg:px-32">
-      <div className="md:ml-60 md:pl-5 py-6">
-        <h1 className="text-3xl font-semibold pb-3 border-b">Blog</h1>
-        <p className="opacity-90 pt-5">Comming Soon!</p>
-      </div>
-    </section>
+    <Section>
+      <SideContent className="border-none">
+        <></>
+      </SideContent>
+      <MainContent>
+        <AnimatedFirst className="text-3xl font-semibold pb-3 border-b">
+          Blog
+        </AnimatedFirst>
+        <Separator className="mb-3" />
+        <BlogList posts={posts} />
+      </MainContent>
+    </Section>
   );
 }

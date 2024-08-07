@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { SlidersHorizontal, X } from "lucide-react";
 import BookmarkFilters from "./bookmark-filters";
-import { Bookmarks } from "@/lib/types/types";
+import { Bookmarks } from "@/lib/types";
 
 export function BookmarkSide({ bookmarks }: { bookmarks: Bookmarks }) {
   return (

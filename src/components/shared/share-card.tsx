@@ -8,11 +8,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { User } from "@/lib/types/types";
+import { User } from "@/lib/types";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Noise from "./noise";
 import { AnyCnameRecord } from "dns";
+import AnimatedFirst from "../framer-motion/animated-first";
+import Animated from "../framer-motion/animated";
 
 export default function ShareCard({ children }: { children: React.ReactNode }) {
   const frameworks = [
@@ -71,15 +73,15 @@ export default function ShareCard({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="w-[90%] sm:w-auto px-10 py-10 bg-gradient-to-br from-slate-700 to-green-800 rounded-xl overflow-hidden">
+      <DialogContent className="w-[90%] sm:w-auto px-10 py-10 bg-gradient-to-br from-slate-700 to-green-800 rounded-3xl overflow-hidden">
         <div className="z-0 absolute inset-0 h-[100%] w-[100%] bg-gradient-to-br from-slate-50 to-slate-300 dark:from-slate-700 dark:to-slate-950 animate-gradient" />
         <Noise className="scale-[2] opacity-10" />
-        <div className="z-20 px-5">
+        <AnimatedFirst className="z-20 px-5">
           <p className="text-3xl font-bold">Ander</p>
           <p className="text-3xl font-bold -mt-1">Rodriguez</p>
           <p className="text-lg pt-1">Software Developer</p>
-        </div>
-        <div className="z-20 flex gap-4 justify-between items-center pt-2 pb-5 px-5">
+        </AnimatedFirst>
+        <AnimatedFirst className="z-20 flex gap-4 justify-between items-center pt-2 pb-5 px-5">
           {frameworks.map((framework) => (
             <a
               key={framework.name}
@@ -102,8 +104,8 @@ export default function ShareCard({ children }: { children: React.ReactNode }) {
               />
             </a>
           ))}
-        </div>
-        <div className="relative h-[300px] aspect-auto mb-4">
+        </AnimatedFirst>
+        <Animated className="relative h-[300px] aspect-auto mb-4">
           <Image
             src="/images/qr.png"
             alt="QR Code"
@@ -111,7 +113,7 @@ export default function ShareCard({ children }: { children: React.ReactNode }) {
             style={{ objectFit: "contain" }}
             className=""
           />
-        </div>
+        </Animated>
       </DialogContent>
     </Dialog>
   );

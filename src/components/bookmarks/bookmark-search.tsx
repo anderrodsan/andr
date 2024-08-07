@@ -6,13 +6,15 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import { Bookmarks, Projects } from "@/lib/types/types";
+import { Bookmarks, Projects } from "@/lib/types";
 import { BookmarkSide } from "./bookmark-side";
 
 export default function BookmarkSearch({
   bookmarks,
+  setFilters,
 }: {
   bookmarks: Bookmarks;
+  setFilters?: (filters: any) => void;
 }) {
   const [text, setText] = React.useState("");
   //function to set searchparams when the input text changes path/search=text
@@ -63,6 +65,7 @@ export default function BookmarkSearch({
           <button
             onClick={() => {
               setText("");
+              setFilters && setFilters([]);
               router.replace(`${pathname}`);
             }}
             className="flex items-center gap-1 bg-secondary hover:bg-secondary/70 rounded-lg px-3 py-1 my-2"

@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { SlidersHorizontal, X } from "lucide-react";
 import ProjectFilters from "./project-filters";
-import { Projects } from "@/lib/types/types";
+import { Projects } from "@/lib/types";
 
 export function FilterSide({ projects }: { projects: Projects }) {
   return (

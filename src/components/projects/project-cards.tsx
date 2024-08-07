@@ -4,8 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { formatDate } from "@/lib/format-date";
-import { Project } from "@/lib/types/types";
+import { formatDate } from "@/lib/utils";
+import { Project } from "@/lib/types";
 import Animated from "../framer-motion/animated";
 
 export default function ProjectDetails({ project }: { project: Project }) {

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { Inter, Roboto } from "next/font/google";
+import "@/styles/globals.css";
 import NavBar from "@/components/shared/navbar";
 import Footer from "@/components/shared/footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import Head from "next/head";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://andrs.vercel.app/"),
@@ -69,7 +71,7 @@ export default function RootLayout({
         />
       </Head>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={`${inter.className} antialiased`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -78,7 +80,8 @@ export default function RootLayout({
           >
             <main className="relative flex flex-col justify-start items-center min-h-[100dvh] bg-background w-full">
               <NavBar />
-              <div className="flex-1 w-full pt-5">{children}</div>
+              <NextTopLoader />
+              <div className="flex-1 w-full md:pt-5">{children}</div>
               <Footer />
             </main>
           </ThemeProvider>

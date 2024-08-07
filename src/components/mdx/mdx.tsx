@@ -3,9 +3,12 @@ import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
-import { projects } from "@/db/projects";
 import ScreenShots from "./screenshots";
 import TechStack from "./techstack";
+import FileHierarchyViewer from "./file-structure";
+import Code from "./code";
+import { ChevronRight, ExternalLink, File, Folder } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -44,7 +47,14 @@ function CustomLink(props) {
     return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return (
+    <a
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+      className="hover:opacity-90"
+    />
+  );
 }
 
 function RoundedImage(props) {
@@ -59,66 +69,6 @@ function Callout(props) {
     </div>
   );
 }
-
-function ProsCard({ title, pros }) {
-  return (
-    <div className="border border-emerald-200 dark:border-emerald-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-4 w-full">
-      <span>{`You might use ${title} if...`}</span>
-      <div className="mt-4">
-        {pros.map((pro) => (
-          <div key={pro} className="flex font-medium items-baseline mb-2">
-            <div className="h-4 w-4 mr-2">
-              <svg className="h-4 w-4 text-emerald-500" viewBox="0 0 24 24">
-                <g
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                  <path d="M22 4L12 14.01l-3-3" />
-                </g>
-              </svg>
-            </div>
-            <span>{pro}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function ConsCard({ title, cons }) {
-  return (
-    <div className="border border-red-200 dark:border-red-900 bg-neutral-50 dark:bg-neutral-900 rounded-xl p-6 my-6 w-full">
-      <span>{`You might not use ${title} if...`}</span>
-      <div className="mt-4">
-        {cons.map((con) => (
-          <div key={con} className="flex font-medium items-baseline mb-2">
-            <div className="h-4 w-4 mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="h-4 w-4 text-red-500"
-              >
-                <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z" />
-              </svg>
-            </div>
-            <span>{con}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function Code({ children, ...props }) {
-  let codeHTML = highlight(children);
-  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
-}
-Code.displayName = "Code";
 
 function slugify(str) {
   return str
@@ -152,13 +102,63 @@ function createHeading(level) {
   return Heading;
 }
 
-function AppImages() {
-  const project = projects[0];
+//Card with inside text as markdown
+function Card({ children }: { children: React.ReactNode }) {
+  return <p className="w-full py-3 px-3 rounded-xl bg-muted">{children}</p>;
+}
 
+function CodeTitle({
+  folder,
+  children,
+}: {
+  folder: string;
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex flex-col items-center gap-4">{project.title}</div>
+    <div className="flex items-center gap-2 -mb-2 opacity-80">
+      {folder && (
+        <>
+          <Folder size={16} />
+          <span className="text-sm font-medium">{folder}</span>
+          <ChevronRight size={16} />
+        </>
+      )}
+      <File size={16} />
+      <span className="text-sm font-medium">{children}</span>
+    </div>
   );
 }
+
+function LinkCard({ href, title }: { href: string; title: string }) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      className="group relative flex items-center gap-3 border bg-muted hover:bg-secondary p-4 rounded-lg w-auto"
+    >
+      <Avatar className="w-8 h-8">
+        <AvatarImage src={href + "favicon.ico"} alt={title} />
+        <AvatarFallback>&R</AvatarFallback>
+      </Avatar>
+      <div className="flex flex-col">
+        <span className="font-medium">{title}</span>
+        <span className="text-sm opacity-80">{href}</span>
+      </div>
+      <ExternalLink
+        size={16}
+        className="absolute right-3 top-3 opacity-0 group-hover:opacity-50 transition duration-300"
+      />
+    </Link>
+  );
+}
+
+/*
+function Code({ children, ...props }) {
+  let codeHTML = highlight(children);
+  return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+}
+Code.displayName = "Code";
+*/
 
 let components = {
   h1: createHeading(1),
@@ -169,13 +169,15 @@ let components = {
   h6: createHeading(6),
   Image: RoundedImage,
   a: CustomLink,
+  LinkCard,
   Callout,
-  ProsCard,
-  ConsCard,
   code: Code,
+  CodeTitle,
   Table,
   ScreenShots,
   TechStack,
+  Card,
+  FileHierarchyViewer,
 };
 
 export function CustomMDX(props) {

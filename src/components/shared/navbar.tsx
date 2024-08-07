@@ -37,7 +37,7 @@ export default function NavBar() {
   ];
 
   return (
-    <div className="sticky top-0 z-20 w-full py-3 grid grid-cols-2 lg:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 md:px-10 lg:px-32 shadow-sm">
+    <nav className="sticky top-0 z-20 w-full py-3 grid grid-cols-2 lg:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 md:px-10 lg:px-32 shadow-sm">
       <Link href={"/"} className="flex-1 flex group text-2xl font-bold w-full">
         <p className="group-hover:scale-110 group-hover:-rotate-2 transition duration-300">
           &R
@@ -92,7 +92,7 @@ export default function NavBar() {
 
         <BookMeeting
           title="Hire Me"
-          className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100"
+          className="bg-black dark:bg-white hover:bg-muted-foreground"
         />
       </div>
       <div className="flex lg:hidden justify-end items-center gap-2">
@@ -103,6 +103,6 @@ export default function NavBar() {
         </ShareCard>
         <Hamburger open={open} setOpen={setOpen} />
       </div>
-    </div>
+    </nav>
   );
 }

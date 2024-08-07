@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { ScrollArea, ScrollBar } from "../ui/scroll-area";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Bookmark, Projects } from "@/lib/types/types";
+import { Bookmark, Projects } from "@/lib/types";
 import { options } from "@/db/bookmarks";
 import BookmarkSearch from "./bookmark-search";
 import { BookmarkSide } from "./bookmark-side";
@@ -56,7 +56,7 @@ export default function BookmarkFilters({
     <ScrollArea className="h-full pr-5 w-full">
       <p className={`text-lg font-bold`}>Filters</p>
       <div className="w-full hidden md:block pt-2">
-        <BookmarkSearch bookmarks={bookmarks} />
+        <BookmarkSearch bookmarks={bookmarks} setFilters={setFilters} />
       </div>
 
       {/* Tags */}

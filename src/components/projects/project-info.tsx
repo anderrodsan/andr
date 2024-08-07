@@ -1,39 +1,16 @@
-"use client";
-
 import React from "react";
-import { renderToString } from "react-dom/server";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { projects } from "@/db/projects";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import SlugBreadcrumb from "../shared/breadcrumb";
 
 export default function ProjectSideInfo({ project, post, author }: any) {
   return (
     <aside className="w-full space-y-5">
-      <Breadcrumb className="overflow-x-hidden">
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/projects">Projects</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>{project.id}</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
-
-      {/** Logo with the title and description below */}
+      <SlugBreadcrumb title="projects" slug={post.slug} />
       <div className="space-y-3 hidden md:block">
         <div className="flex gap-2 items-center overflow-x-hidden">
           {/** Logo */}

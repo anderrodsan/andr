@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { frameworks } from "@/db/frameworks";
-import { Experience, Framework } from "@/lib/types/types";
+import { Experience, Framework } from "@/lib/types";
 import AnimatedFirst from "../framer-motion/animated-first";
 import Link from "next/link";
 import { experience } from "@/db/experience";

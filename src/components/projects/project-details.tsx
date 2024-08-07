@@ -4,8 +4,8 @@ import Image from "next/image";
 import React from "react";
 import { useScroll, useTransform } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { formatDate } from "@/lib/format-date";
-import { Project } from "@/lib/types/types";
+import { formatDate } from "@/lib/utils";
+import { Project } from "@/lib/types";
 import Animated from "../framer-motion/animated";
 import OpenImage from "../shared/open-image";
 import ImageDialog from "../shared/image-dialog";
@@ -36,12 +36,11 @@ export default function ProjectDetails({ project }: { project: Project }) {
   });
 
   return (
-    <Animated className="flex flex-col rounded-xl w-full ">
+    <Animated className="flex flex-col rounded-xl w-full pb-5">
       {/** Project title, description and logo */}
       <div
         className="flex justify-between gap-3 items-start pr-5 lg:pr-28 group cursor-pointer"
         onClick={() => {
-          window.scrollTo(0, 0);
           router.push(`/projects/${project.id}`);
           //scroll to top
         }}

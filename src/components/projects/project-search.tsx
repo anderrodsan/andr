@@ -6,10 +6,16 @@ import { Search, SlidersHorizontal, X } from "lucide-react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import { Projects } from "@/lib/types/types";
+import { Projects } from "@/lib/types";
 import { FilterSide } from "./filters-side";
 
-export default function ProjectSearch({ projects }: { projects: Projects }) {
+export default function ProjectSearch({
+  projects,
+  setFilters,
+}: {
+  projects: Projects;
+  setFilters?: (filters: any) => void;
+}) {
   const [text, setText] = React.useState("");
   //function to set searchparams when the input text changes path/search=text
   const pathname = usePathname();
@@ -59,6 +65,7 @@ export default function ProjectSearch({ projects }: { projects: Projects }) {
           <button
             onClick={() => {
               setText("");
+              setFilters && setFilters([]);
               router.replace(`${pathname}`);
             }}
             className="flex items-center gap-1 bg-secondary hover:bg-secondary/70 rounded-lg px-3 py-1 my-2"

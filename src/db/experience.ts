@@ -1,4 +1,4 @@
-import { Experience } from "@/lib/types/types";
+import { Experience } from "@/lib/types";
 
 // false means education, true type
 export const experience: Experience[] = [

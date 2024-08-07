@@ -1,0 +1,47 @@
+---
+title: "Best Practices with NextJS"
+publishedAt: "2024-08-03"
+summary: "The best practices to follow when creating a NextJS based app."
+---
+
+Next.js, a popular React framework, simplifies building server-side rendered (SSR) and static web applications. Following best practices ensures your Next.js applications are robust, maintainable, and scalable. This article outlines the key practices I've found for developing with Next.js.
+
+<h3>1. Project structure</h3>
+
+From what I've seen, this is the best way to structure a Nextjs 14 project. Specially
+because it makes it easier for others to understand the app, while keeping everything
+tidy and easy to find.
+
+> The src/ directory is not a must, I just like to use it for organizational purposes.
+
+<FileHierarchyViewer />
+
+<h3>2. Use constants (avoid hard coded values)</h3>
+
+When developing components, there are situations where comparable values as thresholds are required. You might think that adding a hard coded value is not a big deal, but the bigger the app; the harder it will be to find those values. Additionally, they might be reused in different components thorough the app, adding further steps for changing the values.
+
+> Constants must be named with capital letters
+
+<CodeTitle folder={"lib"}>constants.tsx</CodeTitle>
+
+```javascript
+export const MIN_AGE_LIMIT = 18;
+```
+
+> Import the constant to use it in the desired component
+
+<h3>3. Create components when needed</h3>
+
+A new component should be created if
+
+- **Reusability**: you need to use the same piece of UI in different parts of your app.
+
+- **Clear Purpose**: the UI element has a specific job or function, making it easier to manage.
+
+- **Complexity**: the UI or logic is getting too complicated and needs to be broken down.
+
+- **Testing**: you want to test parts of your UI separately to make sure they work correctly.
+
+- **Performance**: you need to optimize parts of your app to run faster and more efficiently (useMemo, useCallback).
+
+> Remember to name your components with first capital letters as "CustomButton", and use descriptive names that indicate its' purpose

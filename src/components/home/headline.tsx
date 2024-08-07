@@ -16,7 +16,7 @@ export default function Headline() {
       </h2>
       <BookMeeting
         title="Hire Me"
-        className="bg-black dark:bg-white hover:slate-800 dark:hover:bg-slate-100 h-10"
+        className="bg-black dark:bg-white hover:bg-muted h-10"
       />
     </div>
   );

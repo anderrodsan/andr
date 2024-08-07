@@ -25,7 +25,7 @@ export default function ScreenShots({ id }: any) {
   const landscape = project?.images?.type === "landscape" ? true : false;
 
   return (
-    <div className="-mt-7 -mx-5 md:-mx-0 overflow-x-auto scrollbar-hide">
+    <div className="-mx-5 md:-mx-0 overflow-x-auto scrollbar-hide">
       <div className="flex gap-2">
         <div className="pr-3 md:hidden" />
         {Array.from({ length: project?.images?.count }, (_, index) => {

@@ -32,7 +32,7 @@ const Paintings: React.FC = () => {
   return (
     <Animated className="flex flex-col items-center md:items-start py-10 border-b">
       <h1 className="text-2xl md:text-3xl font-semibold">Paintings</h1>
-      <p className="opacity-70 text-sm pt-1 pb-5">
+      <p className="opacity-70 text-sm pt-1 pb-5 text-center md:text-start">
         Painting is one of my favorite hobbies. Here I&apos;ll showcase of my
         latest artworks using watercolors and markers.
       </p>

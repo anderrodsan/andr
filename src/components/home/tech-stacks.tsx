@@ -1,17 +1,20 @@
 import React from "react";
 import Image from "next/image";
 import { frameworks } from "@/db/frameworks";
-import { Framework } from "@/lib/types/types";
-import AnimatedFirst from "../framer-motion/animated-first";
+import { Framework } from "@/lib/types";
+import Animated from "../framer-motion/animated";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import SectionHeader from "./section-header";
 
 export default function TechStack() {
   return (
-    <AnimatedFirst className="flex flex-col items-center md:items-start pb-10 border-b">
-      <h1 className="text-2xl md:text-3xl font-semibold">Tech Stack</h1>
-      <p className="opacity-70 text-sm pt-1 pb-5">
-        Some of the technologies I&apos;ve worked with.
-      </p>
+    <Animated className="flex flex-col gap-5 items-center md:items-start pb-10 border-b">
+      <SectionHeader
+        title="Tech Stack"
+        text="Some of the technologies I've worked with."
+        path="about#tech-stack"
+      />
       <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 w-full">
         {/** Tech Stack Icons */}
         {frameworks?.map((framework: Framework, index: number) => (
@@ -41,6 +44,9 @@ export default function TechStack() {
           </Link>
         ))}
       </div>
-    </AnimatedFirst>
+      <Link href={"/about#tech-stack"} className="md:hidden pt-5">
+        <Button variant="secondary">View All</Button>
+      </Link>
+    </Animated>
   );
 }
