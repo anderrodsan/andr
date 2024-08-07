@@ -25,7 +25,7 @@ export default function SideSkeleton({
         </div>
         {/** Description */}
         {Array.from({ length: 3 }).map((_, i) => (
-          <Skeleton className="h-3 w-full bg-secondary" />
+          <Skeleton className="h-3 w-full bg-secondary" key={i} />
         ))}
       </div>
     </div>

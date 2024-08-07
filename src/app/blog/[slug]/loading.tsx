@@ -16,12 +16,12 @@ export default function Loading() {
         <SideSkeleton />
       </SideContent>
       <MainContent className="max-w-[650px]">
-        <BreadcrumbSkeleton className="md:hidden" />
+        <BreadcrumbSkeleton className="md:hidden pb-2" />
         <PostHeaderSkeleton className={"pt-2"} />
         {/** Description */}
         <div className="space-y-3 py-14">
           {Array.from({ length: 2 }).map((_, i) => (
-            <Skeleton className="h-3 w-full bg-secondary" />
+            <Skeleton className="h-3 w-full bg-secondary" key={i} />
           ))}
         </div>
         <Skeleton className="h-[350px] w-full rounded-lg bg-secondary" />
