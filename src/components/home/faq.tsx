@@ -62,7 +62,7 @@ export default function FAQ() {
       />
       <Accordion type="single" collapsible className="w-full">
         {questions.map((q: any, index: number) => (
-          <AccordionItem value={`item-${index + 1}`}>
+          <AccordionItem value={`item-${index + 1}`} key={index}>
             <AccordionTrigger>
               {index + 1}
               {". "}
