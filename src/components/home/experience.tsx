@@ -11,7 +11,7 @@ export default function Experience() {
     },
     {
       name: "Hours",
-      value: 150,
+      value: 600,
       plus: true,
     },
   ];

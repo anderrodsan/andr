@@ -37,13 +37,13 @@ export default function NavBar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-20 w-full py-3 grid grid-cols-2 lg:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 md:px-10 lg:px-32 shadow-sm">
+    <nav className="sticky top-0 z-20 w-full py-3 flex justify-between xl:grid xl:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 md:px-10 lg:px-32 shadow-sm">
       <Link href={"/"} className="flex-1 flex group text-2xl font-bold w-full">
         <p className="group-hover:scale-110 group-hover:-rotate-2 transition duration-300">
           &R
         </p>
       </Link>
-      <ul className="flex-1 space-x-5 hidden lg:flex justify-center items-center text-sm">
+      <ul className="flex-1 space-x-5 hidden md:flex justify-center items-center text-sm">
         {links.map((link, index) => (
           <Link
             key={index}
@@ -56,7 +56,7 @@ export default function NavBar() {
           </Link>
         ))}
       </ul>
-      <div className="hidden lg:flex justify-end gap-5 items-center">
+      <div className="hidden md:flex justify-end gap-5 items-center">
         <div className="flex gap-2">
           <ButtonTooltip title="Bookmarks">
             <Link href={"/bookmarks"}>
@@ -68,13 +68,15 @@ export default function NavBar() {
               </Button>
             </Link>
           </ButtonTooltip>
-          <ButtonTooltip title="Share">
-            <ShareCard>
+
+          <ShareCard>
+            <ButtonTooltip title="Share">
               <Button variant={"outline"} size={"icon"} className="rounded-lg">
                 <QrCode size={20} />
               </Button>
-            </ShareCard>
-          </ButtonTooltip>
+            </ButtonTooltip>
+          </ShareCard>
+
           <ButtonTooltip title="Source code">
             <Link href={"https://github.com/anderrodsan/andr"} target="_blank">
               <Button variant={"outline"} size={"icon"} className="rounded-lg">
@@ -95,7 +97,7 @@ export default function NavBar() {
           className="bg-black dark:bg-white hover:bg-muted-foreground"
         />
       </div>
-      <div className="flex lg:hidden justify-end items-center gap-2">
+      <div className="flex md:hidden justify-end items-center gap-2">
         <ShareCard>
           <Button variant={"outline"} size={"icon"} className="rounded-lg">
             <QrCode size={20} />

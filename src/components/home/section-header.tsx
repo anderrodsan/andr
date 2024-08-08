@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 type Props = {
   title: String;
   text: String;
-  path: String;
+  path?: String;
 };
 
 export default function SectionHeader({ title, text, path }: Props) {
@@ -15,9 +15,11 @@ export default function SectionHeader({ title, text, path }: Props) {
         <h1 className="text-2xl md:text-3xl font-semibold">{title}</h1>
         <p className="opacity-70 text-sm pt-1">{text}</p>
       </div>
-      <Link href={"/" + path} className="hidden md:block">
-        <Button variant="secondary">View All</Button>
-      </Link>
+      {path && (
+        <Link href={"/" + path} className="hidden md:block">
+          <Button variant="secondary">View All</Button>
+        </Link>
+      )}
     </div>
   );
 }

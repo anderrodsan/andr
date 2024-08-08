@@ -1,5 +1,6 @@
 import Contact from "@/components/home/contact";
 import Experience from "@/components/home/experience";
+import FAQ from "@/components/home/faq";
 import ProfileInfo from "@/components/home/profile-info";
 import RecentBlogs from "@/components/home/recent-blogs";
 import RecentProjects from "@/components/home/recent-projects";
@@ -28,10 +29,8 @@ export default function Home() {
         <Experience />
         <Testimonials />
         <RecentProjects />
-
-        {/** Blog */}
         <RecentBlogs />
-
+        <FAQ />
         <Contact />
       </MainContent>
     </Section>

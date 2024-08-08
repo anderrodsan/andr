@@ -17,7 +17,7 @@ export default function RecentProjects() {
       />
 
       {/** Project Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center gap-5">
         {projects.map((project: Project, index: number) => (
           <Link
             key={index}
@@ -34,14 +34,14 @@ export default function RecentProjects() {
                 className="group-hover:scale-110 group-hover:-translate-y-2 group-hover:-rotate-2 transition duration-300"
               />
             </div>
-            <div className="py-2 flex items-center gap-2">
+            <div className="py-2 flex gap-2">
               {/** Logo */}
               <Image
                 alt="Logo"
                 src={project?.logo}
                 width={100}
                 height={100}
-                className="bg-white h-8 w-8 rounded-lg mt-1"
+                className="bg-white h-7 w-7 rounded-lg mt-2"
               />
               <div className="pt-1">
                 <h2 className="font-semibold line-clamp-1">{project.title}</h2>
