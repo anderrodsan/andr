@@ -7,13 +7,16 @@ import {
   SideContent,
 } from "@/components/shared/side-layout";
 import { Separator } from "@/components/ui/separator";
-import { getBlogPosts } from "@/db/blog";
+import { getBlogPosts, sortPosts } from "@/db/blog";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
 import React from "react";
 
 export default function page() {
   let posts = getBlogPosts("blog");
+
+  //create a new array sorted by the date, but the first ones being pinned (post.metadata.pinned)
+  const sortedPosts = sortPosts(posts).slice(0, 4);
 
   return (
     <Section>
@@ -25,7 +28,7 @@ export default function page() {
           Blog
         </AnimatedFirst>
         <Separator className="mb-3" />
-        <BlogList posts={posts} />
+        <BlogList posts={sortedPosts} />
       </MainContent>
     </Section>
   );

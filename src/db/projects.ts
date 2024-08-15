@@ -19,6 +19,7 @@ export const projects: Project[] = [
       text: "Open in Expo",
       href: "https://expo.dev/preview/update?message=Animations%20and%20Sorting&updateRuntimeVersion=1.0.4&createdAt=2024-07-17T15%3A06%3A52.484Z&slug=exp&projectId=5715b10b-c3c3-45ea-a780-672c0a567ae3&group=2ece328d-55ef-4292-8d64-5d7647c4a5c5",
     },
+    github: "https://github.com/anderrodsan/expo-dictionary",
   },
   {
     id: "dormhive-app",
@@ -38,6 +39,7 @@ export const projects: Project[] = [
       text: "Open in Expo",
       href: "https://expo.dev/preview/update?message=Marketplace%20chats&updateRuntimeVersion=1.0.0&createdAt=2024-06-15T13%3A45%3A48.754Z&slug=exp&projectId=e5699ccb-e67d-4943-831f-83835976dc7a&group=7ad82c46-44c8-4202-bfff-96a8ef2bce07",
     },
+    github: "",
   },
   {
     id: "dormhive-dash",
@@ -64,13 +66,14 @@ export const projects: Project[] = [
       text: "Open Website",
       href: "https://dash.dormhive.com/dashboard",
     },
+    github: "https://github.com/anderrodsan/dormhive-dashboard",
   },
   {
     id: "youmap",
     title: "YouMap",
     author: "anderrodsan",
     date: "2024-04-28",
-    description: "An interactive map to explore ypur favorite youtuber videos!",
+    description: "An interactive map to explore your favorite youtuber videos!",
     logo: "/logos/youmap.png",
     images: {
       count: 3,
@@ -89,5 +92,6 @@ export const projects: Project[] = [
       text: "Open Website",
       href: "https://youmap.vercel.app",
     },
+    github: "https://github.com/anderrodsan/ytmap",
   },
 ];

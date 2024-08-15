@@ -10,6 +10,7 @@ import AnimatedFirst from "@/components/framer-motion/animated-first";
 import PostHeader from "@/components/shared/post-header";
 import { Section, SideContent } from "@/components/shared/side-layout";
 import SlugBreadcrumb from "@/components/shared/breadcrumb";
+import BlogList from "@/components/blog/blog-list";
 
 export async function generateMetadata({
   params,
@@ -24,11 +25,8 @@ export async function generateMetadata({
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
   } = post.metadata;
-  const ogImage = image
-    ? `https://leerob.io${image}`
-    : `https://leerob.io/og?title=${title}`;
+  const ogImage = `https://andrs.vercel.app/og?title=${title}`;
 
   return {
     title,
@@ -38,7 +36,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://leerob.io/blog/${post.slug}`,
+      url: `https://andrs.vercel.app/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
@@ -55,7 +53,13 @@ export async function generateMetadata({
 }
 
 export default function Blog({ params }) {
-  let post = getBlogPosts("blog").find((post) => post.slug === params.slug);
+  let posts = getBlogPosts("blog");
+  let post = posts.find((post) => post.slug === params.slug);
+
+  //other posts (max 4)
+  let otherPosts = posts
+    .filter((post) => post.slug !== params.slug)
+    .slice(0, 4);
 
   if (!post) {
     notFound();
@@ -77,13 +81,11 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: post.metadata.image
-              ? `https://leerob.io${post.metadata.image}`
-              : `https://leerob.io/og?title=${post.metadata.title}`,
-            url: `https://leerob.io/blog/${post.slug}`,
+            image: `https://andrs.vercel.app/og?title=${post.metadata.title}`,
+            url: `https://andrs.vercel.app/blog/${post.slug}`,
             author: {
               "@type": "Person",
-              name: "Lee Robinson",
+              name: "Ander Rodriguez",
             },
           }),
         }}
@@ -105,6 +107,10 @@ export default function Blog({ params }) {
         <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3 max-w-[650px]">
           <CustomMDX source={post.content} />
         </article>
+        <div className="py-10 border-t space-y-5 w-full">
+          <h2 className="text-3xl font-bold">Other Posts</h2>
+          <BlogList posts={otherPosts} className="" />
+        </div>
       </AnimatedFirst>
     </Section>
   );

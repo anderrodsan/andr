@@ -15,6 +15,7 @@ export type Project = {
     text: string;
     href: string;
   };
+  github: string;
 };
 
 export type Projects = Project[];

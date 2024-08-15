@@ -96,7 +96,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
                 width: "auto",
                 height: landscape ? "250px" : "300px",
               }}
-              className={`snap-start rounded-xl cursor-pointer hover:opacity-95 transition-all`}
+              className={`snap-start rounded-xl cursor-pointer hover:opacity-95 transition-all bg-muted`}
               onClick={() => {
                 setIdx(index);
                 setOpen(true);

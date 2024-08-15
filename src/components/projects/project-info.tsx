@@ -37,7 +37,7 @@ export default function ProjectSideInfo({ project, post, author }: any) {
           </Button>
         </Link>
       </div>
-      <div className="pb-5 w-full hidden md:block">
+      <div className="w-full hidden md:block">
         <h1 className="font-semibold text-sm border-b pb-2 mb-1">Author</h1>
         <div className="flex items-center gap-2 py-2">
           <Avatar className="h-6 w-6">
@@ -64,6 +64,22 @@ export default function ProjectSideInfo({ project, post, author }: any) {
           </div>
         </Link>
       </div>
+      {project?.github !== "" && (
+        <div className="pb-5 hidden md:block">
+          <h1 className="font-semibold text-sm border-b pb-2 mb-1">
+            Repository
+          </h1>
+          <Link target="_blank" href={project?.github ?? ""}>
+            <div className="flex gap-2 py-2 hover:underline">
+              <IoLogoGithub size={20} />
+              <p className="flex-1 text-sm opacity-80 flex-wrap">
+                {/*Take out the https://*/}
+                {project?.github.split("https://")[1]}
+              </p>
+            </div>
+          </Link>
+        </div>
+      )}
     </aside>
   );
 }

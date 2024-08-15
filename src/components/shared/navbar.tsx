@@ -70,11 +70,9 @@ export default function NavBar() {
           </ButtonTooltip>
 
           <ShareCard>
-            <ButtonTooltip title="Share">
-              <Button variant={"outline"} size={"icon"} className="rounded-lg">
-                <QrCode size={20} />
-              </Button>
-            </ButtonTooltip>
+            <Button variant={"outline"} size={"icon"} className="rounded-lg">
+              <QrCode size={20} />
+            </Button>
           </ShareCard>
 
           <ButtonTooltip title="Source code">

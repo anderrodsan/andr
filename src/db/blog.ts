@@ -58,3 +58,18 @@ function getMDXData(dir) {
 export function getBlogPosts(type: string) {
   return getMDXData(path.join(process.cwd(), `content/${type}`));
 }
+
+export function sortPosts(posts: any) {
+  const sortedPosts = posts
+    .filter((post: any) => post.metadata.pinned === "true")
+    .concat(
+      posts
+        .sort(
+          (a: any, b: any) =>
+            new Date(b.metadata.publishedAt) - new Date(a.metadata.publishedAt)
+        )
+        .filter((post: any) => post.metadata.pinned === "false")
+    );
+
+  return sortedPosts;
+}

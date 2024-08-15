@@ -9,6 +9,7 @@ import FileHierarchyViewer from "./file-structure";
 import Code from "./code";
 import { ChevronRight, ExternalLink, File, Folder } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { FaGithub } from "react-icons/fa";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -58,7 +59,12 @@ function CustomLink(props) {
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+  return (
+    <>
+      <Image alt={props.alt} className="rounded-lg" {...props} />
+      <p className="text-center w-full text-sm font-bold">{props.alt}</p>
+    </>
+  );
 }
 
 function Callout(props) {
@@ -129,7 +135,15 @@ function CodeTitle({
   );
 }
 
-function LinkCard({ href, title }: { href: string; title: string }) {
+function LinkCard({
+  href,
+  title,
+  icon,
+}: {
+  href: string;
+  title: string;
+  icon?: string;
+}) {
   return (
     <Link
       href={href}
@@ -137,12 +151,32 @@ function LinkCard({ href, title }: { href: string; title: string }) {
       className="group relative flex items-center gap-3 border bg-muted hover:bg-secondary p-4 rounded-lg w-auto"
     >
       <Avatar className="w-8 h-8">
-        <AvatarImage src={href + "favicon.ico"} alt={title} />
+        <AvatarImage src={icon ? icon : href + "favicon.ico"} alt={title} />
         <AvatarFallback>&R</AvatarFallback>
       </Avatar>
       <div className="flex flex-col">
         <span className="font-medium">{title}</span>
         <span className="text-sm opacity-80">{href}</span>
+      </div>
+      <ExternalLink
+        size={16}
+        className="absolute right-3 top-3 opacity-0 group-hover:opacity-50 transition duration-300"
+      />
+    </Link>
+  );
+}
+
+function GithubLink({ href, title }: { href: string; title: string }) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      className="group relative flex items-center gap-3 border bg-muted hover:bg-secondary pt-2 pb-4 px-4 rounded-lg w-auto my-3"
+    >
+      <FaGithub className="w-6 h-6 opacity-50 group-hover:opacity-80" />
+      <div className="flex flex-col">
+        <span className="font-medium">{title}</span>
+        <span className="text-xs opacity-80">{href}</span>
       </div>
       <ExternalLink
         size={16}
@@ -177,6 +211,7 @@ let components = {
   ScreenShots,
   TechStack,
   Card,
+  GithubLink,
   FileHierarchyViewer,
 };
 
