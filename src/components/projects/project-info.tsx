@@ -74,7 +74,7 @@ export default function ProjectSideInfo({ project, post, author }: any) {
               <IoLogoGithub size={20} />
               <p className="flex-1 text-sm opacity-80 flex-wrap">
                 {/*Take out the https://*/}
-                {project?.github.split("https://")[1]}
+                {project?.github.split("anderrodsan/")[1]}
               </p>
             </div>
           </Link>

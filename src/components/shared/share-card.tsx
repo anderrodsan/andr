@@ -73,8 +73,8 @@ export default function ShareCard({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="w-[90%] sm:w-auto px-10 py-10 bg-gradient-to-br from-slate-700 to-green-800 rounded-3xl overflow-hidden">
-        <div className="z-0 absolute inset-0 h-[100%] w-[100%] bg-gradient-to-br from-slate-50 to-slate-300 dark:from-slate-700 dark:to-slate-950 animate-gradient" />
+      <DialogContent className="w-[90%] sm:w-auto px-10 py-10 rounded-3xl overflow-hidden">
+        <div className="z-0 absolute inset-0 h-[100%] w-[100%] bg-gradient-to-br from-slate-50 via-slate-400/60 to-slate-200 dark:from-slate-600 dark:via-slate-900 dark:to-slate-700 animate-gradient" />
         <Noise className="scale-[2] opacity-10" />
         <AnimatedFirst className="z-20 px-5">
           <p className="text-3xl font-bold">Ander</p>
@@ -107,7 +107,7 @@ export default function ShareCard({ children }: { children: React.ReactNode }) {
         </AnimatedFirst>
         <Animated className="relative h-[300px] aspect-auto mb-4">
           <Image
-            src="/images/qr.png"
+            src="/images/QR.png"
             alt="QR Code"
             fill
             style={{ objectFit: "contain" }}

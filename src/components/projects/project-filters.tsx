@@ -96,7 +96,7 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
         {devices.map((device, index) => (
           <div
             key={index}
-            className={`flex gap-2 justify-between items-center hover:bg-secondary cursor-pointer rounded-lg py-1 px-2 ${
+            className={`flex gap-2 justify-between items-center hover:bg-secondary cursor-pointer rounded-lg py-1 px-2 transition duration-300 ${
               filters.includes(device.name) && "bg-secondary"
             }`}
             onClick={() => {
@@ -124,7 +124,7 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
           {frameworks.map((framework, index) => (
             <div
               key={index}
-              className={`flex gap-2 justify-between items-center hover:bg-secondary cursor-pointer rounded-lg py-1 px-2 ${
+              className={`flex gap-2 justify-between items-center hover:bg-secondary cursor-pointer rounded-lg py-1 px-2 transition duration-300 ${
                 filters.includes(framework.name) && "bg-secondary"
               }`}
               onClick={() => {

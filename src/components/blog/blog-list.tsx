@@ -20,10 +20,10 @@ export default function BlogList({ posts, className }: Props) {
               className="group cursor-pointer md:w-full flex flex-col md:flex-row gap-2 md:gap-5"
               key={index}
             >
-              <div className="relative w-full md:w-[130px] rounded-xl overflow-hidden border bg-slate-800">
+              <div className="relative w-full md:w-[130px] aspect-[16/9] rounded-xl overflow-hidden border bg-slate-800">
                 <Image
-                  alt="opengraph image"
-                  src={"/og?title=" + post.metadata.title}
+                  alt={""}
+                  src={`https://andrs.vercel.app/api/og?title=${post.metadata.title}`}
                   width={100}
                   height={100}
                   sizes="100vh"
@@ -32,13 +32,19 @@ export default function BlogList({ posts, className }: Props) {
                 />
               </div>
               <div className="flex-1">
-                <div className="flex gap-2 flex-wrap items-center">
-                  <h1 className="text-lg font-medium group-hover:">
+                <div className="flex gap-2 flex- items-center">
+                  <h1 className="text-lg font-medium items-center flex-wrap">
                     {post.metadata.title}
+                    <span className="inline-block ml-2">
+                      {post.metadata?.pinned === "true" && (
+                        <Pin
+                          size={16}
+                          fill="gray"
+                          className="opacity-70 flex-initial"
+                        />
+                      )}
+                    </span>
                   </h1>
-                  {post.metadata?.pinned === "true" && (
-                    <Pin size={16} fill="gray" className="opacity-70" />
-                  )}
                 </div>
 
                 <p className="text-sm opacity-90 line-clamp-1">

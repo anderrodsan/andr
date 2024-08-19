@@ -26,7 +26,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
   } = post.metadata;
-  const ogImage = `https://andrs.vercel.app/og?title=${title}`;
+  const ogImage = `https://andrs.vercel.app/api/og?title=${title}`;
 
   return {
     title,
@@ -81,7 +81,7 @@ export default function Blog({ params }) {
             datePublished: post.metadata.publishedAt,
             dateModified: post.metadata.publishedAt,
             description: post.metadata.summary,
-            image: `https://andrs.vercel.app/og?title=${post.metadata.title}`,
+            image: `https://andrs.vercel.app/api/og?title=${post.metadata.title}`,
             url: `https://andrs.vercel.app/blog/${post.slug}`,
             author: {
               "@type": "Person",

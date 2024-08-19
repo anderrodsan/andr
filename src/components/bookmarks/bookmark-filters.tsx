@@ -66,7 +66,7 @@ export default function BookmarkFilters({
           {options.map((option, index) => (
             <div
               key={index}
-              className={`flex gap-2 justify-between items-center hover:bg-secondary cursor-pointer rounded-lg py-1 px-2 ${
+              className={`flex gap-2 justify-between items-center hover:bg-secondary cursor-pointer rounded-lg py-1 px-2 transition duration-300 ${
                 filters.includes(option.name) && "bg-secondary"
               }`}
               onClick={() => {

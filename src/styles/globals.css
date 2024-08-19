@@ -158,6 +158,12 @@ html {
   min-width: 360px;
 }
 
+/* Selection color */
+
+::selection {
+  @apply bg-slate-600 text-white;
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
@@ -216,6 +222,18 @@ h3 {
 
 .prose h4 {
   @apply font-bold tracking-tight !important;
+}
+
+.prose h2,
+h3,
+h4 {
+  scroll-margin-top: 115px; /* Adjust the value as needed */
+}
+
+/* Smooth Scroll */
+
+html {
+  scroll-behavior: smooth;
 }
 
 .prose strong {
