@@ -77,11 +77,11 @@ As an inspiration for the project page's interface, I went with the simple and e
 
 Once I had the idea in mind, I started designing the project page's interface using **Figma**. The initial layout was vertical, but I finally decided to go with a side layout, where the filters would be in the left side ocupying a small section of the page for space efficiency and easy filtering.
 
-<img width="1000" src="/images/blog/welcome-figma-projects.png" alt="Figma prototype of the projects.">
+<img width="1000" src="https://andrs.vercel.app/images/blog/welcome-figma-projects.png" alt="Figma prototype of the projects.">
 
 The rest of the website was designed while coding, but keeping the consistency with applying the same font, layout and a minimalist color palette including slate colors. The dark mode would include the darkest values as the slate-800 for the background with light fonts, while the light mode would include lighter colors such as slate-100 with dark fonts.
 
-<img width="1000" src="/images/blog/welcome-color-palette.png" alt="Slate color palette.">
+<img width="1000" src="https://andrs.vercel.app/images/blog/welcome-color-palette.png" alt="Slate color palette.">
 
 ## Web Development
 
