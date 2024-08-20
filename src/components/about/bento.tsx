@@ -128,8 +128,13 @@ const Languages = () => {
       </div>
       <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2">
         {languages.map((item: any, index: number) => (
-          <ButtonTooltip title={"👋 " + item.text} side="top" delay={100}>
-            <div key={index} className="p-3 rounded-lg bg-muted group">
+          <ButtonTooltip
+            title={"👋 " + item.text}
+            side="top"
+            delay={100}
+            key={index}
+          >
+            <div className="p-3 rounded-lg bg-muted group">
               <p className="font-medium opacity-80">{item.name}</p>
               <p className="text-sm opacity-70">{item.level}</p>
             </div>
