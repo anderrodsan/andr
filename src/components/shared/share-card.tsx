@@ -107,7 +107,7 @@ export default function ShareCard({ children }: { children: React.ReactNode }) {
         </AnimatedFirst>
         <Animated className="relative h-[300px] aspect-auto mb-4">
           <Image
-            src="/images/QR.png"
+            src="/images/qr.png"
             alt="QR Code"
             fill
             style={{ objectFit: "contain" }}

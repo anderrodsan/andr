@@ -82,7 +82,7 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
   const { theme } = useTheme();
 
   return (
-    <ScrollArea className="h-full pr-5 w-full">
+    <ScrollArea className="h-full w-full">
       <p className={`text-lg font-bold`}>Filters</p>
       <div className="w-full hidden md:block pt-2">
         <ProjectSearch projects={projects} setFilters={setFilters} />

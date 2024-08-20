@@ -3,9 +3,11 @@ import {
   Component,
   FileText,
   Home,
+  Lightbulb,
   PaintBucket,
   PenTool,
 } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 export const bookmarks = [
   {
@@ -88,10 +90,6 @@ export const options = [
     icon: Component,
   },
   {
-    name: "Docs",
-    icon: FileText,
-  },
-  {
     name: "Colors",
     icon: PaintBucket,
   },
@@ -106,5 +104,17 @@ export const options = [
   {
     name: "Animations",
     icon: BringToFront,
+  },
+  {
+    name: "Inspiration",
+    icon: Lightbulb,
+  },
+  {
+    name: "Repositories",
+    icon: FaGithub,
+  },
+  {
+    name: "Docs",
+    icon: FileText,
   },
 ];

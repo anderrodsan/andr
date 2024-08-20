@@ -27,7 +27,7 @@ export default function BookMeeting({
       size={"sm"}
       className={className}
       data-cal-namespace=""
-      data-cal-link="dormhive/30min"
+      data-cal-link="anderrodsan/30min"
       data-cal-config='{"layout":"month_view"}'
     >
       {title}

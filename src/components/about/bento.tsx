@@ -5,6 +5,7 @@ import { Cake, LanguagesIcon, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv } from "../framer-motion/motion-div";
+import ButtonTooltip from "../shared/button-tooltip";
 
 export default function Bento() {
   const attributes = [
@@ -127,10 +128,12 @@ const Languages = () => {
       </div>
       <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2">
         {languages.map((item: any, index: number) => (
-          <div key={index} className="p-3 rounded-lg bg-muted group">
-            <p className="font-medium opacity-80">{item.name}</p>
-            <p className="text-sm opacity-70">{item.level}</p>
-          </div>
+          <ButtonTooltip title={"👋 " + item.text} side="top" delay={100}>
+            <div key={index} className="p-3 rounded-lg bg-muted group">
+              <p className="font-medium opacity-80">{item.name}</p>
+              <p className="text-sm opacity-70">{item.level}</p>
+            </div>
+          </ButtonTooltip>
         ))}
       </div>
     </div>

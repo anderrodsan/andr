@@ -30,12 +30,17 @@ export default function BlogList({ posts, className }: Props) {
                   style={{ objectFit: "contain" }}
                   className="w-full h-full group-hover:scale-105 group-hover:translate-x-2 group-hover:opacity-90 md:group-hover:translate-x-0 transition duration-300"
                 />
+                <div className="absolute top-4 right-4 md:hidden">
+                  {post.metadata?.pinned === "true" && (
+                    <Pin size={20} color="white" className="" />
+                  )}
+                </div>
               </div>
               <div className="flex-1">
                 <div className="flex gap-2 flex- items-center">
                   <h1 className="text-lg font-medium items-center flex-wrap">
                     {post.metadata.title}
-                    <span className="inline-block ml-2">
+                    <span className="hidden md:inline-block ml-2">
                       {post.metadata?.pinned === "true" && (
                         <Pin
                           size={16}

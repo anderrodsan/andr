@@ -32,7 +32,7 @@ export function SideContent({
   return (
     <AnimatedFirst
       className={cn(
-        "hidden md:block sticky md:top-28 md:h-[85dvh] md:w-64 md:border-r",
+        "hidden md:block sticky md:top-28 md:h-[85dvh] md:w-64 md:border-r pr-10",
         className
       )}
     >
@@ -51,7 +51,7 @@ export function MainContent({
   return (
     <div
       className={cn(
-        "flex-1 w-full flex flex-col pt-6 min-h-[100dvh]",
+        "flex-1 w-full flex flex-col pt-6 min-h-[100dvh] md:pl-5",
         className
       )}
     >

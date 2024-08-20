@@ -27,7 +27,7 @@ export default function page() {
         <AnimatedFirst className="text-3xl font-semibold pb-3 border-b">
           Blog
         </AnimatedFirst>
-        <Separator className="mb-3" />
+        <Separator className="mb-5" />
         <BlogList posts={sortedPosts} />
       </MainContent>
     </Section>

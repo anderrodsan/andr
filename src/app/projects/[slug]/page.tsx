@@ -111,9 +111,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
           className="md:hidden"
         />
         <div className="flex flex-col md:flex-row justify-between gap-3 py-2 border-b pb-5 max-w-[650px]">
-          <Suspense fallback={<PostHeaderSkeleton />}>
-            <PostHeader post={post} author={author} />
-          </Suspense>
+          <PostHeader post={post} author={author} />
           <Link href={project?.link.href ?? ""} target="_blank">
             <Button
               size={"sm"}

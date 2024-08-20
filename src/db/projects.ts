@@ -69,6 +69,25 @@ export const projects: Project[] = [
     github: "https://github.com/anderrodsan/dormhive-dashboard",
   },
   {
+    id: "dormhive-landing",
+    title: "DormHive Landing Page",
+    author: "anderrodsan",
+    date: "2024-06-15",
+    description: "The landing page for DormHive.",
+    logo: "/logos/dormhive.png",
+    images: {
+      count: 4,
+      path: "/projects/dormhive-landing/screen",
+      type: "landscape",
+    },
+    tags: ["Website", "NextJS", "TypeScript", "Shadcn UI", "TailwindCSS"],
+    link: {
+      text: "Open in Expo",
+      href: "https://dormhive.com",
+    },
+    github: "",
+  },
+  {
     id: "youmap",
     title: "YouMap",
     author: "anderrodsan",

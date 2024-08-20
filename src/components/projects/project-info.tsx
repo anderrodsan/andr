@@ -11,8 +11,8 @@ export default function ProjectSideInfo({ project, post, author }: any) {
   return (
     <aside className="w-full space-y-5">
       <SlugBreadcrumb title="projects" slug={post.slug} />
-      <div className="space-y-3 hidden md:block">
-        <div className="flex gap-2 items-center overflow-x-hidden">
+      <div className="space-y-3 hidden md:block w-full">
+        <div className="flex gap-2 items-center w-full">
           {/** Logo */}
           <Image
             alt="Logo"
@@ -21,7 +21,7 @@ export default function ProjectSideInfo({ project, post, author }: any) {
             height={100}
             className="h-8 w-8 rounded-lg"
           />
-          <p className="text-lg font-bold opacity-90 whitespace-nowrap line-clamp-1">
+          <p className="flex-1 text-lg font-bold opacity-90 line-clamp-1 w-full">
             {project?.title}
           </p>
         </div>

@@ -7,7 +7,11 @@ import { Separator } from "@/components/ui/separator";
 import ProjectFilters from "@/components/projects/project-filters";
 import { Project } from "@/lib/types";
 import AnimatedFirst from "@/components/framer-motion/animated-first";
-import { Section, SideContent } from "@/components/shared/side-layout";
+import {
+  MainContent,
+  Section,
+  SideContent,
+} from "@/components/shared/side-layout";
 import ProjectCardSkeleton from "@/components/skeleton/project-card-skeleton";
 
 export default function ProjectList({
@@ -29,7 +33,7 @@ export default function ProjectList({
         <ProjectFilters projects={filteredProjects} />
       </SideContent>
 
-      <div className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh]">
+      <MainContent className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh]">
         <AnimatedFirst className="text-3xl font-semibold pb-3">
           Projects
         </AnimatedFirst>
@@ -37,7 +41,7 @@ export default function ProjectList({
         <div className="pr-5 w-full block md:hidden">
           <ProjectSearch projects={filteredProjects} />
         </div>
-        <Separator className="mb-3" />
+        <Separator className="mb-5" />
         <div className="space-y-5 w-full">
           <Suspense fallback={<ProjectCardSkeleton />}>
             {filteredProjects?.length === 0 && (
@@ -51,7 +55,7 @@ export default function ProjectList({
             ))}
           </Suspense>
         </div>
-      </div>
+      </MainContent>
     </Section>
   );
 }

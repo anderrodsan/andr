@@ -1,6 +1,6 @@
 import React from "react";
 import { filterBySearchParams } from "@/lib/utils";
-import { bookmarks } from "@/db/bookmarks";
+import { bookmarks, options } from "@/db/bookmarks";
 import { Separator } from "@/components/ui/separator";
 import { Bookmark, Project } from "@/lib/types";
 import AnimatedFirst from "@/components/framer-motion/animated-first";
@@ -22,6 +22,32 @@ export default function ProjectList({
     filter: string | undefined;
   };
 }) {
+  //sort the bookmarks in order based on their category
+  function sortBookmarksByCategory(bookmarks, options) {
+    // Create a map of category names to an empty array
+    const categorizedBookmarks = options.reduce((acc, option) => {
+      acc[option.name] = [];
+      return acc;
+    }, {});
+
+    // Iterate over the bookmarks and push them to the corresponding category array
+    bookmarks.forEach((bookmark) => {
+      bookmark.tags.forEach((tag) => {
+        if (categorizedBookmarks[tag]) {
+          categorizedBookmarks[tag].push(bookmark);
+        }
+      });
+    });
+
+    // Flatten the categorized bookmarks into a single array in the order of the options
+    const sortedBookmarks = Object.values(categorizedBookmarks).flat();
+
+    return sortedBookmarks;
+  }
+
+  const sortedBookmarks = sortBookmarksByCategory(bookmarks, options);
+  console.log(sortedBookmarks);
+
   const filteredData = filterBySearchParams({
     searchParams,
     data: bookmarks,

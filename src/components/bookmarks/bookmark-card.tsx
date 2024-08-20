@@ -33,7 +33,7 @@ export default function BookmarkCard({
         </div>
       )}
       <Link href={bookmark.url} target="_blank">
-        <div className="group ml-6 px-3 py-3 rounded-xl hover:bg-muted transition duration-300 cursor-pointer flex gap-2 justify-between items-center">
+        <div className="group ml-6 px-3 py-3 rounded-xl hover:bg-muted/50 transition duration-300 cursor-pointer flex gap-2 justify-between items-center">
           <p className="text-sm">{bookmark.title}</p>
           <ExternalLink
             size={16}

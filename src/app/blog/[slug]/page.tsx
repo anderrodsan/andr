@@ -90,10 +90,10 @@ export default function Blog({ params }) {
           }),
         }}
       />
-      <SideContent className="pt-2 pr-5">
+      <SideContent className="pt-2">
         <BlogSideInfo post={post} author={author} />
       </SideContent>
-      <AnimatedFirst className="flex-1 max-w-[650px] pt-5">
+      <AnimatedFirst className="flex-1 max-w-[650px] pt-5 md:pl-5">
         <SlugBreadcrumb
           title={"blog"}
           slug={post.slug}
