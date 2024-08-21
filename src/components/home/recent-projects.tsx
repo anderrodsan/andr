@@ -8,6 +8,8 @@ import Animated from "../framer-motion/animated";
 import SectionHeader from "./section-header";
 
 export default function RecentProjects() {
+  const recentProjects = projects.slice(0, 4);
+
   return (
     <Animated className="flex flex-col items-center md:items-start space-y-5 py-10 border-b w-full">
       <SectionHeader
@@ -18,7 +20,7 @@ export default function RecentProjects() {
 
       {/** Project Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center gap-5">
-        {projects.map((project: Project, index: number) => (
+        {recentProjects.map((project: Project, index: number) => (
           <Link
             key={index}
             className="group cursor-pointer w-full max-w-60"
