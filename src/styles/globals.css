@@ -101,24 +101,28 @@
   }
 }
 
-@keyframes loading {
-  0% {
-    opacity: 0.8;
+@keyframes move2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5px, -5px);
+  }
+  50% {
+    transform: translate(-5px, 5px);
   }
   75% {
-    opacity: 0.3;
+    transform: translate(5px, 5px);
   }
-  100% {
-    opacity: 0.8;
-  }
-}
-
-.animate-loading {
-  animation: loading 1s infinite;
 }
 
 .animate-move {
   animation: move 4s infinite;
+}
+
+.animate-move-md {
+  animation: move2 7s infinite;
 }
 
 .card-gradient {

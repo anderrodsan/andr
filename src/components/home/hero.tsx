@@ -8,17 +8,20 @@ import Animated from "../framer-motion/animated";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import ParalaxItem from "../framer-motion/paralax";
+import ButtonTooltip from "../shared/button-tooltip";
+import { cn } from "@/lib/utils";
 
 export default function Hero() {
   return (
-    <Animated className="relative flex flex-col items-center gap-7 py-32 w-full bbg-gradient-to-b from-blue-500/10 via-transparent to-transparent rounded-xl mt-5 md:mt-0">
+    <Animated className="relative flex flex-col items-center gap-7 py-20 md:py-32 w-full bbg-gradient-to-b from-blue-500/10 via-transparent to-transparent rounded-xl mt-5 md:mt-0">
       <div className="flex items-center justify-center gap-1 z-10">
         <p className="text-2xl sm:text-3xl font-medium">👋 Hey, I'm</p>
         <div className="group cursor-pointer relative">
           <p className="text-2xl md:text-3xl font-medium group-hover:text-blue-600 transition duration-300 z-10">
             Ander!
           </p>
-          <div className="scale-0 group-hover:scale-100 transition-all absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[20%] group-hover:-translate-y-[110%] opacity-0 group-hover:opacity-100">
+          <div className="hidden md:block scale-0 group-hover:scale-100 transition-all absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[20%] group-hover:-translate-y-[110%] opacity-0 group-hover:opacity-100">
             <Avatar className="h-24 w-24 animate-move">
               <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
               <AvatarFallback>AN</AvatarFallback>
@@ -96,12 +99,94 @@ export default function Hero() {
       />
       <Link
         href="#tech"
-        className="absolute bottom-10 flex flex-col items-center text-sm opacity-30 hover:opacity-80 transition duration-300"
+        className="absolute bottom-5 md:bottom-10 flex flex-col items-center text-sm opacity-30 hover:opacity-80 transition duration-300"
       >
         <ChevronDown size={30} className="animate-bounce m-5" />
       </Link>
+
+      <FloatingIcons className="m-5" />
 
       <div id="tech" />
     </Animated>
   );
 }
+
+const FloatingIcons = ({ className }: { className?: string }) => {
+  const icons = [
+    {
+      svg: {
+        light: "expo",
+        dark: "expo-dark",
+      },
+      position: "top-4 md:top-20 md:left-10 left-0",
+      speed: 200,
+    },
+    {
+      svg: {
+        light: "react",
+        dark: "react",
+      },
+      position: "bottom-40 left-0",
+      speed: -900,
+    },
+    {
+      svg: {
+        light: "nextjs",
+        dark: "nextjs-dark",
+      },
+      position: "top-0 md:top-32 right-5 md:-right-20",
+      speed: -200,
+    },
+    {
+      svg: {
+        light: "tailwind",
+        dark: "tailwind",
+      },
+      position: "bottom-52 right-0",
+      speed: -700,
+    },
+  ];
+  return (
+    <>
+      {icons.map((icon, index) => (
+        <ParalaxItem
+          key={index}
+          speed={icon.speed}
+          className={cn(
+            "absolute opacity-70 group hover:opacity-100",
+            icon.position
+          )}
+        >
+          <ButtonTooltip title={icon.svg.light}>
+            <div className="">
+              <Image
+                alt="icon"
+                src={"/svg/" + icon.svg.light + ".svg"}
+                width={100}
+                height={100}
+                className={
+                  "w-8 md:w-10 animate-move-md dark:hidden hover:scale-110 transition-all"
+                }
+                style={{
+                  animationDelay: `${index * 400}ms`, // add a delay to each icon
+                }}
+              />
+              <Image
+                alt="icon"
+                src={"/svg/" + icon.svg.dark + ".svg"}
+                width={100}
+                height={100}
+                className={
+                  "w-8 md:w-10 animate-move-md hidden dark:block hover:scale-110 transition-all"
+                }
+                style={{
+                  animationDelay: `${index * 400}ms`, // add a delay to each icon
+                }}
+              />
+            </div>
+          </ButtonTooltip>
+        </ParalaxItem>
+      ))}
+    </>
+  );
+};
