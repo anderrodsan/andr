@@ -20,7 +20,7 @@ export default function BlogList({ posts, className }: Props) {
               className="group cursor-pointer md:w-full flex flex-col md:flex-row gap-2 md:gap-5"
               key={index}
             >
-              <div className="relative w-full md:w-[130px] aspect-[16/9] rounded-xl overflow-hidden border bg-slate-800">
+              <div className="relative w-full md:w-[130px] max-w-[500px] aspect-[16/9] rounded-xl overflow-hidden border bg-slate-800">
                 <Image
                   alt={""}
                   src={`https://andrs.vercel.app/api/og?title=${post.metadata.title}`}

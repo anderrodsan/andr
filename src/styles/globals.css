@@ -226,7 +226,8 @@ h3 {
 
 .prose h2,
 h3,
-h4 {
+h4,
+a {
   scroll-margin-top: 115px; /* Adjust the value as needed */
 }
 

@@ -50,7 +50,7 @@ export default function ProjectList({
 
   const filteredData = filterBySearchParams({
     searchParams,
-    data: bookmarks,
+    data: sortedBookmarks,
   });
 
   return (

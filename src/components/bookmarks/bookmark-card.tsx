@@ -20,14 +20,14 @@ export default function BookmarkCard({
       {index !== 0 ? (
         <div>
           {bookmark.tags[0] !== bookmarks[index - 1].tags[0] && (
-            <div className="flex items-center my-2 gap-2 p-3 border-b bg-muted rounded-xl">
+            <div className="flex items-center my-2 gap-2 p-3 border-b bg-secondary rounded-xl">
               {tag && <tag.icon size={16} />}
               <p className="text-sm font-bold">{bookmark.tags}</p>
             </div>
           )}
         </div>
       ) : (
-        <div className="flex items-center mb-2 gap-2 p-3 border-b bg-muted rounded-xl">
+        <div className="flex items-center mb-2 gap-2 p-3 border-b bg-secondary rounded-xl">
           {tag && <tag.icon size={16} />}
           <p className="text-sm font-bold">{bookmark.tags}</p>
         </div>

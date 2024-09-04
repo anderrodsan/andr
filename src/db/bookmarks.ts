@@ -26,6 +26,21 @@ export const bookmarks = [
     tags: ["UI Components"],
   },
   {
+    title: "Motion Primitives",
+    url: "https://motion-primitives.com/",
+    tags: ["UI Components"],
+  },
+  {
+    title: "Animata UI",
+    url: "https://animata.design/",
+    tags: ["UI Components"],
+  },
+  {
+    title: "Lukacho UI",
+    url: "https://ui.lukacho.com/components",
+    tags: ["UI Components"],
+  },
+  {
     title: "TailwindCSS",
     url: "https://tailwindcss.com/",
     tags: ["Docs"],
@@ -75,9 +90,19 @@ export const bookmarks = [
     url: "https://docs.swmansion.com/react-native-reanimated/",
     tags: ["Animations"],
   },
+  {
+    title: "SCRNSHTS",
+    url: "https://scrnshts.club/",
+    tags: ["Inspiration"],
+  },
+  {
+    title: "",
+    url: "",
+    tags: [""],
+  },
   /*
   {
-    name: "",
+    title: "",
     url: "",
     tags: [""],
   },

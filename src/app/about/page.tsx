@@ -21,7 +21,7 @@ export default function About() {
         <AnimatedFirst className="text-3xl font-semibold text-center md:text-start pb-3">
           About me
         </AnimatedFirst>
-        <Intro />
+
         <Bento />
         <TechStack />
         <Background />

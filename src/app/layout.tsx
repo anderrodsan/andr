@@ -81,7 +81,9 @@ export default function RootLayout({
             <main className="relative flex flex-col justify-start items-center min-h-[100dvh] bg-background w-full">
               <NavBar />
               <NextTopLoader />
-              <div className="flex-1 w-full md:pt-5">{children}</div>
+              <div className="flex-1 w-full md:pt-5 sm:p-5 md:px-0">
+                {children}
+              </div>
               <Footer />
             </main>
           </ThemeProvider>

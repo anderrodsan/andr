@@ -1,6 +1,8 @@
 import React from "react";
 import Animated from "../framer-motion/animated";
 import { projects } from "@/db/projects";
+import Counter from "../animata/text/counter";
+import { Plus } from "lucide-react";
 
 export default function Experience() {
   const experience = [
@@ -26,10 +28,15 @@ export default function Experience() {
             className="relative w-32 px-3 py-3 space-y-1 rounded-lg border"
           >
             <p className="text-sm opacity-70">{exp.name}</p>
-            <p className="text-3xl font-medium opacity-80">
-              {exp.plus ? "+ " : ""}
-              {exp.value}
-            </p>
+            <div className="flex gap items-center">
+              <p className="text-3xl font-medium opacity-80">
+                {exp.plus && <Plus size={25} />}
+              </p>
+              <Counter
+                targetValue={exp.value}
+                className="text-3xl font-medium"
+              />
+            </div>
           </div>
         ))}
       </div>

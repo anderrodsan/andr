@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MotionDiv } from "../framer-motion/motion-div";
 import ButtonTooltip from "../shared/button-tooltip";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 
 export default function Bento() {
   const attributes = [
@@ -34,6 +36,45 @@ export default function Bento() {
   return (
     <Animated className="flex flex-col items-center md:items-start pb-10 border-b">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 w-full">
+        <div className="flex flex-col md:flex-row gap-5 col-span-3">
+          <div className="rounded-lg border p-3 flex items-center justify-center">
+            <Avatar className="h-32 w-32">
+              <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
+              <AvatarFallback>AN</AvatarFallback>
+            </Avatar>
+          </div>
+          <div className="flex flex-col gap-5">
+            <div className="flex justify-between items-center gap-5 rounded-lg border p-3 text-center md:text-start">
+              <div className="">
+                <h1 className="text-xl font-bold">Ander Rodriguez</h1>
+                <h2 className="font-medium opacity-80">Full-Stack Developer</h2>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Link
+                  href={"https://github.com/anderrodsan"}
+                  target="_blank"
+                  className="group p-2 rounded-xl bg-secondary hover:opacity-100 opacity-70 transition-all"
+                >
+                  <IoLogoGithub size={18} className="group-hover:scale-110" />
+                </Link>
+                <Link
+                  href={"https://linkedin.com/in/anderrodsan"}
+                  target="_blank"
+                  className="group p-2 rounded-xl bg-secondary hover:opacity-100 opacity-70 transition-all"
+                >
+                  <IoLogoLinkedin size={18} className="group-hover:scale-110" />
+                </Link>
+              </div>
+            </div>
+            <div className="rounded-lg border p-3">
+              <p className="opacity-70 font-medium">
+                "I&apos;m a recent masters graduate in IT and business with a
+                bachelor in electronics engineering."
+              </p>
+            </div>
+          </div>
+        </div>
+
         {attributes.map((item: any, index: number) => (
           <div
             key={index}
@@ -48,6 +89,32 @@ export default function Bento() {
         ))}
         <Map />
         <Languages />
+        <div className="rounded-lg border p-3 col-span-3 space-y-2">
+          <p className="opacity-70 text-start">
+            I lived my whole life in Spain, where I was born, and my curiosity
+            to explore other cultures and countries has brought me to where I am
+            today: Copengagen. Here's where I completed my masters degree and I
+            would place it as one of the top decisions of my life.
+          </p>
+          <p className="opacity-70 text-start">
+            I see myself as a{" "}
+            <span className="font-bold">
+              "jack of all trades, with on the way to master in some"
+            </span>{" "}
+            due to my fast learning capabilities and a passion to learn. What I
+            love about technology, is that any problem can be solved in an
+            efficient and effective way. My creativity enables me to come up
+            with ideas and my coding and design skills enable me to bring ideas
+            to life. My entrepreneurial mindset can be followed in my SaaS
+            startup journey: DormHive.
+          </p>
+          <p className="opacity-70 text-start">
+            My hobbies include socializing with friends, panting, traveling,
+            football, many learning languages to connect with different people.
+            In my spare time, I write and produce songs that will be comming out
+            soon.
+          </p>
+        </div>
       </div>
     </Animated>
   );
@@ -71,11 +138,11 @@ const Map = () => {
           priority={false}
           //cover and place image in center
           style={{ objectFit: "cover", objectPosition: "center" }}
-          className="group-hover:scale-110 transition duration-300"
+          className="group-hover:scale-125 transition duration-300"
         />
         {/** Dot on the map */}
         <div className="group-hover:-translate-y-2 transition duration-300">
-          <div className="absolute top-10 md:top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 rounded-full border border-blue-500 shadow-lg shadow-blue-800 group-hover:scale-[2.2] transition duration-700 opacity-50" />
+          <div className="absolute top-10 md:top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 rounded-full border border-blue-500 shadow-xl shadow-blue-800 group-hover:scale-[2.5] transition duration-700 opacity-50" />
           <div className="absolute top-10 md:top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full bg-white shadow-md shadow-blue-500" />
           <div className="absolute top-10 md:top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-blue-500" />
         </div>
