@@ -64,6 +64,11 @@ export default function RootLayout({
         />
       </Head>
       <html lang="en">
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="599262e3-cda4-40fc-bec2-5d7febf4e524"
+        />
         <body className={`${inter.className} antialiased`}>
           <ThemeProvider
             attribute="class"
