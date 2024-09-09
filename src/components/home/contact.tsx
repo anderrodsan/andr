@@ -8,7 +8,7 @@ import Noise from "../shared/noise";
 
 export default function Contact() {
   return (
-    <div className="pt-10">
+    <div className="py-10">
       <Animated className="relative rounded-xl text-white w-full overflow-hidden animate-move">
         <div className="flex flex-col items-center p-10">
           <h1 className="text-2xl md:text-3xl font-semibold z-20">Hire me</h1>

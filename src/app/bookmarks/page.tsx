@@ -46,7 +46,7 @@ export default function ProjectList({
   }
 
   const sortedBookmarks = sortBookmarksByCategory(bookmarks, options);
-  console.log(sortedBookmarks);
+  //console.log(sortedBookmarks);
 
   const filteredData = filterBySearchParams({
     searchParams,
@@ -59,7 +59,7 @@ export default function ProjectList({
         <BookmarkFilters bookmarks={bookmarks} />
       </SideContent>
 
-      <MainContent>
+      <MainContent className="">
         <AnimatedFirst className="text-3xl font-semibold pb-3">
           Bookmarks
         </AnimatedFirst>

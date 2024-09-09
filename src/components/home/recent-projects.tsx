@@ -11,7 +11,7 @@ export default function RecentProjects() {
   const recentProjects = projects.slice(0, 4);
 
   return (
-    <Animated className="flex flex-col items-center md:items-start space-y-5 py-10 border-b w-full">
+    <Animated className="flex flex-col items-center md:items-start space-y-5 pb-10 border-b w-full">
       <SectionHeader
         title={"Recent Projects"}
         text={"Check out some of my projects"}

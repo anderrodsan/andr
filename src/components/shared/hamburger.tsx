@@ -17,7 +17,16 @@ import { usePathname, useRouter } from "next/navigation";
 import { ModeToggle } from "../ui/mode-toggle";
 import { useEffect } from "react";
 import { IoLogoGithub } from "react-icons/io5";
-import { Bookmark, BookText, Code, Home, Info, MenuIcon } from "lucide-react";
+import {
+  Bookmark,
+  BookText,
+  Code,
+  Home,
+  Info,
+  MenuIcon,
+  QrCode,
+} from "lucide-react";
+import ShareCard from "./share-card";
 
 const paths = [
   {
@@ -67,7 +76,7 @@ export function Hamburger({
         <MenuIcon onClick={() => setOpen(!open)} className="cursor-pointer" />
       </SheetTrigger>
       <SheetContent>
-        <div className="flex flex-col justify-between relative pl-3 pr-14 w-full h-full">
+        <div className="flex flex-col justify-between relative pl-3 w-full h-full">
           <div className="flex justify-between items-center pb-5">
             <h1 className="flex-1 text-2xl font-bold">&R</h1>
           </div>
@@ -92,7 +101,19 @@ export function Hamburger({
             ))}
           </div>
           <div className="space-y-5 flex flex-col w-full">
-            <ModeToggle />
+            <div className="flex gap-2">
+              <ModeToggle />
+              <ShareCard>
+                <Button
+                  variant={"outline"}
+                  size={"icon"}
+                  className="rounded-lg"
+                >
+                  <QrCode size={20} />
+                </Button>
+              </ShareCard>
+            </div>
+
             <Link href={"https://github.com/anderrodsan/andr"} target="_blank">
               <Button variant={"outline"} className="rounded-lg">
                 <div className="flex gap-2 items-center opacity-80">

@@ -34,10 +34,14 @@ export default function NavBar() {
       name: "Blog",
       path: "/blog",
     },
+    {
+      name: "Bookmarks",
+      path: "/bookmarks",
+    },
   ];
 
   return (
-    <nav className="sticky top-0 z-20 w-full py-3 flex justify-between xl:grid xl:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 sm:px-10 md:px-10 lg:px-32 shadow-sm">
+    <nav className="sticky top-0 z-20 w-full py-4 md:py-3 flex justify-between xl:grid xl:grid-cols-3 gap-2 items-center bg-white/50 dark:bg-black/50 backdrop-blur-md px-5 sm:px-10 md:px-10 lg:px-32 shadow-sm">
       <Link href={"/"} className="flex-1 flex group text-2xl font-bold w-full">
         <p className="group-hover:scale-110 group-hover:-rotate-2 transition duration-300">
           &R
@@ -57,62 +61,15 @@ export default function NavBar() {
         ))}
       </ul>
       <div className="hidden md:flex justify-end gap-5 items-center pl-5">
-        <div className="flex gap-2">
-          <ButtonTooltip title="Bookmarks">
-            <Link href={"/bookmarks"}>
-              <Button variant={"outline"} size={"icon"} className="rounded-lg">
-                <Bookmark
-                  size={20}
-                  className="group-hover:scale-110 transition duration-300"
-                />
-              </Button>
-            </Link>
-          </ButtonTooltip>
-
-          <ShareCard>
-            <Button variant={"outline"} size={"icon"} className="rounded-lg">
-              <QrCode size={20} />
-            </Button>
-          </ShareCard>
-
-          <ButtonTooltip title="Source code">
-            <Link href={"https://github.com/anderrodsan/andr"} target="_blank">
-              <Button variant={"outline"} size={"icon"} className="rounded-lg">
-                <IoLogoGithub
-                  size={20}
-                  className="group-hover:scale-110 transition duration-300"
-                />
-              </Button>
-            </Link>
-          </ButtonTooltip>
-
-          <ButtonTooltip title="LinkedIn">
-            <Link href={"https://linkedin.com/in/anderrodsan"}>
-              <Button variant={"outline"} size={"icon"} className="rounded-lg">
-                <FaLinkedin
-                  size={20}
-                  className="group-hover:scale-110 transition duration-300"
-                />
-              </Button>
-            </Link>
-          </ButtonTooltip>
-
-          <ButtonTooltip title="Theme">
-            <ModeToggle />
-          </ButtonTooltip>
-        </div>
-
+        <ButtonTooltip title="Theme">
+          <ModeToggle />
+        </ButtonTooltip>
         <BookMeeting
           title="Hire Me"
           className="bg-black dark:bg-white hover:bg-muted-foreground"
         />
       </div>
       <div className="flex md:hidden justify-end items-center gap-2">
-        <ShareCard>
-          <Button variant={"outline"} size={"icon"} className="rounded-lg">
-            <QrCode size={20} />
-          </Button>
-        </ShareCard>
         <Hamburger open={open} setOpen={setOpen} />
       </div>
     </nav>

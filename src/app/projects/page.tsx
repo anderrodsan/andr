@@ -33,7 +33,7 @@ export default function ProjectList({
         <ProjectFilters projects={filteredProjects} />
       </SideContent>
 
-      <MainContent className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh]">
+      <MainContent className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh] max-w-[1000px]">
         <AnimatedFirst className="text-3xl font-semibold pb-3">
           Projects
         </AnimatedFirst>

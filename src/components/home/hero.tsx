@@ -17,7 +17,7 @@ export default function Hero() {
     <Animated className="relative flex flex-col items-center gap-7 py-20 md:py-32 w-full bbg-gradient-to-b from-blue-500/10 via-transparent to-transparent rounded-xl mt-5 md:mt-0">
       <div className="flex items-center justify-center gap-1 z-10">
         <p className="text-2xl sm:text-3xl font-medium">👋 Hey, I'm</p>
-        <div className="group cursor-pointer relative">
+        <Link href={"/about"} className="group cursor-pointer relative">
           <p className="text-2xl md:text-3xl font-medium group-hover:text-blue-600 transition duration-300 z-10">
             Ander!
           </p>
@@ -27,48 +27,53 @@ export default function Hero() {
               <AvatarFallback>AN</AvatarFallback>
             </Avatar>
           </div>
-        </div>
+        </Link>
       </div>
       <h1 className="text-4xl sm:text-6xl font-semibold max-w-[65ch] text-center">
         Building{" "}
         <span className="relative group ">
-          <p className="bg-gradient-to-b from-blue-800 to-blue-500 inline-block text-transparent bg-clip-text group-hover:opacity-80 transition-all">
-            websites
-          </p>
-          <Image
-            alt="wordwise"
-            src="/projects/dormhive-dash/cover.png"
-            width={100}
-            height={100}
-            className="hidden md:block absolute -bottom-0 right-0 translate-x-[50%] opacity-0 group-hover:opacity-100 translate-y-[20%] group-hover:-translate-y-[20%] rotate-[25deg] group-hover:rotate-0 transition duration-500 rounded-xl z-20 shadow-xl"
-          />
-          <Image
-            alt="wordwise"
-            src="/projects/youmap/cover.png"
-            width={100}
-            height={100}
-            className="hidden md:block absolute -bottom-0 right-0  opacity-0 group-hover:opacity-100 -translate-y-[20%] group-hover:-translate-y-[10%] translate-x-[50%] group-hover:translate-x-[70%] rotate-0 group-hover:rotate-[20deg] transition duration-500 delay-200 rounded-xl z-20 shadow-xl"
-          />
+          <Link href={"/projects?filter=Website"} className="cursor-pointer">
+            <p className="bg-gradient-to-b from-blue-800 to-blue-500 inline-block text-transparent bg-clip-text group-hover:opacity-80 transition-all">
+              websites
+            </p>
+
+            <Image
+              alt="wordwise"
+              src="/projects/dormhive-dash/cover.png"
+              width={100}
+              height={100}
+              className="hidden md:block absolute -bottom-0 right-0 translate-x-[50%] opacity-0 group-hover:opacity-100 translate-y-[20%] group-hover:-translate-y-[20%] rotate-[25deg] group-hover:rotate-0 transition duration-500 rounded-xl z-10 shadow-xl"
+            />
+            <Image
+              alt="wordwise"
+              src="/projects/youmap/cover.png"
+              width={100}
+              height={100}
+              className="hidden md:block absolute -bottom-0 right-0  opacity-0 group-hover:opacity-100 -translate-y-[20%] group-hover:-translate-y-[10%] translate-x-[50%] group-hover:translate-x-[70%] rotate-0 group-hover:rotate-[20deg] transition duration-500 delay-200 rounded-xl z-10 shadow-xl"
+            />
+          </Link>
         </span>
         <br></br> and{" "}
         <span className="relative group ">
-          <p className="bg-gradient-to-b from-blue-800 to-blue-500 inline-block text-transparent bg-clip-text group-hover:opacity-80 transition-all">
-            native apps.
-          </p>
-          <Image
-            alt="wordwise"
-            src="/projects/dormhive-app/cover.png"
-            width={100}
-            height={100}
-            className="hidden md:block absolute -bottom-0 right-0 translate-x-[50%] opacity-0 group-hover:opacity-100 translate-y-[20%] group-hover:-translate-y-[20%] rotate-[25deg] group-hover:rotate-0 transition duration-300 rounded-xl z-20 shadow-xl"
-          />
-          <Image
-            alt="wordwise"
-            src="/projects/wordwise/cover.png"
-            width={100}
-            height={100}
-            className="hidden md:block absolute -bottom-0 right-0 opacity-0 group-hover:opacity-100 translate-y-[20%] group-hover:-translate-y-[10%] translate-x-[70%] rotate-0 group-hover:rotate-[20deg] transition duration-300 delay-200 rounded-xl z-20 shadow-xl"
-          />
+          <Link href={"/projects?filter=Mobile+App"} className="cursor-pointer">
+            <p className="bg-gradient-to-b from-blue-800 to-blue-500 inline-block text-transparent bg-clip-text group-hover:opacity-80 transition-all">
+              native apps.
+            </p>
+            <Image
+              alt="wordwise"
+              src="/projects/dormhive-app/cover.png"
+              width={100}
+              height={100}
+              className="hidden md:block absolute -bottom-0 right-0 translate-x-[50%] opacity-0 group-hover:opacity-100 translate-y-[20%] group-hover:-translate-y-[20%] rotate-[25deg] group-hover:rotate-0 transition duration-300 rounded-xl z-10 shadow-xl"
+            />
+            <Image
+              alt="wordwise"
+              src="/projects/wordwise/cover.png"
+              width={100}
+              height={100}
+              className="hidden md:block absolute -bottom-0 right-0 opacity-0 group-hover:opacity-100 translate-y-[20%] group-hover:-translate-y-[10%] translate-x-[70%] rotate-0 group-hover:rotate-[20deg] transition duration-300 delay-200 rounded-xl z-10 shadow-xl"
+            />
+          </Link>
         </span>
       </h1>
       <p
@@ -118,7 +123,7 @@ const FloatingIcons = ({ className }: { className?: string }) => {
         light: "expo",
         dark: "expo-dark",
       },
-      position: "top-4 md:top-20 md:left-10 left-0",
+      position: "top-6 md:top-20 md:left-10 left-2",
       speed: 200,
     },
     {
@@ -126,7 +131,7 @@ const FloatingIcons = ({ className }: { className?: string }) => {
         light: "react",
         dark: "react",
       },
-      position: "bottom-40 left-0",
+      position: "bottom-36 left-3",
       speed: -900,
     },
     {
@@ -134,7 +139,7 @@ const FloatingIcons = ({ className }: { className?: string }) => {
         light: "nextjs",
         dark: "nextjs-dark",
       },
-      position: "top-0 md:top-32 right-5 md:-right-20",
+      position: "top-8 md:top-32 right-3 md:-right-20",
       speed: -200,
     },
     {
@@ -142,8 +147,16 @@ const FloatingIcons = ({ className }: { className?: string }) => {
         light: "tailwind",
         dark: "tailwind",
       },
-      position: "bottom-52 right-0",
+      position: "bottom-32 md:bottom-48 right-7",
       speed: -700,
+    },
+    {
+      svg: {
+        light: "supabase",
+        dark: "supabase",
+      },
+      position: "top-4 md:top-10 right-1/2 md:right-[20%]",
+      speed: 500,
     },
   ];
   return (
