@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: "Building websites and native apps.",
     images: [
       {
-        url: "https://andrs.vercel.app/og-image.png",
+        url: "https://andrs.vercel.app/opengraph-image.png",
         alt: "&R Portfolio",
         width: 1200,
         height: 630,
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: "Building websites and native apps.",
     images: [
       {
-        url: "https://andrs.vercel.app/og-image.png",
+        url: "https://andrs.vercel.app/opengraph-image.png",
         alt: "&R Portfolio",
         width: 1200,
         height: 630,

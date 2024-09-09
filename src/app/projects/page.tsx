@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: "Showcase of my latest projects using Nextjs, Expo, etc.",
     images: [
       {
-        url: "https://andrs.vercel.app/og-image-projects.png",
+        url: "https://andrs.vercel.app/projects/opengraph-image.png",
         alt: "&R Projects",
         width: 1200,
         height: 630,
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
     description: "Showcase of my latest projects using Nextjs, Expo, etc.",
     images: [
       {
-        url: "https://andrs.vercel.app/og-image-projects.png",
-        alt: "&R Portfolio",
+        url: "https://andrs.vercel.app/projects/opengraph-image.png",
+        alt: "&R Projects",
         width: 1200,
         height: 630,
       },
