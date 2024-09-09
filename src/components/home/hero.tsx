@@ -11,6 +11,7 @@ import { ChevronDown } from "lucide-react";
 import ParalaxItem from "../framer-motion/paralax";
 import ButtonTooltip from "../shared/button-tooltip";
 import { cn } from "@/lib/utils";
+import { MotionDiv } from "../framer-motion/motion-div";
 
 export default function Hero() {
   return (
@@ -128,27 +129,11 @@ const FloatingIcons = ({ className }: { className?: string }) => {
     },
     {
       svg: {
-        light: "react",
-        dark: "react",
-      },
-      position: "bottom-36 left-3",
-      speed: -900,
-    },
-    {
-      svg: {
         light: "nextjs",
         dark: "nextjs-dark",
       },
       position: "top-8 md:top-32 right-3 md:-right-20",
       speed: -200,
-    },
-    {
-      svg: {
-        light: "tailwind",
-        dark: "tailwind",
-      },
-      position: "bottom-32 md:bottom-48 right-7",
-      speed: -700,
     },
     {
       svg: {
@@ -158,6 +143,22 @@ const FloatingIcons = ({ className }: { className?: string }) => {
       position: "top-4 md:top-10 right-1/2 md:right-[20%]",
       speed: 500,
     },
+    {
+      svg: {
+        light: "react",
+        dark: "react",
+      },
+      position: "bottom-36 left-3",
+      speed: -900,
+    },
+    {
+      svg: {
+        light: "tailwind",
+        dark: "tailwind",
+      },
+      position: "bottom-32 md:bottom-48 right-7",
+      speed: -700,
+    },
   ];
   return (
     <>
@@ -165,13 +166,18 @@ const FloatingIcons = ({ className }: { className?: string }) => {
         <ParalaxItem
           key={index}
           speed={icon.speed}
-          className={cn(
-            "absolute opacity-70 group hover:opacity-100",
-            icon.position
-          )}
+          className={cn("absolute", icon.position)}
         >
           <ButtonTooltip title={icon.svg.light}>
-            <div className="">
+            <MotionDiv
+              initial={{ opacity: 0.2, y: 50 }}
+              animate={{ opacity: 0.8, y: 0 }}
+              transition={{
+                duration: 1,
+                delay: index * 0.1,
+              }}
+              className="hover:opacity-100"
+            >
               <Image
                 alt="icon"
                 src={"/svg/" + icon.svg.light + ".svg"}
@@ -196,7 +202,7 @@ const FloatingIcons = ({ className }: { className?: string }) => {
                   animationDelay: `${index * 400}ms`, // add a delay to each icon
                 }}
               />
-            </div>
+            </MotionDiv>
           </ButtonTooltip>
         </ParalaxItem>
       ))}

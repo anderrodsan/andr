@@ -13,6 +13,45 @@ import {
   SideContent,
 } from "@/components/shared/side-layout";
 import ProjectCardSkeleton from "@/components/skeleton/project-card-skeleton";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://andrs.vercel.app/projects"),
+  title: "&R Projects",
+  description: "Showcase of my latest projects using Nextjs, Expo, etc.",
+  openGraph: {
+    type: "website",
+    url: "https://andrs.vercel.app/projects",
+    title: "&R Projects",
+    description: "Showcase of my latest projects using Nextjs, Expo, etc.",
+    images: [
+      {
+        url: "https://andrs.vercel.app/og-image-projects.png",
+        alt: "&R Projects",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@anderrodsan",
+    site: "@anderrodsan",
+    title: "&R Projects",
+    description: "Showcase of my latest projects using Nextjs, Expo, etc.",
+    images: [
+      {
+        url: "https://andrs.vercel.app/og-image-projects.png",
+        alt: "&R Portfolio",
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  icons: {
+    icon: "/icon.ico",
+  },
+};
 
 export default function ProjectList({
   searchParams,
