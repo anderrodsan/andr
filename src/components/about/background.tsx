@@ -7,16 +7,23 @@ import Link from "next/link";
 import { experience } from "@/db/experience";
 import { BriefcaseBusiness, ExternalLink, GraduationCap } from "lucide-react";
 import Animated from "../framer-motion/animated";
+import SlideAnimation from "../framer-motion/slide-animation";
 
 export default function Background() {
   return (
-    <Animated className="flex flex-col items-center md:items-start py-10 border-b">
-      <h1 className="text-2xl md:text-3xl font-semibold">Background</h1>
+    <section className="flex flex-col items-center md:items-start py-10 border-b">
+      <Animated className="text-2xl md:text-3xl font-semibold">
+        Background
+      </Animated>
       <p className="opacity-70 text-sm pt-1 pb-5"></p>
       {/** Education & Job blocks */}
       <div className="flex flex-col space-y-3 ml-5 border-l-2">
         {experience.map((exp: Experience, index: number) => (
-          <div className={`relative space-y-2 w-full pl-10`} key={index}>
+          <SlideAnimation
+            direction="left"
+            className={`relative space-y-2 w-full pl-10`}
+            key={index}
+          >
             <div className="text-sm opacity-90 pt-2">{exp.date}</div>
             <div className="w-full flex flex-col items-center md:items-start p-3 rounded-xl border hover:bg-secondary/40 dark:hover:bg-slate-800 hover:scale-105 cursor-pointer transition duration-300 group">
               <Link
@@ -64,9 +71,9 @@ export default function Background() {
                 )}
               </div>
             </div>
-          </div>
+          </SlideAnimation>
         ))}
       </div>
-    </Animated>
+    </section>
   );
 }

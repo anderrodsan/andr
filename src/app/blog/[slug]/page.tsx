@@ -107,7 +107,7 @@ export default function Blog({ params }) {
         <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3 max-w-[650px]">
           <CustomMDX source={post.content} />
         </article>
-        <div className="py-10 border-t space-y-5 w-full">
+        <div className="py-10 border-t space-y-5 max-w-[650px]">
           <h2 className="text-3xl font-bold">Other Posts</h2>
           <BlogList posts={otherPosts} className="" />
         </div>

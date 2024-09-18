@@ -8,9 +8,7 @@ import {
   languages,
   tools,
 } from "@/db/frameworks";
-import { Framework } from "@/lib/types";
 import Animated from "../framer-motion/animated";
-import Link from "next/link";
 import TechStackCards from "./tech-stack-cards";
 
 export default function TechStack() {
@@ -26,15 +24,34 @@ export default function TechStack() {
           data={frontend}
           title="Frontend"
           className="col-span-2"
+          delay={0.2}
+          direction="right"
         />
-        <TechStackCards data={backend} title="Backend" className="col-span-1" />
+        <TechStackCards
+          data={backend}
+          title="Backend"
+          className="col-span-1"
+          delay={0.2}
+          direction="left"
+        />
         <TechStackCards
           data={languages}
           title="Languages"
           className="col-span-1"
+          delay={0.2}
         />
-        <TechStackCards data={devops} title="DevOps" className="col-span-1" />
-        <TechStackCards data={tools} title="Tools" className="col-span-1" />
+        <TechStackCards
+          data={devops}
+          title="DevOps"
+          className="col-span-1"
+          delay={0.2}
+        />
+        <TechStackCards
+          data={tools}
+          title="Tools"
+          className="col-span-1"
+          delay={0.2}
+        />
       </div>
     </Animated>
   );

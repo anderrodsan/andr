@@ -52,8 +52,8 @@ export default function NavBar() {
           <Link
             key={index}
             href={link.path}
-            className={`px-3 py-2 rounded-lg hover:bg-muted font-semibold whitespace-nowrap ${
-              path === link.path && "bg-secondary "
+            className={`px-3 py-2 hover:underline underline-offset-4 font-semibold whitespace-nowrap transition-all ${
+              path === link.path && "underline font-bold"
             }`}
           >
             {link.name}

@@ -32,11 +32,11 @@ export function SideContent({
   return (
     <AnimatedFirst
       className={cn(
-        "hidden md:block sticky md:top-28 md:h-[85dvh] md:w-64 md:border-r pr-10",
+        "hidden md:block sticky md:top-28 md:h-[85dvh] md:w-[260px] md:border-r",
         className
       )}
     >
-      <ScrollArea className="h-full">{children}</ScrollArea>
+      <ScrollArea className="h-full w-full pr-10">{children}</ScrollArea>
     </AnimatedFirst>
   );
 }

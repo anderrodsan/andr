@@ -18,6 +18,7 @@ import { Section, SideContent } from "@/components/shared/side-layout";
 import { Suspense } from "react";
 import PostHeaderSkeleton from "@/components/skeleton/post-header-skeleton";
 import SlugBreadcrumb from "@/components/shared/breadcrumb";
+import ProjectList from "@/components/projects/project-list";
 
 export async function generateMetadata({
   params,
@@ -72,6 +73,9 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
   //find the project with the same title as the prop
   const project = projects?.find((project) => project.id === params.slug);
+  //exlude the project for the otherposts
+  const otherPosts = projects?.filter((project) => project.id !== params.slug);
+
   //find the project authors in users.ts
   const author = users?.find((user) => user.username === project?.author);
 
@@ -101,10 +105,10 @@ export default function Blog({ params }: { params: { slug: string } }) {
           }),
         }}
       />
-      <SideContent className="pr-5 pt-2">
+      <SideContent className="pt-2">
         <ProjectSideInfo project={project} post={post} author={author} />
       </SideContent>
-      <AnimatedFirst className="flex-1 pt-5">
+      <AnimatedFirst className="flex-1 pt-5 md:pl-5">
         <SlugBreadcrumb
           title={"projects"}
           slug={post.slug}
@@ -126,6 +130,10 @@ export default function Blog({ params }: { params: { slug: string } }) {
         <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3 max-w-[650px]">
           <CustomMDX source={post.content} />
         </article>
+        <div className="py-10 border-t space-y-5 max-w-[650px]">
+          <h2 className="text-3xl font-bold">Other Posts</h2>
+          <ProjectList projects={otherPosts} className="" />
+        </div>
       </AnimatedFirst>
     </Section>
   );

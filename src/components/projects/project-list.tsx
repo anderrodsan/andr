@@ -1,79 +1,62 @@
 import React from "react";
-import ProjectDetails from "./ProjectDetails";
-import { title } from "process";
-import ProjectSideBar from "./ProjectSideBar";
-import ProjectSearch from "./ProjectSearch";
-import { filterProducts } from "@/lib/filter";
+import Link from "next/link";
+import Image from "next/image";
+import SlideAnimation from "../framer-motion/slide-animation";
+import { Project } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
-export default function ProjectList({
-  searchParams,
-}: {
-  searchParams: { search: string | undefined };
-}) {
-  const projects = [
-    {
-      title: "WordWise",
-      description:
-        "An app to translate words and keep track of the new vobaculary, with an integrated flashcards functionality for an efficient practice.",
-      logo: "/logos/wordwise.png",
-      images: {
-        count: 6,
-        path: "/projects/wordwise/screen",
-      },
-      tags: ["Mobile App", "Expo", "React Native", "JavaScript", "TailwindCSS"],
-    },
-    {
-      title: "DormHive App",
-      description:
-        "An alternative solution to facebook tailored to tenants living in dormitories",
-      logo: "/logos/dormhive.png",
-      images: {
-        count: 6,
-        path: "/projects/dormhive-app/screen",
-      },
-      tags: ["Mobile App", "Expo", "React Native", "Supabase", "TailwindCSS"],
-    },
-    {
-      title: "DormHive Dashboard",
-      description:
-        "An alternative solution to facebook tailored to tenants living in dormitories",
-      logo: "/logos/dormhive.png",
-      images: {
-        count: 3,
-        path: "/projects/dormhive-dash/screen",
-      },
-      tags: [
-        "Website",
-        "NextJS",
-        "React Native",
-        "TypeScript",
-        "Supabase",
-        "TailwindCSS",
-      ],
-    },
-  ];
-
-  const filteredProjects = filterProducts({
-    searchParams,
-    data: projects,
-  });
-
+type Props = {
+  projects: Project[];
+  className?: string;
+};
+export default function ProjectList({ projects, className }: Props) {
   return (
-    <div className="relative flex items-start justify-start gap-5">
-      <ProjectSideBar />
-      <div className="pt-6 flex flex-col w-full pb-20 overflow-y-scroll">
-        <p className="text-3xl font-bold pb-3">Projects</p>
-        <div className="pr-5 pb-5 w-full lg:w-1/2">
-          <ProjectSearch />
-        </div>
-        <div className="space-y-5">
-          {filteredProjects.map((project: any, index: number) => (
-            <div key={index} className="">
-              <ProjectDetails project={project} />
+    <div
+      className={cn(
+        "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center gap-5",
+        className
+      )}
+    >
+      {projects.map((project: Project, index: number) => (
+        <SlideAnimation
+          key={index}
+          delay={index * 0.1}
+          className="w-full max-w-60"
+        >
+          <Link
+            key={index}
+            className="group cursor-pointer"
+            href={`/projects/${project.id}`}
+          >
+            <div className="relative overflow-hidden bg-secondary w-full aspect-square rounded-lg">
+              <Image
+                src={`/projects/${project.id}/cover.png`}
+                alt="Image"
+                fill
+                sizes="(50vw, 50vh)"
+                style={{ objectFit: "cover", objectPosition: "start" }}
+                className="group-hover:scale-110 group-hover:-translate-y-2 group-hover:-rotate-2 transition duration-300"
+              />
             </div>
-          ))}
-        </div>
-      </div>
+            <div className="py-2 flex gap-2">
+              {/** Logo */}
+              <Image
+                alt="Logo"
+                src={project?.logo}
+                width={100}
+                height={100}
+                className="bg-white h-7 w-7 rounded-lg mt-2"
+              />
+              <div className="pt-1">
+                <h2 className="font-semibold line-clamp-1">{project.title}</h2>
+                <p className="line-clamp-1 text-sm opacity-80">
+                  {project.description}
+                </p>
+              </div>
+            </div>
+          </Link>
+        </SlideAnimation>
+      ))}
     </div>
   );
 }

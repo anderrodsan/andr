@@ -8,6 +8,7 @@ import { MotionDiv } from "../framer-motion/motion-div";
 import ButtonTooltip from "../shared/button-tooltip";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
+import SlideAnimation from "../framer-motion/slide-animation";
 
 export default function Bento() {
   const attributes = [
@@ -34,17 +35,25 @@ export default function Bento() {
   }
 
   return (
-    <Animated className="flex flex-col items-center md:items-start pb-10 border-b">
+    <section className="flex flex-col items-center md:items-start pb-10 border-b">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 w-full">
         <div className="flex flex-col md:flex-row gap-5 col-span-3">
-          <div className="rounded-lg border p-3 flex items-center justify-center">
+          <SlideAnimation
+            direction="down"
+            delay={0.2}
+            className="rounded-lg border p-3 flex items-center justify-center"
+          >
             <Avatar className="h-32 w-32">
               <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
               <AvatarFallback>AN</AvatarFallback>
             </Avatar>
-          </div>
+          </SlideAnimation>
           <div className="flex flex-col gap-5">
-            <div className="flex justify-between items-center gap-5 rounded-lg border p-3 text-center md:text-start">
+            <SlideAnimation
+              direction="left"
+              delay={0.3}
+              className="flex justify-between items-center gap-5 rounded-lg border p-3 text-center md:text-start"
+            >
               <div className="">
                 <h1 className="text-xl font-bold">Ander Rodriguez</h1>
                 <h2 className="font-medium opacity-80">Full-Stack Developer</h2>
@@ -65,19 +74,25 @@ export default function Bento() {
                   <IoLogoLinkedin size={18} className="group-hover:scale-110" />
                 </Link>
               </div>
-            </div>
-            <div className="rounded-lg border p-3">
+            </SlideAnimation>
+            <SlideAnimation
+              direction="left"
+              delay={0.3}
+              className="rounded-lg border p-3"
+            >
               <p className="opacity-70 font-medium">
                 "I&apos;m a recent masters graduate in IT and business with a
                 bachelor in electronics engineering."
               </p>
-            </div>
+            </SlideAnimation>
           </div>
         </div>
 
         {attributes.map((item: any, index: number) => (
-          <div
+          <SlideAnimation
             key={index}
+            direction="right"
+            delay={0.2}
             className={"relative w-full px-3 py-3 space-y-1 rounded-lg border"}
           >
             <div className="flex gap-2 items-center">
@@ -85,11 +100,15 @@ export default function Bento() {
               <p className="text-sm opacity-70">{item.title}</p>
             </div>
             <p className="font-medium opacity-80">{item.value}</p>
-          </div>
+          </SlideAnimation>
         ))}
         <Map />
         <Languages />
-        <div className="rounded-lg border p-3 col-span-3 space-y-2">
+        <SlideAnimation
+          direction="up"
+          delay={0.4}
+          className="rounded-lg border p-3 col-span-3 space-y-2"
+        >
           <p className="opacity-70 text-start">
             I lived my whole life in Spain, where I was born, and my curiosity
             to explore other cultures and countries has brought me to where I am
@@ -114,9 +133,9 @@ export default function Bento() {
             In my spare time, I write and produce songs that will be comming out
             soon.
           </p>
-        </div>
+        </SlideAnimation>
       </div>
-    </Animated>
+    </section>
   );
 }
 
@@ -127,8 +146,11 @@ const Map = () => {
       href="https://www.google.com/maps/place/Copenhaguen,+Dinamarca/@55.6712398,12.5114238,12z/data=!3m1!4b1!4m6!3m5!1s0x4652533c5c803d23:0x4dd7edde69467b8!8m2!3d55.6760968!4d12.5683372!16zL20vMDFsZnk?entry=ttu"
       className="h-40 md:h-full col-span-2 md:col-span-1 md:row-span-2"
     >
-      {" "}
-      <div className="relative group w-full h-full bg-secondary rounded-lg overflow-hidden cursor-pointer">
+      <SlideAnimation
+        direction="left"
+        delay={0.2}
+        className="relative group w-full h-full bg-secondary rounded-lg overflow-hidden cursor-pointer"
+      >
         <Image
           src={"/images/map-cph.png"}
           alt="Map"
@@ -150,7 +172,7 @@ const Map = () => {
         <p className="absolute bottom-2 left-2 p-2 rounded-lg bg-white dark:bg-black text-xs font-medium shadow shadow-slate-300">
           Copenhagen, Denmark
         </p>
-      </div>
+      </SlideAnimation>
     </Link>
   );
 };
@@ -184,7 +206,9 @@ const Languages = () => {
     },
   ];
   return (
-    <div
+    <SlideAnimation
+      direction="up"
+      delay={0.2}
       className={
         "relative col-span-2 w-full px-3 py-3 space-y-3 rounded-lg border"
       }
@@ -208,6 +232,6 @@ const Languages = () => {
           </ButtonTooltip>
         ))}
       </div>
-    </div>
+    </SlideAnimation>
   );
 };

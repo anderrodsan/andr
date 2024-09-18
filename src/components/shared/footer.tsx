@@ -1,6 +1,13 @@
 "use client";
 
-import { ClipboardCheck, Copyright, Mail } from "lucide-react";
+import {
+  Check,
+  ClipboardCheck,
+  ClipboardCopy,
+  Copy,
+  Copyright,
+  Mail,
+} from "lucide-react";
 import React from "react";
 import Noise from "./noise";
 import ButtonTooltip from "./button-tooltip";
@@ -8,12 +15,13 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { IoLogoGithub, IoMail } from "react-icons/io5";
 import { FaLinkedin } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
 export default function Footer() {
   const [copied, setCopied] = React.useState<boolean>(false);
 
   return (
-    <footer className="relative bg-gradient-to-b from-secondary to-muted border-t w-full flex flex-col items-center md:flex-row md:justify-between gap-5 px-5 md:px-10 lg:px-32 py-5 text-sm mt-5">
+    <footer className="relative bg-muted border-t w-full flex flex-col items-center md:flex-row md:justify-between gap-5 px-5 md:px-10 lg:px-32 py-10 text-sm mt-5">
       <div className="flex items-center justify-start gap-2">
         <Copyright size={16} />
         <p>2024 Ander Rodriguez. All rights reserved.</p>
@@ -23,7 +31,7 @@ export default function Footer() {
           <Button
             variant={"outline"}
             size={"icon"}
-            className="rounded-lg opacity-80 hover:opacity-100"
+            className="rounded-lg opacity-70 hover:opacity-100"
             onClick={() => {
               navigator.clipboard.writeText("anderrodsan@gmail");
               setCopied(true);
@@ -32,10 +40,17 @@ export default function Footer() {
               }, 2000);
             }}
           >
-            <Mail
-              size={20}
-              className="group-hover:scale-110 transition duration-300"
-            />
+            {copied ? (
+              <Copy
+                size={20}
+                className="group-hover:scale-110 transition duration-300"
+              />
+            ) : (
+              <IoMdMail
+                size={20}
+                className="group-hover:scale-110 transition duration-300"
+              />
+            )}
           </Button>
         </ButtonTooltip>
         <ButtonTooltip title="Source code">
@@ -43,7 +58,7 @@ export default function Footer() {
             <Button
               variant={"outline"}
               size={"icon"}
-              className="rounded-lg opacity-80 hover:opacity-100"
+              className="rounded-lg opacity-70 hover:opacity-100"
             >
               <IoLogoGithub
                 size={20}
@@ -58,7 +73,7 @@ export default function Footer() {
             <Button
               variant={"outline"}
               size={"icon"}
-              className="rounded-lg opacity-80 hover:opacity-100"
+              className="rounded-lg opacity-70 hover:opacity-100"
             >
               <FaLinkedin
                 size={20}

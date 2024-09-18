@@ -6,10 +6,27 @@ import React from "react";
 import { Tooltip, TooltipContent, TooltipProvider } from "../ui/tooltip";
 import { TooltipTrigger } from "@radix-ui/react-tooltip";
 import ButtonTooltip from "../shared/button-tooltip";
+import SlideAnimation from "../framer-motion/slide-animation";
 
-export default function TechStackCards({ data, title, className }: any) {
+export default function TechStackCards({
+  data,
+  title,
+  delay,
+  direction,
+  className,
+}: {
+  data: Framework[];
+  title: string;
+  delay?: number;
+  direction?: "up" | "down" | "left" | "right";
+  className?: string;
+}) {
   return (
-    <div className={cn("space-y-3 p-3 border rounded-xl", className)}>
+    <SlideAnimation
+      delay={delay}
+      direction={direction}
+      className={cn("space-y-3 p-3 border rounded-xl", className)}
+    >
       <h2 className="font-medium">{title}</h2>
       <div className="flex flex-wrap items-center justify-start gap-3 w-full">
         {/** Tech Stack Icons */}
@@ -39,6 +56,6 @@ export default function TechStackCards({ data, title, className }: any) {
           </ButtonTooltip>
         ))}
       </div>
-    </div>
+    </SlideAnimation>
   );
 }
