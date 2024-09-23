@@ -44,13 +44,13 @@ export default function TechStack() {
           data={devops}
           title="DevOps"
           className="col-span-1"
-          delay={0.2}
+          delay={0.3}
         />
         <TechStackCards
           data={tools}
           title="Tools"
           className="col-span-1"
-          delay={0.2}
+          delay={0.4}
         />
       </div>
     </Animated>

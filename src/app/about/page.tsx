@@ -1,7 +1,6 @@
 import Paintings from "@/components/about/art";
 import Background from "@/components/about/background";
 import Bento from "@/components/about/bento";
-import Info from "@/components/about/info";
 import Intro from "@/components/about/intro";
 import AnimatedFirst from "@/components/framer-motion/animated-first";
 import Contact from "@/components/home/contact";

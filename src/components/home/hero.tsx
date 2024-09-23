@@ -24,7 +24,7 @@ export default function Hero() {
           </p>
           <div className="hidden md:block scale-0 group-hover:scale-100 transition-all absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-[20%] group-hover:-translate-y-[110%] opacity-0 group-hover:opacity-100">
             <Avatar className="h-24 w-24 animate-move">
-              <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
+              <AvatarImage src="/avatar/ander.jpg" />
               <AvatarFallback>AN</AvatarFallback>
             </Avatar>
           </div>

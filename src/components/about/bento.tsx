@@ -44,7 +44,7 @@ export default function Bento() {
             className="rounded-lg border p-3 flex items-center justify-center"
           >
             <Avatar className="h-32 w-32">
-              <AvatarImage src="https://media.licdn.com/dms/image/C4D03AQHvSeGCGtamnA/profile-displayphoto-shrink_800_800/0/1614983373888?e=1726704000&v=beta&t=jU_n-rMa9zSG8QmBVV-cprdecn6ClYxAJRjBGykNq58" />
+              <AvatarImage src="/avatar/ander.jpg" />
               <AvatarFallback>AN</AvatarFallback>
             </Avatar>
           </SlideAnimation>
