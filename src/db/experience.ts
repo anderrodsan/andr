@@ -11,7 +11,7 @@ export const experience: Experience[] = [
     location: [55.65083754949108, 12.541895547761852],
     link: "https://tonsser.com",
     clink: "https://tonsser.com",
-    logo: "/logos/dormhive.png",
+    logo: "/logos/tonsser.png",
     date: "2024-Now",
   },
   {
