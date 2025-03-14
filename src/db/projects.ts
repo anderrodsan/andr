@@ -2,6 +2,46 @@ import { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
+    id: "tonsser-profiles",
+    title: "Tonsser Player Profiles",
+    author: "anderrodsan",
+    date: "2025-03-28",
+    description:
+      "Redesigned and developed Tonsser’s public player profiles website, improving UI, navigation, and shareability while enhancing player exposure.",
+    logo: "/logos/tonsser.png",
+    images: {
+      count: 4,
+      path: "/projects/tonsser-profiles/",
+      type: "landscape",
+    },
+    tags: ["Website", "Ruby on Rails", "TailwindCSS"],
+    link: {
+      text: "Open",
+      href: "https://me.tonsser.com/users/KoIgbRV",
+    },
+    github: "",
+  },
+  {
+    id: "tonsser-web",
+    title: "Tonsser Website",
+    author: "anderrodsan",
+    date: "2025-02-01",
+    description:
+      "Designed and built key pages for the Tonsser website, including the landing page, Tonsser United, TUF4, and Player Stories, enhancing storytelling and brand impact.",
+    logo: "/logos/tonsser.png",
+    images: {
+      count: 3,
+      path: "/projects/tonsser-web/",
+      type: "landscape",
+    },
+    tags: ["Website", "Webflow", "Javascript"],
+    link: {
+      text: "Open",
+      href: "https://tonsser.com",
+    },
+    github: "",
+  },
+  {
     id: "wordwise",
     title: "WordWise",
     author: "anderrodsan",

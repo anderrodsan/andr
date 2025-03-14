@@ -73,6 +73,22 @@ export const frameworks = [
       dark: "supabase.svg",
     },
   },
+  {
+    name: "Webflow",
+    link: "https://webflow.com/",
+    logo: {
+      light: "webflow.svg",
+      dark: "webflow.svg",
+    },
+  },
+  {
+    name: "Ruby on Rails",
+    link: "https://rubyonrails.org/",
+    logo: {
+      light: "rails.svg",
+      dark: "rails.svg",
+    },
+  },
 ];
 
 //Frontend: NextJS, Expo, React, React Native, CSS, HTML, TailwindCSS, Radix UI , Shadcn UI, Aceternity UI
@@ -167,6 +183,14 @@ export const backend = [
     logo: {
       light: "postgresql.svg",
       dark: "postgresql.svg",
+    },
+  },
+  {
+    name: "Ruby on Rails",
+    link: "https://rubyonrails.org/",
+    logo: {
+      light: "rails.svg",
+      dark: "rails.svg",
     },
   },
 ];

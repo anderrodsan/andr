@@ -1,0 +1,149 @@
+---
+title: "Tonsser Player Profiles"
+publishedAt: "2025-03-28"
+summary: "Redesigned and developed Tonsser’s public player profiles website, improving UI, navigation, and shareability while enhancing player exposure."
+---
+
+## Description
+
+I redesigned and developed Tonsser’s **public player profiles website**, transforming it from a **flat, unscannable UI** into an engaging, **visually rich** platform. The goal was to give players a **LinkedIn-style profile**, making it easier to **showcase their careers, share stats, and connect with others**.
+
+I improved **UI hierarchy**, added **better navigation**, and integrated player videos for greater exposure. Working with **Ruby on Rails**, I rebuilt the website with **Tailwind CSS and ERB templates**, improving maintainability and usability.
+
+This project expanded Tonsser’s reach, giving players a **shareable online presence** while improving **engagement and visibility**.
+
+<ScreenShots id="tonsser-profiles" />
+
+---
+
+## Background
+
+Until now, the only way for users to see player profiles was through the Tonsser app, which **limited the exposure of players**. To solve this, the team decided to create a **brand-new public player profiles website** where anyone could access and share profiles.
+
+### Why was this important?
+
+- **Increased Exposure:** Players could have a **public profile**, similar to LinkedIn, showcasing their career.
+- **More Engagement:** This encouraged players to use the app more actively and refine their stats.
+- **Easier Sharing:** Users could share their profiles on social media, reaching audiences beyond Tonsser users.
+
+Additionally, the website needed to support **player-uploaded videos**, allowing users to showcase their performance through media that could be shared publicly.
+
+---
+
+## My Role
+
+I was responsible for **redesigning and developing** these two websites. The existing versions had several issues:
+
+## Problems with the Existing Design
+
+### 1. Flat and Unscannable UI
+
+- Data was displayed in **tables** with **labels** highlighted instead of values.
+- This made it **difficult to scan** and visually unappealing.
+- Videos were displayed with a **standard player UI**, lacking context or player information.
+
+<Image
+  alt={`The original player profiles.`}
+  src={`/projects/tonsser-profiles/profile-before.png`}
+  width={1000}
+  height={100}
+/>
+
+### 2. Poor Linkability
+
+- The **player profiles and media pages were disconnected**—users couldn’t navigate between them.
+- Once inside a profile or video page, users were **stuck** without an intuitive way to explore related content.
+
+---
+
+## Solutions & Redesign Approach
+
+### 1. **Improved UI & Visual Hierarchy**
+
+- **Divided data into sections** instead of plain tables, following a **bento grid** layout.
+- **Highlighted values instead of labels** to improve readability.
+- Added **flags, icons, images, gradients, and rounded corners** for a more engaging experience.
+
+### 2. **Enhanced Navigation & Linkability**
+
+- Connected **player profiles and media pages**, allowing users to **seamlessly switch between them**.
+- Introduced **clear CTAs** for sharing profiles and videos externally.
+
+---
+
+## Design Process
+
+I was given **full creative freedom** with the only instruction: **"Improve the website."**
+
+### 1. **Research & Inspiration**
+
+I analyzed existing football apps like **FotMob, Sofascore, and Transfermarkt**, which use a **bento grid** layout for player stats.
+
+### 2. **Consistency with Tonsser's App**
+
+To maintain brand consistency, I:
+
+- Extracted **theme colors, typography, and components** from the Tonsser app.
+- Ensured the website followed the app’s design language but **with improvements**.
+
+### 3. **Rapid Prototyping in Figma**
+
+- Created multiple designs and experimented with different layouts.
+- Shared prototypes with the **product and development teams** for feedback.
+- Made **minor adjustments** based on input, finalizing the design **quickly**.
+
+<Image
+  alt={`The figma designs.`}
+  src={`/projects/tonsser-profiles/figma-design.png`}
+  width={1000}
+  height={100}
+/>
+
+---
+
+## Development
+
+### **Tech Stack & Setup**
+
+- The website was already built with **Ruby on Rails** using **HAML and CSS files**.
+- I proposed using **Tailwind CSS** and **ERB templates** for better maintainability.
+- Set up a **DevContainer** to streamline the development process.
+
+<TechStack id="tonsser-profiles" />
+
+### **Building the New Website**
+
+- Created **new layouts** and **restructured controllers** to fetch the right data.
+- Developed **reusable components** for efficiency.
+- Completed the project in **2-3 weeks**.
+- Wrote **tests** to ensure functionality before deploying live.
+
+---
+
+## Challenges
+
+1. **Learning Ruby on Rails Quickly**: This was my first time working with **Ruby on Rails**, and the setup was difficult on my Windows laptop.
+
+   - Solved it by setting up a **DevContainer** for a smoother workflow.
+
+2. **Adjusting to Rails' Data Handling**: Coming from **React/Next.js**, understanding **Rails controllers** took time but became easier with practice.
+
+3. **Testing**: Writing tests for Rails was challenging initially, but I quickly adapted.
+
+---
+
+## What I Learned
+
+✅ **Fast Adaptation to New Tech Stacks**: Learned **Ruby on Rails** and built a production-ready website in **less than a month**.
+
+✅ **Proactive Problem-Solving**: Designed the website **while waiting on other tasks**, working independently with full ownership.
+
+✅ **Improved UX & Visual Design Skills**: Enhanced my **UI/UX thinking** by applying best practices from leading sports platforms.
+
+✅ **Effective Collaboration**: Worked closely with **stakeholders, product teams, and developers** to align on the best solutions.
+
+---
+
+## Final Thoughts
+
+This project was an exciting challenge where I combined **UI/UX improvements, frontend development, and backend integration** to build a **public-facing platform** that expanded Tonsser’s reach. The final result provided **players with better exposure, improved usability, and seamless sharing options**—all while maintaining a strong visual identity aligned with the Tonsser brand.
