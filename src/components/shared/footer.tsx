@@ -20,11 +20,14 @@ import { IoMdMail } from "react-icons/io";
 export default function Footer() {
   const [copied, setCopied] = React.useState<boolean>(false);
 
+  //get the year
+  const year = new Date().getFullYear();
+
   return (
     <footer className="relative bg-muted border-t w-full flex flex-col items-center md:flex-row md:justify-between gap-5 px-5 md:px-10 lg:px-32 py-10 text-sm mt-5">
       <div className="flex items-center justify-start gap-2">
         <Copyright size={16} />
-        <p>2024 Ander Rodriguez. All rights reserved.</p>
+        <p>{year} Ander Rodriguez. All rights reserved.</p>
       </div>
       <div className="flex flex-row items-center justify-end gap-3">
         <ButtonTooltip title={copied ? "Copied!" : "Copy Email"}>
