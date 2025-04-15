@@ -1,44 +1,140 @@
 ---
 title: "WordWise"
-publishedAt: "2024-06-20"
-summary: "An app to translate words and keep track of the new vobaculary, with an integrated
-flashcards functionality for an efficient practice."
+publishedAt: "2025-04-11"
+summary: "An offline-first, multilingual vocabulary app built with Expo and Google MLKit. Designed to make learning new words fun, efficient, and scalable."
 ---
 
-<h3>Description</h3>
+## Overview
 
-An app to translate words and keep track of the new vobaculary, with an integrated
-flashcards functionality for an efficient practice.
+**WordWise** is a language-learning app designed to help users translate and save new vocabulary, practice them with flashcards, and keep everything organized by tags and languages — all while working 100% offline.
+
+With a clean UI, fast performance, and playful features like emojis, the app makes vocabulary building more engaging and efficient.
 
 <ScreenShots id="wordwise" />
 
-<h2>Problem</h2>
-I've been on a Danish-learning journey for over a year now. My approach? It's a mix
-of reading, consuming content, conversing with natives, and associating new words
-with those activities. But here's the issue: whenever I encounter a new word, I resort
-to Google Translate, but then those words get lost in the air. And as a passionate
-data enthusiast, that just didn't sit well with me.
+## Problem
 
-<h2>Solution</h2>
-That's when inspiration struck: why not create an app to ease the process? I can
-input any word, tag it, and get an instant translation. The app then automatically
-saves these words with their translations, dates, and categories. Plus, I've thrown
-in a useful flashcard feature to level up my vocabulary game.
+While learning Danish, I’d often come across new words through books, videos, or conversations. I used Google Translate, but the words I looked up would just vanish into thin air. I needed a way to **capture and practice** these new words, track my learning, and build a personalized dictionary over time.
 
-<h3>Key Features</h3>
+## Solution
 
-- **Multi Lingual Support:** Select any language and start learning vocabulary.
-- **Translation:** Translate any word and save it to the dictionary.
-- **Dictionary:** See the list of words you have learned so Features.
-- **Pronounciation and Speech:** Listen how words sound in their respective languages.
-- **Flashcards:** Practice the words and categorize them based on their difficulty.
-- **Backup:** Save your progress in a JSON file that you can import anytime, or reset your data to start learning from zero.
+WordWise allows users to:
 
-<h3>Tech Stack</h3>
+- Translate words instantly using **Google MLKit**
+- Save them locally with tags, emojis, and language-specific dictionaries
+- Practice words using a smart **flashcard system**
+- Organize their vocabulary and track learning over time
 
-- **Expo**
-- **React Native**
-- **Tailwind CSS (Nativewind)**
-- **Javascript**
+Everything works offline, making it perfect for travelers or language learners on the go.
+
+## Key Features
+
+- **Instant translations**: Supports 50+ languages (offline)
+- **Customize words**: Add emojis, tags, personal notes and group words however you like
+- **Organized word list**: Easily view, filter, and sort your saved words
+- **Flashcard practice**: Strengthen memory with an effective review system
+- **Progress tracking**: See how many words you’ve learned over time and other relevant statistics
+
+## Tech Stack
+
+- **Expo (React Native)**
+- **Tailwind CSS (via NativeWind)**
+- **TypeScript**
+- **SQLite**
+- **Drizzle ORM**
+- **Zustand (state management)**
+- **Google MLKit (offline translation)**
+- **Shopify FlashList (for large lists)**
 
 <TechStack id="wordwise" />
+
+---
+
+## Behind the Build
+
+### From API to Offline Translation
+
+The first version used the **Google Translate API**, but I wanted the app to be **free and local-first**. I discovered **Google MLKit**, which supports offline translation for 50+ languages — perfect for both sustainability and performance.
+
+### From JSON to SQLite
+
+Initially, I stored word lists in a JSON file. While simple, it wasn’t scalable. As the app grew, I moved to **SQLite** for structured local storage — improving speed, enabling table-based organization, and making future features easier to add.
+
+### Enter Drizzle ORM
+
+Maintaining the database manually and syncing state was painful. **Drizzle ORM** came to the rescue with:
+
+- Type-safe queries
+- Easy migrations
+- **Live queries** to auto-refresh the UI when data changes
+- Huge performance boost — word list render time dropped from 10s to instantly
+
+### FlashList to the Rescue
+
+React Native’s FlatList struggled with performance when scrolling through long word lists. I swapped it with **Shopify’s FlashList** — and now it scrolls smoothly even with hundreds of items.
+
+---
+
+## Design Iteration
+
+### UX Evolution
+
+The home screen went through several iterations to improve the user experience:
+
+- Easier tag creation
+- Smoother translation flow
+- Clear save feedback and UI interactions
+
+<Image
+  alt={`Evolution of the home screen ux design`}
+  src={`/projects/wordwise/home-evolution.png`}
+  width={1000}
+  height={100}
+/>
+
+### UI Makeover
+
+The original app looked very plain — minimal colors, basic typography. To improve engagement, I:
+
+- Introduced **vibrant color palettes** and gradients
+- Added **3D-style buttons**
+- Switched to the **Poppins** font for a modern look
+- Integrated **emojis** with every word
+
+Emojis weren’t just fun — they help users **visually associate** meaning.
+
+<Image
+  alt={`Evolution of the wordlist screen ux design`}
+  src={`/projects/wordwise/saved-evolution.png`}
+  width={1000}
+  height={100}
+/>
+
+---
+
+## Current Status
+
+I’m currently doing a **closed test** with ~20 users. The plan is to:
+
+- Gather feedback
+- Fix bugs and polish
+- Launch publicly on **May 1st, 2025**
+
+---
+
+## What’s Next
+
+### Free Forever
+
+The core features will always be free. To support the app long term:
+
+- I’ll introduce **ads** for non-premium users
+- Offer a **Pro plan** with extra features
+
+### Cloud Sync
+
+Planned for future versions:
+
+- Cloud database
+- User authentication and profiles
+- Auto backup and sync across devices

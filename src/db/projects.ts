@@ -2,6 +2,27 @@ import { Project } from "@/lib/types";
 
 export const projects: Project[] = [
   {
+    id: "wordwise",
+    title: "WordWise",
+    author: "anderrodsan",
+    date: "2025-04-01",
+    description:
+      "Translate, save, and review words with flashcards. Build your vocabulary effortlessly and track your learning progress.",
+    logo: "/logos/wordwise.png",
+    images: {
+      count: 7,
+      path: "/projects/wordwise/screen",
+      type: "screen",
+    },
+
+    tags: ["Mobile App", "Expo", "React Native", "JavaScript", "TailwindCSS"],
+    link: {
+      text: "Open",
+      href: "https://getwordwise.app",
+    },
+    github: "",
+  },
+  {
     id: "tonsser-profiles",
     title: "Tonsser Player Profiles",
     author: "anderrodsan",
@@ -42,16 +63,16 @@ export const projects: Project[] = [
     github: "",
   },
   {
-    id: "wordwise",
-    title: "WordWise",
+    id: "wordwise-old",
+    title: "WordWise (Old version)",
     author: "anderrodsan",
     date: "2024-07-05",
     description:
       "An app to translate words and keep track of the new vobaculary, with an integrated flashcards functionality for an efficient practice.",
-    logo: "/logos/wordwise.png",
+    logo: "/logos/wordwise-old.png",
     images: {
       count: 6,
-      path: "/projects/wordwise/screen",
+      path: "/projects/wordwise-old/screen",
       type: "screen",
     },
     tags: ["Mobile App", "Expo", "React Native", "JavaScript", "TailwindCSS"],

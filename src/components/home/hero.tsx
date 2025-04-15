@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
         </Link>
       </div>
-      <h1 className="text-4xl sm:text-6xl font-semibold max-w-[65ch] text-center">
+      <h1 className="text-4xl sm:text-6xl font-semibold max-w-[65ch] text-center text-balance">
         Building{" "}
         <span className="relative group ">
           <Link href={"/projects?filter=Website"} className="cursor-pointer">

@@ -131,7 +131,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
           <CustomMDX source={post.content} />
         </article>
         <div className="py-10 border-t space-y-5 max-w-[650px]">
-          <h2 className="text-3xl font-bold">Other Posts</h2>
+          <h2 className="text-3xl font-bold">Other projects</h2>
           <ProjectList projects={otherPosts} className="" />
         </div>
       </AnimatedFirst>

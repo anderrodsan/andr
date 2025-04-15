@@ -12,6 +12,7 @@ import { Bookmark, QrCode, Share2 } from "lucide-react";
 import { IoLogoGithub } from "react-icons/io5";
 import ButtonTooltip from "./button-tooltip";
 import { FaLinkedin } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function NavBar() {
   const path = usePathname();
@@ -48,17 +49,27 @@ export default function NavBar() {
         </p>
       </Link>
       <ul className="space-x-5 hidden md:flex justify-center items-center text-sm">
-        {links.map((link, index) => (
-          <Link
-            key={index}
-            href={link.path}
-            className={`px-3 py-2 hover:underline underline-offset-4 font-semibold whitespace-nowrap transition-all ${
-              path === link.path && "underline font-bold"
-            }`}
-          >
-            {link.name}
-          </Link>
-        ))}
+        {links.map((link, index) => {
+          const activePath = path === link.path ? true : false;
+
+          return (
+            <Link
+              key={index}
+              href={link.path}
+              className={`relative px-5 py-2 hover:bg-slate-200 dark:hover:bg-slate-900 hover:bg-opacity-50 rounded-full underline-offset-4 font-semibold whitespace-nowrap transition-all`}
+            >
+              {activePath && (
+                <motion.div
+                  layoutId="active-pill"
+                  transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+                  style={{ borderRadius: "9999px" }}
+                  className="absolute inset-0 rounded-full bg-secondary dark:bg-muted"
+                />
+              )}
+              <p className="relative">{link.name}</p>
+            </Link>
+          );
+        })}
       </ul>
       <div className="hidden md:flex justify-end gap-5 items-center pl-5">
         <ButtonTooltip title="Theme">

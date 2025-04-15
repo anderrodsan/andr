@@ -69,7 +69,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
       </div>
       {/** Display tags in badges */}
 
-      <div className="flex gap-2 pr-5 flex-wrap pt-2">
+      <ul className="flex gap-2 pr-5 flex-wrap pt-2">
         {project?.tags?.map((tag: any, index: number) => (
           <p
             key={index}
@@ -78,9 +78,9 @@ export default function ProjectDetails({ project }: { project: Project }) {
             {tag}
           </p>
         ))}
-      </div>
+      </ul>
       {/** App Store images */}
-      <div className="flex gap-2 pr-5 pt-4 -ml-5 md:ml-0 sm:mr-5 md:mr-10 lg:mr-28 overflow-x-auto scrollbar-hide md:scrollbar-show">
+      <ul className="flex gap-2 pr-5 pt-4 -ml-5 md:ml-0 sm:mr-5 md:mr-10 lg:mr-28 overflow-x-auto scrollbar-hide md:scrollbar-show">
         <div className="ml-3 md:-ml-2" />
         {images.map((image: any, index: number) => {
           return (
@@ -104,7 +104,7 @@ export default function ProjectDetails({ project }: { project: Project }) {
             />
           );
         })}
-      </div>
+      </ul>
       <ImageDialog
         idx={idx}
         setIdx={setIdx}
