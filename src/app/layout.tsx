@@ -55,15 +55,17 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <Head>
+      <head>
         <link href="https://github.com/anderrodsan" rel="me" />
-      </Head>
+      </head>
       <html lang="en">
-        <Script
-          defer
-          src="https://cloud.umami.is/script.js"
-          data-website-id="599262e3-cda4-40fc-bec2-5d7febf4e524"
-        />
+        {process.env.NODE_ENV === "production" && (
+          <Script
+            defer
+            src="https://cloud.umami.is/script.js"
+            data-website-id="599262e3-cda4-40fc-bec2-5d7febf4e524"
+          />
+        )}
         <body className={`${inter.className} antialiased`}>
           <ThemeProvider
             attribute="class"

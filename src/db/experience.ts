@@ -4,6 +4,18 @@ import { Experience } from "@/lib/types";
 export const experience: Experience[] = [
   {
     type: true,
+    title: "Full-Stack Developer",
+    text: "",
+    company: "Franklin",
+    city: "Copenhagen, Denmark",
+    location: [55.6807439053392, 12.578586535942778],
+    link: "https://hifranklin.com",
+    clink: "https://hifranklin.com",
+    logo: "/logos/franklin.png",
+    date: "2025-Now",
+  },
+  {
+    type: true,
     title: "Frontend Developer",
     text: "",
     company: "Tonsser",
@@ -12,7 +24,7 @@ export const experience: Experience[] = [
     link: "https://tonsser.com",
     clink: "https://tonsser.com",
     logo: "/logos/tonsser.png",
-    date: "2024-Now",
+    date: "Dec 2024 - Mar 2025",
   },
   {
     type: true,

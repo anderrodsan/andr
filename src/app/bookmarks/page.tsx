@@ -54,12 +54,12 @@ export default function ProjectList({
   });
 
   return (
-    <Section>
+    <Section className="w-full pr-0 md:pr-0 lg:pr-0 mx-auto">
       <SideContent>
         <BookmarkFilters bookmarks={bookmarks} />
       </SideContent>
 
-      <MainContent className="">
+      <MainContent className="lg:pr-32">
         <AnimatedFirst className="text-3xl font-semibold pb-3">
           Bookmarks
         </AnimatedFirst>

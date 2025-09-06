@@ -67,12 +67,12 @@ export default function ProjectList({
   });
 
   return (
-    <Section className="w-full pr-0 md:pr-0 lg:pr-0">
+    <Section className="w-full pr-0 md:pr-0 lg:pr-0 mx-auto max-w-[1500px]">
       <SideContent className="">
         <ProjectFilters projects={filteredProjects} />
       </SideContent>
 
-      <MainContent className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh] max-w-[1000px]">
+      <MainContent className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh] max-w-4xl">
         <AnimatedFirst className="text-3xl font-semibold pb-3">
           Projects
         </AnimatedFirst>
