@@ -73,15 +73,15 @@ export default function ProjectList({
       </SideContent>
 
       <MainContent className="pt-6 flex-1 flex flex-col w-full pb-10 min-h-[100dvh] max-w-4xl">
-        <AnimatedFirst className="text-3xl font-semibold pb-3">
+        <AnimatedFirst className="text-3xl font-semibold pb-10">
           Projects
         </AnimatedFirst>
 
         <div className="pr-5 w-full block md:hidden">
           <ProjectSearch projects={filteredProjects} />
         </div>
-        <Separator className="mb-5" />
-        <div className="space-y-5 w-full">
+
+        <div className="space-y-10 w-full">
           <Suspense fallback={<ProjectCardSkeleton />}>
             {filteredProjects?.length === 0 && (
               <div className="flex flex-col items-start justify-center w-full gap-1">

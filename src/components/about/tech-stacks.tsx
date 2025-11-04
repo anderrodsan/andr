@@ -13,7 +13,7 @@ import TechStackCards from "./tech-stack-cards";
 
 export default function TechStack() {
   return (
-    <Animated className="relative flex flex-col items-center md:items-start py-10 border-b z">
+    <Animated className="relative flex flex-col items-center md:items-start">
       <div className="absolute -top-20 left-0" id="tech-stack" />
       <h1 className="text-2xl md:text-3xl font-semibold">Tech Stack</h1>
       <p className="opacity-70 text-sm pt-1 pb-5">

@@ -99,15 +99,11 @@ export default function Blog({ params }) {
           slug={post.slug}
           className="pb-5 md:hidden"
         />
-        <PostHeader
-          post={post}
-          author={author}
-          className="py-2 pb-5 border-b"
-        />
+        <PostHeader post={post} author={author} className="py-2 pb-5" />
         <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3 max-w-[650px]">
           <CustomMDX source={post.content} />
         </article>
-        <div className="py-10 border-t space-y-5 max-w-[650px]">
+        <div className="py-10 space-y-5 max-w-[650px]">
           <h2 className="text-3xl font-bold">Other Posts</h2>
           <BlogList posts={otherPosts} className="" />
         </div>

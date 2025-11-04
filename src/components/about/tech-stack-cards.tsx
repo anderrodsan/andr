@@ -2,15 +2,12 @@
 
 import { Framework } from "@/lib/types";
 import { cn } from "@/lib/utils";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { Tooltip, TooltipContent, TooltipProvider } from "../ui/tooltip";
-import { TooltipTrigger } from "@radix-ui/react-tooltip";
-import ButtonTooltip from "../shared/button-tooltip";
+import { useState } from "react";
 import SlideAnimation from "../framer-motion/slide-animation";
-import { MotionDiv } from "../framer-motion/motion-div";
-import { AnimatePresence, motion } from "framer-motion";
+import ButtonTooltip from "../shared/button-tooltip";
 
 export default function TechStackCards({
   data,

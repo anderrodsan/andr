@@ -1,14 +1,11 @@
-import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import { User } from "@/lib/types";
-import Image from "next/image";
-import { Bookmark, MapPin, QrCode } from "lucide-react";
+import { MapPin, QrCode } from "lucide-react";
+import Link from "next/link";
+import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import BookMeeting from "../shared/book-meeting";
-import { MapTooltip } from "./map-tooltip";
 import ShareCard from "../shared/share-card";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Button } from "../ui/button";
 
 export default function ProfileInfo({ user }: User | any) {
   return (

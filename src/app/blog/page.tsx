@@ -21,10 +21,9 @@ export default function page() {
   return (
     <div className="relative w-full flex flex-col items-center pb-10">
       <div className="flex-1 w-full flex flex-col pt-6 min-h-[100dvh] max-w-[600px] lg:max-w-[800px] px-5">
-        <AnimatedFirst className="text-3xl font-semibold pb-3 border-b">
+        <AnimatedFirst className="text-3xl font-semibold pb-10">
           Blog
         </AnimatedFirst>
-        <Separator className="mb-5" />
         <BlogList posts={sortedPosts} />
       </div>
     </div>

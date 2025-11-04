@@ -89,10 +89,8 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
       </div>
 
       {/** Devices */}
-      <p className="font-semibold pt-5 md:pt-0 pb-2 whitespace-nowrap">
-        Platform
-      </p>
-      <div className="flex flex-col gap-2 pb-3 border-b">
+      <p className="font-semibold pt-5 pb-2 whitespace-nowrap">Platform</p>
+      <div className="flex flex-col gap-2 pb-3">
         {devices.map((device, index) => (
           <div
             key={index}
@@ -118,7 +116,7 @@ export default function ProjectFilters({ projects }: { projects: Projects }) {
       </div>
 
       {/* Frameworks */}
-      <div className="pt-3">
+      <div className="pt-5">
         <p className="font-semibold pb-2 whitespace-nowrap">Frameworks</p>
         <div className="flex flex-col gap-2">
           {frameworks.map((framework, index) => (

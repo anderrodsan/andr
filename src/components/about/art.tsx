@@ -30,7 +30,7 @@ const Paintings: React.FC = () => {
   const [idx, setIdx] = React.useState<number | null>(null);
 
   return (
-    <Animated className="flex flex-col items-center md:items-start py-10 border-b">
+    <Animated className="flex flex-col items-center md:items-start">
       <h1 className="text-2xl md:text-3xl font-semibold">Paintings</h1>
       <p className="opacity-70 text-sm pt-1 pb-5 text-center md:text-start">
         Painting is one of my favorite hobbies. Here I&apos;ll showcase of my

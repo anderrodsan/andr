@@ -12,7 +12,7 @@ export default function RecentBlogs() {
   const sortedPosts = sortPosts(posts).slice(0, 4);
 
   return (
-    <Animated className="flex flex-col items-center gap-5 md:items-start py-10 border-b w-full">
+    <Animated className="flex flex-col items-center gap-5 md:items-start w-full">
       <SectionHeader
         title="Recent Blogs"
         text="A list of articles I've written."

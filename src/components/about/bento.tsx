@@ -1,14 +1,10 @@
-import React from "react";
-import Animated from "../framer-motion/animated";
-import { projects } from "@/db/projects";
 import { Cake, LanguagesIcon, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { MotionDiv } from "../framer-motion/motion-div";
-import ButtonTooltip from "../shared/button-tooltip";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
 import SlideAnimation from "../framer-motion/slide-animation";
+import ButtonTooltip from "../shared/button-tooltip";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 export default function Bento() {
   const attributes = [
@@ -35,7 +31,7 @@ export default function Bento() {
   }
 
   return (
-    <section className="flex flex-col items-center md:items-start pb-10 border-b">
+    <section className="flex flex-col items-center md:items-start">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 w-full">
         <div className="flex flex-col md:flex-row gap-5 col-span-3">
           <SlideAnimation

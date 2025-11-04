@@ -38,7 +38,7 @@ export default function ProjectSideInfo({ project, post, author }: any) {
         </Link>
       </div>
       <div className="w-full hidden md:block">
-        <h1 className="font-semibold text-sm border-b pb-2 mb-1">Author</h1>
+        <h1 className="font-bold text-pb-2 mb-1">Author</h1>
         <div className="flex items-center gap-2 py-2">
           <Avatar className="h-6 w-6">
             <AvatarImage src={author?.avatar} />

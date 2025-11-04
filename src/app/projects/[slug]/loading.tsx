@@ -11,11 +11,11 @@ import React from "react";
 
 export default function Loading() {
   return (
-    <Section>
+    <Section className="w-full pr-0 md:pr-0 lg:pr-0 mx-auto max-w-[1500px]">
       <SideContent>
         <SideSkeleton icon={true} />
       </SideContent>
-      <MainContent className="max-w-[650px]">
+      <MainContent className="flex-1 w-full flex flex-col pt-6 min-h-[100dvh] md:pl-5 max-w-[650px]">
         <BreadcrumbSkeleton className="md:hidden pb-2" />
         <PostHeaderSkeleton className={"pt-2"} />
         {/** Description */}

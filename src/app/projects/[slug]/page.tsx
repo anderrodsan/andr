@@ -1,24 +1,20 @@
 //from Lee Rob: https://codesandbox.io/p/devbox/leerob-leerob-io-jgf99?file=%2Fapp%2Fblog%2F%5Bslug%5D%2Fpage.tsx%3A124%2C16
 
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { getBlogPosts } from "@/db/blog";
+import AnimatedFirst from "@/components/framer-motion/animated-first";
 import { CustomMDX } from "@/components/mdx/mdx";
 import ProjectSideInfo from "@/components/projects/project-info";
-import { projects } from "@/db/projects";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { users } from "@/db/users";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { IoLogoGithub, IoLogoLinkedin } from "react-icons/io5";
-import AnimatedFirst from "@/components/framer-motion/animated-first";
+import ProjectList from "@/components/projects/project-list";
+import SlugBreadcrumb from "@/components/shared/breadcrumb";
 import PostHeader from "@/components/shared/post-header";
 import { Section, SideContent } from "@/components/shared/side-layout";
-import { Suspense } from "react";
-import PostHeaderSkeleton from "@/components/skeleton/post-header-skeleton";
-import SlugBreadcrumb from "@/components/shared/breadcrumb";
-import ProjectList from "@/components/projects/project-list";
+import { Button } from "@/components/ui/button";
+import { getBlogPosts } from "@/db/blog";
+import { projects } from "@/db/projects";
+import { users } from "@/db/users";
+import { ExternalLink } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateMetadata({
   params,
@@ -84,7 +80,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <Section>
+    <Section className="w-full pr-0 md:pr-0 lg:pr-0 mx-auto max-w-[1500px]">
       <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -114,7 +110,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
           slug={post.slug}
           className="md:hidden"
         />
-        <div className="flex flex-col md:flex-row justify-between gap-3 py-2 border-b pb-5 max-w-[650px]">
+        <div className="flex flex-col md:flex-row justify-between gap-3 py-2 pb-5 max-w-[650px]">
           <PostHeader post={post} author={author} />
           <Link href={project?.link.href ?? ""} target="_blank">
             <Button
@@ -130,7 +126,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
         <article className="prose prose-quoteless prose-neutral dark:prose-invert pb-20 pt-3 max-w-[650px]">
           <CustomMDX source={post.content} />
         </article>
-        <div className="py-10 border-t space-y-5 max-w-[650px]">
+        <div className="py-10 space-y-5 max-w-[650px]">
           <h2 className="text-3xl font-bold">Other projects</h2>
           <ProjectList projects={otherPosts} className="" />
         </div>

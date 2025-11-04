@@ -11,7 +11,7 @@ import SlideAnimation from "../framer-motion/slide-animation";
 
 export default function Background() {
   return (
-    <section className="flex flex-col items-center md:items-start py-10 border-b">
+    <section className="flex flex-col items-center md:items-start">
       <Animated className="text-2xl md:text-3xl font-semibold">
         Background
       </Animated>

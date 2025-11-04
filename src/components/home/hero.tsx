@@ -15,7 +15,7 @@ import { MotionDiv } from "../framer-motion/motion-div";
 
 export default function Hero() {
   return (
-    <Animated className="relative flex flex-col items-center gap-7 py-20 md:py-32 w-full bbg-gradient-to-b from-blue-500/10 via-transparent to-transparent rounded-xl mt-5 md:mt-0">
+    <Animated className="relative flex flex-col items-center gap-7 py-20 md:py-32 w-full /bg-gradient-to-b from-blue-500/10 via-transparent to-transparent rounded-xl mt-5 md:mt-0">
       <div className="flex items-center justify-center gap-1 z-10">
         <p className="text-2xl sm:text-3xl font-medium">👋 Hey, I'm</p>
         <Link href={"/about"} className="group cursor-pointer relative">
@@ -132,7 +132,7 @@ const FloatingIcons = ({ className }: { className?: string }) => {
         light: "nextjs",
         dark: "nextjs-dark",
       },
-      position: "top-8 md:top-32 right-3 md:-right-20",
+      position: "top-8 md:top-32 right-3 md:-right-0",
       speed: -200,
     },
     {

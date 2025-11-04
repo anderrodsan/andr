@@ -55,7 +55,7 @@ const questions = [
 
 export default function FAQ() {
   return (
-    <Animated className="flex flex-col gap-5 items-center md:items-start py-10 border-b">
+    <Animated className="flex flex-col gap-5 items-center md:items-start">
       <SectionHeader
         title="FAQ"
         text="Here are some common questions and answers from my services"

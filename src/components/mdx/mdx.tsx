@@ -1,15 +1,14 @@
-import Link from "next/link";
-import Image from "next/image";
+import { ChevronRight, ExternalLink, File, Folder } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { highlight } from "sugar-high";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { FaGithub } from "react-icons/fa";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import Code from "./code";
+import FileHierarchyViewer from "./file-structure";
 import ScreenShots from "./screenshots";
 import TechStack from "./techstack";
-import FileHierarchyViewer from "./file-structure";
-import Code from "./code";
-import { ChevronRight, ExternalLink, File, Folder } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { FaGithub } from "react-icons/fa";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -87,17 +86,18 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
-  const Heading = ({ children }) => {
+function createHeading(level: number) {
+  const Heading = ({ children }: { children: React.ReactNode }) => {
     let slug = slugify(children);
+    let paddingTop = level <= 2 ? "pt-5 leading-loose" : "leading-tight";
     return React.createElement(
       `h${level}`,
-      { id: slug },
+      { id: slug, className: `${paddingTop}` },
       [
         React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: "anchor",
+          className: `anchor`,
         }),
       ],
       children

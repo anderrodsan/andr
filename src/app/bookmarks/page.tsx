@@ -1,18 +1,16 @@
-import React from "react";
-import { filterBySearchParams } from "@/lib/utils";
-import { bookmarks, options } from "@/db/bookmarks";
-import { Separator } from "@/components/ui/separator";
-import { Bookmark, Project } from "@/lib/types";
-import AnimatedFirst from "@/components/framer-motion/animated-first";
 import BookmarkCard from "@/components/bookmarks/bookmark-card";
 import BookmarkFilters from "@/components/bookmarks/bookmark-filters";
 import BookmarkSearch from "@/components/bookmarks/bookmark-search";
 import Animated from "@/components/framer-motion/animated";
+import AnimatedFirst from "@/components/framer-motion/animated-first";
 import {
   MainContent,
   Section,
   SideContent,
 } from "@/components/shared/side-layout";
+import { bookmarks, options } from "@/db/bookmarks";
+import { Bookmark } from "@/lib/types";
+import { filterBySearchParams } from "@/lib/utils";
 
 export default function ProjectList({
   searchParams,
@@ -54,19 +52,18 @@ export default function ProjectList({
   });
 
   return (
-    <Section className="w-full pr-0 md:pr-0 lg:pr-0 mx-auto">
+    <Section className="w-full pr-0 md:pr-0 lg:pr-0 mx-auto max-w-[1500px]">
       <SideContent>
         <BookmarkFilters bookmarks={bookmarks} />
       </SideContent>
 
-      <MainContent className="lg:pr-32">
-        <AnimatedFirst className="text-3xl font-semibold pb-3">
+      <MainContent className="flex-1 w-full flex flex-col pt-6 min-h-[100dvh] md:pl-5 max-w-[650px]">
+        <AnimatedFirst className="text-3xl font-semibold pb-10">
           Bookmarks
         </AnimatedFirst>
         <div className="w-full block md:hidden">
           <BookmarkSearch bookmarks={filteredData} />
         </div>
-        <Separator className="mb-3" />
         <Animated className="flex flex-col gap-1">
           {filteredData?.length === 0 && (
             <div className="flex flex-col items-start justify-center w-full gap-1">

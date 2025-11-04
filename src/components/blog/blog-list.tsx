@@ -1,9 +1,7 @@
-import React from "react";
-import Animated from "../framer-motion/animated";
-import Link from "next/link";
 import { cn, formatDate } from "@/lib/utils";
-import Image from "next/image";
 import { Pin } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import SlideAnimation from "../framer-motion/slide-animation";
 
 type Props = {
@@ -14,7 +12,7 @@ export default function BlogList({ posts, className }: Props) {
   return (
     <div className="flex flex-col items-center">
       {posts ? (
-        <div className={cn("flex flex-col gap-5 w-full", className)}>
+        <div className={cn("flex flex-col gap-10 w-full", className)}>
           {posts.map((post: any, index: number) => (
             <SlideAnimation key={index} delay={index * 0.2} className="w-full">
               <Link

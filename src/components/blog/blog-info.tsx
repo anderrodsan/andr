@@ -20,7 +20,7 @@ export default function BlogSideInfo({ post, author }: any) {
         <p className="text-sm pb-3 opacity-80">{post.metadata.summary}</p>
       </div>
       <div className="pb-5 w-full hidden md:block">
-        <h1 className="font-semibold text-sm border-b pb-2 mb-1">Author</h1>
+        <h1 className="font-bold text-sm pb-2 mb-1">Author</h1>
         <div className="flex items-center gap-2 py-2">
           <Avatar className="h-6 w-6">
             <AvatarImage src={author?.avatar} />
